@@ -1,0 +1,13 @@
+*cache*
+notes/*files*
+*.log
+.Rproj.user
+stat436_s23.Rproj
+website/stat436_s23/.Rhistory
+website/*/*.png
+website/*/*files*
+website/*/*files*
+website/stat436_s23/_site/posts/*/*files*
+website/stat436_s23/_posts/*/*files*
+activities/exercises_files/
+*DS_store

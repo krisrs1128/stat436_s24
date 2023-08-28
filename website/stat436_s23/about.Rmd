@@ -1,0 +1,11 @@
+---
+title: "Statistical Data Visualization"
+description: |
+  This site includes notes from the Spring 2023 iteration of STAT 436 at UW Madison.
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+This is a website for STAT 436.

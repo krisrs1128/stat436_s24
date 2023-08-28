@@ -1,0 +1,39 @@
+dataset,link,source,category,visualization,package,defaults,encodings
+Heart Health,https://www.kaggle.com/datasets/data855/heart-disease,kaggle,health_physical,histogram,ggplot2,yes,2
+NHL Games,https://www.kaggle.com/martinellis/nhl-game-data,kaggle,sports,barplot,ggplot2,yes,2
+Art Narratives,https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-01-17/readme.md,TidyTuesday,arts_culture,barplot,ggplot2,yes,2
+Yoga and Screentime,https://www.kaggle.com/datasets/thedevastator/how-does-daily-yoga-impact-screen-time-habits,kaggle,health_mental,scatterplot,base R,yes,2
+Olympics Medals,https://www.kaggle.com/datasets/the-guardian/olympic-games?resource=download&select=summer.csv,kaggle,sports,barplot,ggplot2,no,2
+Ski Resorts,https://www.kaggle.com/datasets/the-guardian/olympic-games?resource=download&select=summer.csv,kaggle,sports,scatterplot,ggplot2,yes,3
+Stock Prices,https://www.kaggle.com/datasets/andrewmvd/sp-500-stocks?resource=download&select=sp500_stocks.csv,kaggle,finance,time series,base R,no,3
+Sports Earners,https://www.kaggle.com/datasets/parulpandey/forbes-highest-paid-athletes-19902019?resource=download,kaggle,sports,scatterplot,ggplot2,no,3
+Eurovision,https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-05-17/eu rovision.csv,TidyTuesday,arts_culture,faceted time series,ggplot2,yes,3
+Car Prices,https://archive.ics.uci.edu/ml/datasets/Automobile,UCI,purchases,scatterplot,ggplot2,no,4
+Spatial Genomics,https://www.10xgenomics.com/resources/datasets/adult-mouse-brain-section-1-coronal-stains- dapi-anti-neu-n-1-standard-1-1-0,10X,molecular biology,linked views,multiple,no,4
+Tech Layoffs,https://www.kaggle.com/datasets/salimwid/technology-company-layoffs-20222023-data?resource=download,TidyTuesday,economics,barplot,ggplot2,no,2
+English Premier League,https://fbref.com/en/comps/9/stats/Premier-League-Stats#stats_standard,fbref,sports,chernoff faces,aplpack,yes,NA
+Radicalization in the US,https://www.start.umd.edu/data-tools/profiles-individual-radicalization-united-states-pirus,START,society_gov,scatterplot,base R,yes,2
+Madison Grades during COVID,NA,NA,education,barplot,ggplot2,no,3
+Heart Disease,https://www.kaggle.com/datasets/cherngs/heart-disease-cleveland-uci,kaggle,health_physical,faceted scatterplot,ggplot2,yes,3
+Earthquakes,https://www.kaggle.com/datasets/varunsaikanuri/earthquakes-from-1900-2013,kaggle,geology,scatterplot,base R,no,2
+Company Valuations,https://www.cbinsights.com/research-unicorn-companies ,cbinsights,economics,density plot,ggplot2,yes,3
+Top Fishing Ports,https://www.kaggle.com/datasets/mattop/top-fishing-ports-in-united-states-1981-2021?resource=download,kaggle,economics,histogram,base R,no,2
+Tech Layoffs,https://www.kaggle.com/datasets/salimwid/technology-company-layoffs-20222023-data?resource=download,kaggle,economics,scatterplot,ggplot2,yes,2
+Covid Death by Age,NA,NA,health_physical,scatterplot,base R,yes,2
+Ikea Furniture,https://uwmadison.box.com/shared/static/iat31h1wjg7abhd2889cput7k264bdzd.csv,NA,purchases,boxplot,ggplot2,no,3
+Student Performance,https://archive.ics.uci.edu/ml/datasets/Student+Performance,UCI,education,barplot,ggplot2,no,2
+Social Media Bots,https://www.kaggle.com/datasets/thedevastator/bot-activity-and-credibility-scores-on-social-me,kaggle,internet,scatterplot,base R,yes,2
+Top Spotify Artists,https://www.kaggle.com/datasets/dhruvildave/spotify-charts,kaggle,arts_culture,scatterplot,ggplot2,no,3
+Stock Prices,https://www.kaggle.com/datasets/andrewmvd/sp-500-stocks?resource=download&select=sp500_stocks.csv,kaggle,finance,candlestick,base R,no,3
+Transit Planning,https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-01-05/readme.md,TidyTuesday,society_gov,scatterplot,ggplot2,no,2
+Netflix,NA,NA,arts_culture,time series,ggplot2,no,3
+Video Games,https://www.kaggle.com/datasets/mattop/video-games-released-in-2022,kaggle,arts_culture,time series,ggplot2,no,2
+US CO2 Emissions,https://www.kaggle.com/datasets/thedevastator/global-fossil-co2-emissions-by-country-2002-2022,kaggle,society_gov,time series,base R,no,3
+Car Insurance,https://www.kaggle.com/datasets/doaaalsenani/usa-cers-dataset,kaggle,economics,scatterplot,ggplot2,yes,3
+House Prices,https://www.kaggle.com/code/burhanykiyakoglu/predicting-house-prices/data,kaggle,purchases,scatterplot,ggplot2,no,3
+Music Labels,https://datasetsearch.research.google.com/search?src=3&query=music&docid=L2cvMTFqOWIxbGY0Yg%3D%3D  ,Google Datasets,arts_culture,barplot,ggplot2,no,2
+Billboard Hits and Lyrics,NA,Data Is Plural,arts_culture,time series,matplotlib,no,2
+P2P Loans,https://www.bondora.com/en/public-reports#shared-legend,bondora.com,finance,barplot,base R,yes,2
+Spotify Top 10000,https://www.kaggle.com/datasets/rakkesharv/spotify-top-10000-streamed-songs?resource=download,kaggle,arts_culture,barplot,ggplot2,no,2
+Apple Stocks,NA,NA,finance,candlestick,matplotlib,no,3
+Tik Tok popular songs 2022,NA,kaggle,arts_culture,pairs scatterplot,base R,yes,15

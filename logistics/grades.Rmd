@@ -1,0 +1,67 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+th <- theme_minimal() + 
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.background = element_rect(fill = "#f7f7f7"),
+    panel.border = element_rect(fill = NA, color = "#0c0c0c", size = 0.6),
+    axis.text = element_text(size = 14),
+    axis.title = element_text(size = 16),
+    legend.position = "bottom"
+  )
+theme_set(th)
+```
+
+```{r}
+grades <- read_csv("~/Downloads/2023-05-12T2324_Grades-SP23_STAT_436_001.csv")[-1, ] |>
+  rename(final_score = `Current Score`) |>
+  mutate(final_score = as.numeric(final_score))
+
+quantiles <- c(0, 0.05, 0.1, 0.3, 0.45, 0.65, 0.75, 1)
+quantile_values <- round(quantile(grades$final_score, quantiles), 1)
+letters <- c("F", "D", "C", "BC", "B", "AB", "A")
+
+percents <- c(0, 60, 70, 78, 82, 88, 92, 100)
+percent_levels <- str_c("(", head(percents, -1), ",", tail(percents, -1), "]")
+quantile_levels <- str_c("(", head(quantile_values, -1), ",", tail(quantile_values, -1), "]")
+
+grades <- grades |>
+  mutate(
+    quantile = cut(final_score, quantile_values, include.lowest = TRUE),
+    grade_v1 = factor(cut(final_score, percents)),
+    grade_v1 = fct_recode(grade_v1, !!!setNames(percent_levels, letters)),
+    grade_v2 = factor(cut(final_score, quantile_values)),
+    grade_v2 = fct_recode(grade_v2, !!!setNames(quantile_levels, letters))
+  )
+```
+
+```{r}
+grades$`Current Score`
+```
+
+
+```{r}
+grades |>
+  select(Student, final_score, grade_v1, grade_v2) |>
+  arrange(desc(final_score))
+```
+
+```{r, eval = FALSE}
+ggplot(grades) +
+  scale_y_continuous(expand = c(0, 0, 0, 0.9)) +
+  scale_x_continuous(expand = c(0, 0)) +
+  geom_histogram(aes(midterm), binwidth = 1) +
+  labs(x = "Score", y = "Count")
+
+ggsave("~/Downloads/midterm.png")
+```

@@ -1,0 +1,182 @@
+---
+title: "Compound Figures"
+description: |
+  Showing different variables across subpanels.
+author:
+  - name: Kris Sankaran
+layout: post
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r, echo = FALSE}
+library(tidyverse)
+library(knitr)
+knitr::opts_chunk$set(cache = TRUE, message = FALSE, warning = FALSE, echo = FALSE, fig.height = 5, retina = 4)
+th <- theme_minimal() + 
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.background = element_rect(fill = "#f7f7f7"),
+    panel.border = element_rect(fill = NA, color = "#0c0c0c", size = 0.6),
+    axis.text = element_text(size = 14),
+    axis.title = element_text(size = 16),
+    legend.position = "bottom"
+  )
+theme_set(th)
+```
+
+_[Reading](https://clauswilke.com/dataviz/multi-panel-figures.html), [Recording](https://mediaspace.wisc.edu/media/Week%203%20%5B3%5D%20Compound%20Figures/1_0uwq18nf), [Rmarkdown](https://github.com/krisrs1128/stat479_s22/blob/main/_posts/2022-02-06-week03-03/week03-03.Rmd)_
+
+1. Faceting is useful whenever we want different rows of the data to appear in
+different panels. What if we want to compare different columns, or work with
+several datasets? A more general alternative is to use compound plots. The idea
+is to construct plots separately and then combine them only at the very end.
+
+1. The main advantage of compound plots is that individual panels can be
+tailored to specific visual comparisons, but relationships across panels can
+also be studied. For example, the plot below shows change in the total number
+and composition of undergraduate majors over the last few decades. In principle,
+the same information could be communicated using a stacked area plot
+(`geom_area`). However, comparing the percentages for 1970 and 2015 is much more
+straightforward using a line plot, and we can still see changes in the overall
+number of degrees using the area plot.
+    
+    ```{r, fig.width = 10, fig.height = 4}
+    # trends in bachelor's degrees plot
+    library(tidyverse)
+    library(patchwork)
+    degrees <- read_csv("https://raw.githubusercontent.com/krisrs1128/stat436_s23/main/data/degrees.csv") %>%
+        filter(field %in% c("Business", "Health professions and related programs", "Social sciences and history", "Psychology", "Education"))
+    
+    p <- list()
+    p[["trend"]] <- degrees %>%
+      group_by(year) %>%
+      summarise(total = sum(count)) %>%
+      ggplot() +
+        geom_area(aes(year, total)) +
+        scale_x_continuous(expand = c(0, 0)) +
+        scale_y_continuous(expand = c(0, 0, 0.1, 0), labels = scales::label_number_si()) +
+        labs(x = NULL, y = "degrees awarded")
+    
+    delta_data <- degrees %>%
+      filter(year %in% c(1971, 2015))
+    
+    p[["delta"]] <- ggplot(delta_data, aes(year_str, perc)) +
+      scale_x_discrete(expand = c(0.05, 0.01, 0, 0.9)) +
+      scale_y_continuous(labels = scales::label_percent()) +
+      geom_point() +
+      geom_text(
+        data = delta_data %>% filter(year == 2015), 
+        aes(label = str_wrap(field, 20)),
+        size = 3.5, nudge_x = 0.04, hjust = 0
+      ) +
+      geom_line(aes(group = field)) +
+      labs(x = NULL, y = "proportion of degrees")
+    
+    p[["trend"]] + p[["delta"]] +
+      plot_layout(widths = c(0.65, 0.35))
+    ```
+    
+    For reference, here is a non-compound display of the same information.
+        
+    ```{r}
+    ggplot(degrees) +
+      geom_area(aes(year, count, fill = field)) +
+        scale_x_continuous(expand = c(0, 0)) +
+        scale_y_continuous(expand = c(0, 0, 0.1, 0), labels = scales::label_number_si()) +
+        scale_fill_brewer(palette = "Set2")
+    ```
+    
+1. There are a few considerations that can substantially improve the quality of
+a compound plot,
+
+    * Consistent visual encodings for shared variables
+    * Clear, but unobtrusive annotation
+    * Proper alignment in figure baselines
+    
+    We will discuss each point separately.
+    
+1. The figures below are compound plots of a dataset of athlete physiology. They
+are very similar, but the second is better because it enforces a more strict
+consistency in encodings across panels. Specifically, the male / female variable
+is (1) encoded using the same color scheme across all panels and (2) ordered so
+that female repeatedly appears on the right of male.
+    
+    ```{r}
+    athletes <- read_csv("https://raw.githubusercontent.com/krisrs1128/stat436_s23/main/data/athletes.csv") %>%
+      filter(sport %in% c("basketball", "field", "rowing", "swimming", "tennis", "track (400m)"))
+    p <- list()
+    
+    p[["bar"]] <- athletes %>%
+      count(sex) %>%
+      mutate(sex = factor(sex, levels = c("m", "f"))) %>%
+      ggplot() +
+      geom_bar(aes(sex, n), stat = "identity") +
+      scale_y_continuous(expand = c(0, 0))
+    p[["scatter"]] <- ggplot(athletes) +
+      geom_point(aes(rcc, wcc, col = sex)) +
+      scale_color_brewer(palette = "Set1")
+    p[["box"]] <- ggplot(athletes) +
+      geom_boxplot(aes(sport, pcBfat, fill = sex))
+    
+    (p[["bar"]] + p[["scatter"]]) / p[["box"]]
+    ```
+    
+    The improved, visually consistent approach is given below.
+    
+    ```{r}
+    athletes <- athletes %>%
+      mutate(sex = recode(sex, "m" = "male", "f" = "female"))
+    
+    p[["bar"]] <- athletes %>%
+      count(sex) %>%
+      ggplot() +
+      geom_bar(aes(sex, n, fill = sex), stat = "identity") +
+      scale_y_continuous(expand = c(0, 0)) +
+      scale_fill_brewer(palette = "Set1") +
+      labs(y = "number")
+    p[["scatter"]] <- ggplot(athletes) +
+      geom_point(aes(rcc, wcc, col = sex)) +
+      scale_color_brewer(palette = "Set1") +
+      theme(legend.position = "none") +
+      labs(x = "RBC count", y = "WBC Count")
+    p[["box"]] <- ggplot(athletes) +
+      geom_boxplot(aes(sport, pcBfat, col = sex, fill = sex), alpha = 0.5) +
+      scale_color_brewer(palette = "Set1") +
+      scale_fill_brewer(palette = "Set1") +
+      theme(legend.position = "none") +
+      labs(y = "% body fat", x = NULL)
+    
+    (p[["bar"]] + p[["scatter"]]) / p[["box"]] +
+      plot_layout(guides = "collect") &
+      plot_annotation(theme = theme(legend.position = "bottom"))
+    ```
+  
+1. Effective annotation can be used to refer to different subpanels of the data
+without drawing too much attention to itself. Labels should be visible but
+subtle -- not too large, similar fonts as the figures, and logically ordered
+((a) on top left). A nice heuristic is to think of these annotations like page
+numbers. They are useful for making references, but aren't something that is
+actively read.
+    
+    ```{r}
+    p[["bar"]] <- p[["bar"]] + ggtitle("a")
+    p[["scatter"]] <- p[["scatter"]] + ggtitle("b")
+    p[["box"]] <- p[["box"]] + ggtitle("c")
+    
+    (p[["bar"]] + p[["scatter"]]) / p[["box"]] +
+      plot_layout(guides = "collect") &
+      plot_annotation(theme = theme(legend.position = "bottom"))
+    ```
+  
+  1. For alignment, we will want figure baselines / borders to be consistent.
+  Misalignment can be distracting. This is primarily a problem when compound plots
+  are made from manually. If we follow the programmatic approaches discussed in
+  the next lecture, we won't have this issue.
+      
+      ```{r, echo = FALSE, out.width = 600}
+      include_graphics("https://clauswilke.com/dataviz/multi-panel_figures_files/figure-html/athletes-composite-misaligned-1.png")
+      ```
+      
+    

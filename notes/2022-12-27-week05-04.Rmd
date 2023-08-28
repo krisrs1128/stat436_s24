@@ -1,0 +1,118 @@
+---
+title: "Linking using Crosstalk"
+description: |
+  Linking in web-based visualizations.
+author:
+  - name: Kris Sankaran
+layout: post
+output:
+  distill::distill_article:
+    self_contained: false
+always_allow_html: true
+---
+
+```{r, echo = FALSE}
+library(knitr)
+knitr::opts_chunk$set(cache = FALSE, message = FALSE, warning = FALSE, echo = TRUE, fig.height = 5, retina = 4)
+```
+
+_[Reading](https://emilyriederer.netlify.app/post/crosstalk/), [Recording](https://mediaspace.wisc.edu/media/t/1_h7dh543g),  [Rmarkdown](https://github.com/krisrs1128/stat479_s22/blob/main/_posts/2022-02-16-week05-04/week05-04.Rmd)_
+
+```{r}
+library(ggplot2)
+library(plotly)
+library(leaflet)
+library(DT)
+library(crosstalk)
+```
+
+1. For most graphical queries, the click and brush inputs implemented in Shiny
+will be sufficient. However, a basic limitation of shiny's `plotOutput` is that
+it has to create views by generating static image files -- it only creates the
+illusion of interactivity by rapidly changing the underlying files. In some
+cases, there will be so many points on the display each update will be slow and
+the fluidity of interaction will suffer.
+
+1. One approach around this problem is to use a library that directly supports
+web-based plots. These plots can modify elements in place, without having to
+redraw and save the entire figure on each interaction. The `crosstalk` package
+gives one approach to linked views in this setting. We'll only give an overview
+of it here, but the purpose of sharing it is so we have at least one example
+that we can refer to in case the Shiny approach becomes untenable.
+
+1. We'll study a problem about the dropoff in Chicago subway ridership after the
+start of the COVID-19 lockdowns. We have data on the weekday and weekend transit
+ridership at each subway station, along with the locations of the stations. We
+are curious about the extent of the change in ridership, along with features
+that might be responsible for some stations being differentially affected. The
+block below reads in this raw data,
+    
+    ```{r}
+    download.file("https://github.com/emilyriederer/demo-crosstalk/blob/master/data/stations.rds?raw=true", "stations.rds")
+    download.file("https://github.com/emilyriederer/demo-crosstalk/blob/master/data/trips_apr.rds?raw=true", "trips_apr.rds")
+    stations <- readRDS("stations.rds")
+    trips <- readRDS("trips_apr.rds")
+    ```
+    
+1. The crosstalk package implements a `SharedData` object. This is used to track
+selections across all the plots that refer to it. We can think of it as
+crosstalk's analog of our earlier `brushedPoints` function. These objects are
+defined by calling `SharedData$new()` on the data.frame which will be used
+across views. The `key` argument provides a unique identifier that is used to
+match corresponding samples across all displays (notice that it uses `~` formula
+notation).
+
+    ```{r}
+    trips_ct <- SharedData$new(trips, key = ~station_id, group = "stations")
+    ```
+    
+1. Let's see how this object can be used for linked brushing. We'll first
+generate static ggplot2 objects giving (1) a view of weekday ridership in 2019
+vs. 2020 and (2) a view of what proportion of 2019 ridership at the station took
+place on weekends.
+    
+    ```{r, eval = FALSE}
+    p1 <- ggplot(trips_ct) +
+      geom_point(aes(year_2019_wday, year_2020_wday)) +
+      geom_abline(slope = 1, col = "#0c0c0c")
+    
+    p2 <- ggplot(trips_ct) +
+      geom_point(aes(prop_wend_2019, reorder(station_name, prop_wend_2019)), stat = "identity")
+    ```
+  
+1. Given this ggplot2 base, we can build web-based `plotly` objects using the
+`ggplotly` command. The `layout` and `highlight` functions are specifying that
+we want user interactions to define brushes, not zoom events. The final `bscols`
+function allows us to place the views side by side. By brushing the two plots,
+we can see that those stations with the largest dropoff in riderships were those
+that were mostly used during the weekdays. This makes sense, considering many of
+the office workers in Chicago started working from home in 2020.
+    
+    ```{r, eval = FALSE}
+    p1 <- ggplotly(p1, tooltip = "station_name") %>%
+      layout(dragmode = "select") %>%
+      highlight(on = "plotly_selected")
+    
+    p2 <- ggplotly(p2) %>%
+      layout(dragmode = "select", direction = "v") %>%
+      highlight(on = "plotly_selected")
+    
+    bscols(p1, p2)
+    ```
+
+1. This `crosstalk` approach works with more than plotly-derived plots. In the
+block below, we also generate a map (using the `leaflet` package) and a data
+table (using the `DT` package). The views are all synchronized because they
+refer to the same `station_id` key in `SharedData` objects. This visualization
+confirms our intuition that those stations with the largest drop-off in
+ridership are those that are downtown.
+
+```{r, eval = FALSE}
+stations_ct <- SharedData$new(stations, key = ~station_id, group = "stations")
+dt <- datatable(trips_ct)
+lf <- leaflet(stations_ct) %>% 
+  addTiles() %>% 
+  addMarkers()
+
+bscols(p1, p2, lf, dt, widths = rep(6, 4))
+```

@@ -1,0 +1,9 @@
+---
+title: "STAT 436 (Spring 2023)"
+site: distill::distill_website
+listing: posts
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```

@@ -1,0 +1,13 @@
+name: "stat436_s23"
+title: "STAT 436 (Spring 2023)"
+description: |
+  STAT 436 (Spring 2023)
+output_dir: "_site"
+base_url: "https://krisrs1128.github.io/stat436_s23/website/stat436_s23"
+navbar:
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
+output: distill::distill_article
