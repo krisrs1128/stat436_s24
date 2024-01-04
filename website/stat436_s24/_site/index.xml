@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>STAT 436 (Spring 2023)</title>
+    <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23</link>
+    <atom:link href="https://krisrs1128.github.io/stat436_s23/website/stat436_s23/index.xml" rel="self" type="application/rss+xml"/>
+    <description>STAT 436 (Spring 2023)
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Thu, 04 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Introduction to ggplot2</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week01-01</link>
+      <description>A discussion of ggplot2 terminology, and an example of iteratively refining a
+simple scatterplot.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week01-01</guid>
+      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>A Vocabulary of Marks</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week01-02</link>
+      <description>Examples of encodings and sequential refinement of a plot.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week01-02</guid>
+      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Tidy Data</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week02-01</link>
+      <description>The definition of tidy data, and why it's often helpful for visualization._</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week02-01</guid>
+      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Pivoting</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week02-02</link>
+      <description>Tools for reshaping data into tidy format.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week02-02</guid>
+      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Deriving Variables</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week02-03</link>
+      <description>Using `separate`, `mutate`, and `summarise` to derive new variables for
+downstream visualization.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week02-03</guid>
+      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Tidy Data Example</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week02-04</link>
+      <description>An extended example of tidying a real-world dataset.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week02-04</guid>
+      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Ridge Plots</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week03-02</link>
+      <description>An extended example of faceting with data summaries.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week03-02</guid>
+      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week03-02/2024-12-27-week03-02_files/figure-html5/unnamed-chunk-3-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>Compound Figures</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week03-03</link>
+      <description>Showing different variables across subpanels.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week03-03</guid>
+      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week03-03/2024-12-27-week03-03_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1920" height="768"/>
+    </item>
+    <item>
+      <title>Patchwork</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week03-04</link>
+      <description>Implementing compound figures in R</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week03-04</guid>
+      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Elements of a Shiny App</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week04-01</link>
+      <description>Vocabulary used by the R Shiny Library, and a few example apps.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week04-01</guid>
+      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Introduction to Reactivity</title>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week04-02</link>
+      <description>Viewing shiny code execution as a graph.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week04-02</guid>
+      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>IMDB Shiny Application</title>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week04-03</link>
+      <description>Using Shiny to explore a movies dataset</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week04-03</guid>
+      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Graphical Queries - Brush Events</title>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week05-02</link>
+      <description>An introduction to brush events in Shiny.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week05-02</guid>
+      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Linked Brushing</title>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week05-03</link>
+      <description>More examples defining brush queries using Shiny and `ggplot2`.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week05-03</guid>
+      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week05-03/2024-12-27-week05-03_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="960"/>
+    </item>
+    <item>
+      <title>Linking using Crosstalk</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week05-04</link>
+      <description>Linking in web-based visualizations.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week05-04</guid>
+      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Faceting</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <dc:creator/>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week03-01</link>
+      <description>Using small multiples to create information dense plots.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week03-01</guid>
+      <pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>tsibble Objects</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week06-01</link>
+      <description>A data structure for managing time series data.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week06-01</guid>
+      <pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Time Series Patterns</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week06-02</link>
+      <description>Vocabulary for describing visual structure in time series.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week06-02</guid>
+      <pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Seasonal Plots</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week06-03</link>
+      <description>Approaches for visualizing seasonality.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week06-03</guid>
+      <pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Cross and Auto-Correlation</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week06-04</link>
+      <description>Summaries of relationships between and within time series.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week06-04</guid>
+      <pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Collections of Time Series</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week06-05</link>
+      <description>Navigating across related time series.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week06-05</guid>
+      <pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Spatial Data Formats</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week07-01</link>
+      <description>An overview of common formats, with illustrative examples.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week07-01</guid>
+      <pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Vector Data</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week07-02</link>
+      <description>Manipulating and visualizing spatial vector data.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week07-02</guid>
+      <pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Raster Data</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week07-03</link>
+      <description>Storing spatially gridded information in rasters.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week07-03</guid>
+      <pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Coordinate Reference Systems</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week07-04</link>
+      <description>The projection problem, and how to check your CRS.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week07-04</guid>
+      <pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Geospatial Interaction</title>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week07-05</link>
+      <description>Idioms for interacting with geographic data.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week07-05</guid>
+      <pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Introduction to Networks and Trees</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week08-01</link>
+      <description>Typical tasks and example network datasets.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week08-01</guid>
+      <pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Node - Link Diagrams</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week08-02</link>
+      <description>The most common network visualization strategy.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week08-02</guid>
+      <pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Adjacency Matrix Views</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week08-03</link>
+      <description>A scalable network visualization strategy.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week08-03</guid>
+      <pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Enclosure</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week08-04</link>
+      <description>Visualization of hierarchical structure using containment.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week08-04</guid>
+      <pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>K-means</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week09-01</link>
+      <description>An introduction to clustering and how to manage its output.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week09-01</guid>
+      <pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Hierarchical Clustering</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week09-02</link>
+      <description>Clustering data at multiple scales using trees.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week09-02</guid>
+      <pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Heatmaps</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week09-03</link>
+      <description>Visualizing table values, ordered by clustering results.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week09-03</guid>
+      <pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Silhouette Statistics</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week09-04</link>
+      <description>Diagnostics for the quality of a clustering.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week09-04</guid>
+      <pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Cluster Stability</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week09-05</link>
+      <description>How reliable are the results of a clustering?</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week09-05</guid>
+      <pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Introduction to Dimensionality Reduction</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week10-1</link>
+      <description>Examples of high-dimensional data.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week10-1</guid>
+      <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
+      <media:content url="https://github.com/krisrs1128/stat436_s23/raw/main/activities/figure/dimred-animation.gif" medium="image" type="image/gif"/>
+    </item>
+    <item>
+      <title>Principal Components Analysis I</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week10-2</link>
+      <description>Linear dimensionality reduction using PCA.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week10-2</guid>
+      <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Principal Components Analysis II</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week10-3</link>
+      <description>Visualizing and interpreting PCA.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week10-3</guid>
+      <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Uniform Manifold Approximation and Projection</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week10-4</link>
+      <description>An overview of the UMAP algorithm.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week10-4</guid>
+      <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>PCA and UMAP Examples</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week10-5</link>
+      <description>More examples of dimensionality reduction using PCA and UMAP.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week10-5</guid>
+      <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Introduction to Topic Models</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week11-1</link>
+      <description>An overview of dimensionality reduction via topics.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week11-1</guid>
+      <pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Fitting Topic Models</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week11-2</link>
+      <description>Data preparation and model fitting code for topics.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week11-2</guid>
+      <pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Visualizing Topic Models</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week11-3</link>
+      <description>Once we've fit a topic model, how should we inspect it?</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week11-3</guid>
+      <pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Topic Modeling Case Study</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week11-4</link>
+      <description>An application to a gene expression dataset.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week11-4</guid>
+      <pubDate>Sat, 31 Dec 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Partial Dependence Profiles I</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week12-1</link>
+      <description>An introduction to partial dependence profiles.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week12-1</guid>
+      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://uwmadison.box.com/shared/static/l6u0y1l8ww6fikiihjin5ov60pc6qr8b.png" medium="image" type="image/png"/>
+    </item>
+    <item>
+      <title>Partial Dependence Profiles II</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week12-2</link>
+      <description>Discovering richer structure in partial dependence profiles.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week12-2</guid>
+      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Visualization for Model Building</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week12-3</link>
+      <description>The relationship between exploratory analysis and model development.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week12-3</guid>
+      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Prior and Posterior Predictives</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week12-4</link>
+      <description>Simulating data to evaluate model quality.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week12-4</guid>
+      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Pointwise Diagnostics</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week12-5</link>
+      <description>Evaluating the fit at particular observations in Bayesian models.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week12-5</guid>
+      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Introduction to Feature Learning</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week13-1</link>
+      <description>An introduction to compositional feature learning.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week13-1</guid>
+      <pubDate>Thu, 29 Dec 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Visualizing Learned Features</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week13-2</link>
+      <description>A first look at activations in a deep learning model.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week13-2</guid>
+      <pubDate>Thu, 29 Dec 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Collections of Features</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week13-3</link>
+      <description>Analyzing feature activations across datasets</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week13-3</guid>
+      <pubDate>Thu, 29 Dec 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Optimizing Feature Maps</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week13-4</link>
+      <description>Interpreting neurons by finding optimal inputs</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week13-4</guid>
+      <pubDate>Thu, 29 Dec 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Final Takeaways</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week14-1</link>
+      <description>Some major themes from STAT 479, in a nutshell.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week14-1</guid>
+      <pubDate>Wed, 28 Dec 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Design Process Case Study</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week14-2</link>
+      <description>Tracing the refinement of questions and design.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week14-2</guid>
+      <pubDate>Wed, 28 Dec 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Asking Better Questions</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week14-3</link>
+      <description>What is the purpose of data analysis?</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week14-3</guid>
+      <pubDate>Wed, 28 Dec 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>A History of Data Visualization up to 1900</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week14-4</link>
+      <description>A look at the origins of the field.</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week14-4</guid>
+      <pubDate>Wed, 28 Dec 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Graphical Queries - Click Events</title>
+      <link>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week05-01</link>
+      <description>An introduction to click events in Shiny</description>
+      <guid>https://krisrs1128.github.io/stat436_s23/website/stat436_s23/posts/2024-12-27-week05-01</guid>
+      <pubDate>Mon, 10 Jan 2022 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
