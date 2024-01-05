@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>slides</title>
+    <meta charset="utf-8" />
+    <script src="libs/header-attrs-2.25/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+# STAT 436: Statistical Data Visualization
+
+## Spring 2024
+
+
+
+---
+
+
+### Welcome!!
+
+I'm excited to share this course with you this semester. There are few
+activities that engage creative, quantitative, and critical thinking skills all
+at once, but data visualization is one of them.
+
+Nothing makes my day like a good data visualization, and I look forward to
+seeing those that you create.
+
+---
+
+### Syllabus
+
+* Learning outcomes
+* Teaching team and office hours
+* Assessments
+* Grading
+
+---
+
+### Learning Outcomes
+
+1.	Develop a vocabulary of visual encodings that support exploration of
+geospatial, temporal, tree-structured, and network data, and demonstrate
+facility implementing them using packages in the R programming language.
+1.	Design dynamic queries that support interactive visualization of
+heterogeneous data, and demonstrate facility implementing them using the shiny
+package in the R programming language.
+1.	Design effective visualizations to summarize the results of dimensionality
+reduction and clustering algorithms.
+
+---
+
+### Learning Outcomes
+
+1.	Use visual artifacts derived from complex statistical and machine learning
+models to discuss the patterns they learn and mistakes they make.
+1.	Evaluate strengths and weaknesses of visualizations in relation to the tasks
+they support.
+
+---
+
+
+### Office Hours
+
+Instructor: Kris Sankaran [ksankaran@wisc.edu]
+
+TA: Yuliang Peng
+
+We will announce in-person and virtual office hours depending on the results of
+this poll: https://go.wisc.edu/p5k1sm
+
+Submit your preferences by Friday at 8pm.
+
+---
+
+
+### Assessments
+
+* In-class exercises and discussions
+* 4 Homework assignments
+* 3 group project reports and 1 presentation
+  - Teams of 3 - 5 people
+* 1 midterm exam
+
+---
+
+### Grading
+
+* In-Class Exercises: 15%
+* Midterm: 20%
+* Homework: 35%
+* Group Project: 25%
+
+---
+
+### Class Resources
+
+1. [Canvas page](https://canvas.wisc.edu/courses/346654/modules)
+  - Links to all other resources
+1. [Readings](https://github.com/krisrs1128/stat436_s24/raw/main/logistics/syllabus.docx) (Page 3)
+1. [Piazza](https://canvas.wisc.edu/courses/346654/external_tools/65)
+1. [Assignments](https://www.gradescope.com/courses/498858)
+1. [Online notes](https://krisrs1128.github.io/stat436_s24/)
+1. [Online recordings](https://mediaspace.wisconsin.edu/) (also linked in notes)
+1. [Worked code examples](https://github.com/krisrs1128/stat436_s24/tree/main/activities/demos)
+
+---
+
+### Questions?
+
+Also feel free to speak with me after class.
+
+---
+
+### Preparation
+
+* For next lecture, bring your laptops
+* Make sure you can run the [starter code](https://github.com/krisrs1128/stat436_s24/blob/main/activities/demos/demo1-1-starter.Rmd) for In-Class Demo [1-1]
+  - I recommend using Rstudio
+  - You can install the tidyverse package using
+  
+
+```r
+install.packages("tidyverse") 
+```
+
+---
+
+### Exercise 1-1
+
+1. Introduce yourself to your neighbors. Share your name, degree program, and
+one of: a recent hobby, favorite movie, favorite food. Share your chosen
+datasets in groups of 2 - 3 people.
+
+1. Submit a response to [Formulating Questions] on Canvas.
+
+1. We will not grade the plot's quality -- we just want to get a sense of
+everyone's starting point.
+
+---
+
+### Exercise 1-1
+
+[Formulating Questions] Pick a dataset from
+[TidyTuesday](https://github.com/rfordatascience/tidytuesday#datasets), [Data Is
+Plural](https://docs.google.com/spreadsheets/d/1wZhPLMCHKJvwOkP4juclhjFgqIY8fQFMemwKL2c64vk/edit#gid=0),
+[Kaggle Datasets](https://www.kaggle.com/datasets), [Google Dataset
+Search](https://datasetsearch.research.google.com/), or your own personal
+studies that you would like to visualize this semester. 
+
+a. What makes you interested in this dataset? Please provide a link, so we can
+use it to create future exercises.
+
+b. Using any tools of your choice, make one example visualization from your
+dataset. What question does it help to answer?
+
+---
+
+## January 26, 2024
+
+1. Review Exercise 1 - 1
+1. [In-Class Demo 1 - 1](https://github.com/krisrs1128/stat436_s24/blob/main/activities/demos/demo1-1-starter.Rmd)
+1. [In-Class Exercise 1 - 2](https://www.gradescope.com/courses/498858/assignments/2603279)
+
+---
+
+### Announcements
+
+1. We will accept responses to the Office Hours Poll
+(https://go.wisc.edu/p5k1sm) until Friday at 5pm. Let us know your preferences!
+1. Project Milestones 0 and 1 have been posted. Due February 6 and
+13.
+1. For in-class exercises, please submit a compiled PDF, HTML or DOCX file. We
+will only need your original code in the HW submissions.
+
+---
+
+### Exercise Review
+
+---
+
+### [In-Class Demo 1-1](https://github.com/krisrs1128/stat436_s24/blob/main/activities/demos/demo1-1-starter.Rmd)
+
+
+The data below measures properties of various Antarctic penguins.
+
+
+```r
+library(tidyverse)
+theme_set(theme_bw())
+penguins &lt;- read_csv("https://uwmadison.box.com/shared/static/ijh7iipc9ect1jf0z8qa2n3j7dgem1gh.csv")
+```
+
+Create a single plot that makes it easy to answer both of these questions, (i)
+How is bill length related to bill depth within and across species? (ii) On
+which islands are which species found?
+
+---
+
+### Exercise 1-2
+
+Response to *one* of the following questions in the exercise sheet:
+
+* [Critique - Infographic]
+* [Critique - Science Paper I]
+* [Critique - Science Paper II]
+
+---
+
+## January 31, 2024
+
+1. Review Exercise 1 - 2
+1. [In-Class Demo 2 - 1](https://go.wisc.edu/06p2bd)
+1. [In-Class Exercise 2 - 1](https://go.wisc.edu/2g3c9k)
+
+---
+
+### Announcements
+
+1. Office Hours are set (also on the syllabus)
+  - Prof. Sankaran: 3:45 - 5pm Tuesdays (MSC 7225C)
+  - Margaret: 2 - 3pm Fridays (MSC 1274)
+1. For future In-Class exercise submissions, we would prefer HTML format (but it
+is not required).
+1. Corrections on HW1 [Problem 1].
+
+---
+
+### Exercise Review
+
+.center[
+  &lt;img src="figure/info-food-waste.png" width=700/&gt;
+]
+
+---
+
+
+---
+
+### In-Class Demo [2-1]
+
+* We will work through [Plant Growth Experiment] in the exercises sheet.
+* Starter code is available here: https://go.wisc.edu/06p2bd
+
+---
+
+### In-Class Exercise [2 - 1]
+
+* [Submit](https://go.wisc.edu/2g3c9k) an answer to [Code Analysis] from the exercises sheet.
+
+[Code Analysis] Pick one code example from this week’s lecture notes. Provide a
+3 - 4 sentence summary of the overall implementation strategy. Then, add
+comments every 10 - 15 lines describing what each section of code is doing. If
+there are parts that you do not understand, add a ??? next to it (we will review
+these in the next lecture).
+
+---
+
+## February 2, 2024
+
+1. Review Exercise 2 - 1
+1. [In-Class Demo 2 - 2](https://go.wisc.edu/504ci4)
+1. [In-Class Exercise 2 - 2](https://go.wisc.edu/ni1n8e)
+
+---
+
+### Exercise Review
+
+---
+
+### Miscellaneous Comments
+
+* I encourage you to remove extraneous package loading messages from your
+exercise and homework solutions (give example)
+* Pipe syntax seems to be a new concept. The main idea is to avoid storing
+intermediate computations.
+
+.pull-left[
+
+```r
+df2 &lt;- f(df1)
+df3 &lt;- g(df2)
+```
+]
+
+.pull-right[
+
+```r
+df3 &lt;- df1 %&gt;%
+  f() %&gt;%
+  g()
+```
+]
+
+
+
+
+---
+
+### In-Class Demo [2-2]
+
+* We will work through [Olympics Derivations] in the exercises sheet.
+* Starter code is available here: https://go.wisc.edu/504ci4
+
+---
+
+### In-Class Exercise [2 - 2]
+
+* Work with your project team (or if you do not have one, your neighbors in
+class), to complete the sections of this google doc: https://go.wisc.edu/ni1n8e
+* You do not need to submit anything to gradescope.
+
+---
+
+## February 7, 2024
+
+1. In-Class Discussion [3-1]
+1. In-Class Demo [3-1]
+1. In-Class Exercise [3-1]
+
+---
+
+### Announcements
+
+* Thank you for your Project Milestone 0 submissions!
+* Project Milestone 1 is due on February 13.
+* Homework 1 is due on February 19. I encourage you to start early, since we
+have covered the technical material needed to solve the problems.
+
+---
+
+### In-Class Discussion [3-1]
+
+* At https://go.wisc.edu/i83g3i, response to *one* of the two prompt options.
+* The first prompt is related to the code demo we will work through. The second
+is related to the reading and notes for the week.
+* Discuss and answer the prompts with your project group. Include your project
+group number next to  your answer.
+
+---
+
+### In-Class Demo [3-1]
+
+* We will work through [Pokemon] in the exercises sheet.
+* Starter code is available here: https://go.wisc.edu/96tvyn
+
+---
+
+### In-Class Exercise [3-1]
+
+* Submit [https://go.wisc.edu/40q009](https://go.wisc.edu/40q009) an answer to [Ikea Faceting] from the
+exercises sheet. Provide a brief explanation for your selection.
+* We only need one submission per project group -- make sure to name all your
+team members in the submission.
+* Note: This is an example of a past midterm problem.
+
+---
+
+## February 9, 2024
+
+1. Exercise Review
+1. In-Class Demo [3-2]
+1. In-Class Exercise [3-2]
+
+---
+
+## February 9, 2024
+
+* Project Milestone 1 is due on February 13.
+* Homework 1 is due on February 19. I encourage you to start early, since we
+have covered the technical material needed to solve the problems.
+* Remember that there are recordings associated with each of the lecture notes.
+* During our demos, I will focus on explaining only those steps in the posted
+solutions. If you would like to discuss other approaches / refinements, you can
+ask me during the in-class exercise portions of the class.
+
+---
+
+### Exercise Review
+
+---
+
+### In-Class Demo
+
+* Before we work through the demo together, discuss your initial attempt here: https://go.wisc.edu/6bw633
+* We will work through [Multiple Weather Variables] in the exercises sheet.
+* Starter code is available here: https://go.wisc.edu/90oj6g
+
+---
+
+### In-Class Exercise
+
+* [Submit](https://go.wisc.edu/2sag6l) an answer to [Faceting Rules of Thumb] from the
+exercises sheet. Provide a brief explanation for your selection.
+* We only need one submission per project group -- make sure to name all your
+team members in the submission.
+
+---
+
+## February 14, 2024
+
+1. Exercise Review
+1. In-Class Discussion [4-1]
+1. In-Class Demo [4-1]
+1. In-Class Exercise [4-1]
+
+---
+
+## Announcements
+
+* Homework 1 is due on February 19.
+* The Project Milestones 2 and 3 description have been released.
+* I will post the in-class demo solutions only on the [github page](https://github.com/krisrs1128/stat436_s24/tree/main/activities/demos).
+
+---
+
+### Exercise Review
+
+_Whenever possible, each panel in a faceted plot should be made to have its own `\(y\)`-axis scale._
+
+---
+
+### Exercise Review
+
+_When using the `patchwork` package, two plots `p1` and `p2` can be placed side-by-side using `p1 / p2`._
+
+---
+
+### Exercise Review
+
+_When using the `patchwork` package, the `plot_layout` function can be used to collect legends._
+
+
+---
+
+### Exercise Review
+
+_Relative to interactively filtered displays, faceted plots are less taxing on the reader's memory._
+
+---
+
+### Discussion [4 - 1]
+
+* This discussion is a warm-up to interactive visualization.
+* Respond to the prompt at https://go.wisc.edu/fhzrx4
+* Discuss and answer the prompts with your project group. Include your project
+group number next to  your answer.
+
+---
+
+### In-Class Demo [4 - 1]
+
+* We will work through [California Wildfires] in the exercises sheet.
+* Starter code is available here: https://go.wisc.edu/5586t7
+
+---
+
+### In-Class Exercise [4 - 1]
+
+* Submit an answer (https://go.wisc.edu/bzu64h) to [Name App Bugs, Parts a - c]
+from the exercises sheet.
+* You may discuss with others, but prepare and submit an individual response.
+
+---
+
+## February 16, 2024
+
+1. Exercise Review
+1. In-Class Discussion [4 - 2]
+1. In-Class Demos [4 - 2 - 1] and [4 - 2 - 2]
+
+---
+### Announcements
+
+* Homework 1 is due on February 19.
+  - No In-Class Exercise today
+* The Project Milestones 2 and 3 descriptions have been released.
+
+---
+
+### Exercise Review (Part (a))
+
+---
+
+### In-Class Demo [4 - 2 - 2]
+
+* Before we work through the demo together, discuss your initial attempt here: https://go.wisc.edu/g0u74j
+* We will work through [Interactive German Traffic] in the exercises sheet.
+* Starter code is available here: https://go.wisc.edu/2yu4ht
+
+---
+
+### In-Class Discussion [4 - 2]
+
+* Respond to the prompt at https://go.wisc.edu/g0u74j . This is designed to
+help you consolidate the last week's introduction to Shiny.
+* Discuss and answer the prompts with your project group. Include your project
+group number next to  your answer.
+
+---
+
+### In-Class Demo [4 - 2 - 1]
+
+* We will work through [Improving an app] in the exercises sheet.
+* Starter code is available here: https://go.wisc.edu/w0r37e
+
+---
+
+## February 21, 2024
+
+1. Discussion Review
+1. In-Class Demo [5 - 1]
+1. In-Class Discussion [5 - 1]
+1. In-Class Exercise [5 - 1]
+
+---
+
+### Discussion Review
+
+A few main themes came up in Thursday's discussion (https://go.wisc.edu/g0u74j)
+
+* Making sense of Shiny-specific vocabulary and syntax
+* Which Shiny components should we use when? What considerations guide the
+choice?
+* How to debug Shiny apps?
+
+---
+
+### Shiny-specific Syntax
+
+What is the difference between `ui` and `server`?
+
+* The `ui` defines what the user sees and can interact with.
+* The `server` defines how the visualization responds to inputs.
+
+---
+
+### Shiny-specific Syntax
+
+What is the difference between `observe` and `reactive`?
+
+From Mastering Shiny, Section 3.6,
+
+&gt; [S]ometimes you need to reach outside of the app and cause side-effects to
+happen elsewhere in the world. This might be saving a file to a shared network
+drive, sending data to a web API, updating a database, or (most commonly)
+printing a debugging message to the console. These actions don’t affect how your
+app looks, so you shouldn’t use an output and a render function. Instead you
+need to use an observer.
+
+---
+
+### Which Components to Use When?
+
+* For choosing between different inputs and outputs, the [Shiny Cheat
+Sheet](https://shiny.rstudio.com/images/shiny-cheatsheet.pdf) is helpful. It
+shows screenshots of each type of input / output.
+* Many authors have implemented inputs / outputs beyond those available in the main Shiny package. E.g., there are specialized widgets in the [`shinyWidgets`](https://shinyapps.dreamrs.fr/shinyWidgets/) package
+
+---
+
+### Which Components to Use When?
+
+* For more complex displays, you may want to use `sidebarLayout`, `tabsetPanel`,
+or `navbarPage`
+* We will practice with alternatives during the Thursday demo
+
+---
+
+### Debugging Shiny Apps
+
+In addition to printing to the R console or inserting a `browser()` call, you
+can create UI elements that print variables of interest.
+  * `verbatimOutput` will print arbitrary R objects to the shiny UI
+
+
+
+```r
+server &lt;- function(input, output) {
+  output$debug &lt;- verbatimOutput({
+    # intermediate data structure 
+  })
+}
+```
+
+---
+
+### Debugging Shiny Apps
+
+A general principle for debugging: If you are very stuck, it helps to simplify
+the problem. Pare away parts of the code that seem unrelated to the bug until
+you arrive at a minimal example that reproduces the same buggy behavior. In the
+process, you may discover the solution, and even if not, you will have a version
+of the code that others can easily give feedback on.
+
+---
+
+### In-Class Demo [5 - 1]
+
+* We will give a new solution to part (c) of [California Wildfires] in the
+exercise sheet, but this time using graphical queries.
+* Starter code is available here: https://go.wisc.edu/oldyzu
+
+---
+
+### In-Class Discussion [5 - 1]
+
+Document: https://go.wisc.edu/2ac0fg
+
+Prompt: Right now, the dotplot responds to the brushed histogram. However,
+
+  * The dotplot does not allow any user inputs.
+  * The histogram does not reflect year or user selections.
+
+Imagine someone came to your statistical consulting hours with this application.
+They want your expertise to improve the app so that it conveys more information.
+How would you approach this? What might be some first steps towards
+implementation?
+
+---
+
+### In-Class Exercise [5 - 1]
+
+We will work through the [Code Analysis] exercise again, but for material from
+Shiny. https://go.wisc.edu/3pr7v5
+
+[Code Analysis] Pick one code example from this week’s lecture notes. Provide a
+3 - 4 sentence summary of the overall implementation strategy. Then, add
+comments every 10 - 15 lines describing what each section of code is doing. If
+there are parts that you do not understand, add a ??? next to it (we will review
+these in the next lecture).
+
+---
+
+## February 23, 2024
+
+1. Exercise Review
+1. In-Class Demo [5 - 2]
+1. In-Class Discussion [5 - 2]
+1. In-Class Exercise [5 - 2]
+
+---
+
+### Announcements
+
+* We are done with the first course module (Fundamentals of Data Visualization).
+* Important Dates: HW2 (March 13), Midterm (March 23), Project Milestone 2
+(March 27)
+
+---
+
+### Exercise Review
+
+---
+
+### In-Class Demo [5 - 2]
+
+* We will work through [Customizing a Shiny App] in the exercise sheet.
+* Before we work through this together, try your best to improve / customize our
+earlier traffic Shiny app: https://go.wisc.edu/f05xr3
+* Starter code is available here: https://go.wisc.edu/1fzadf
+
+---
+
+### In-Class Exercise [5 - 2]
+
+With your project group, prepare a concept map to summarize the last week of
+reading material. An effective submission will include a thorough coverage of
+both abstract concepts and practical examples, summarized concisely into short
+phrases. It will also include well-justified links between nodes, with text
+explanations for edges whose interpretation might not be obvious at first.
+
+* Submission: https://go.wisc.edu/fw0i3n
+* Optional: Share your concept map in Piazza.
+
+---
+
+## February 28, 2024
+
+1. In-Class Exercise [6 - 1]
+1. In-Class Discussion [6 - 1]
+1. In-Class Demo [6 - 1]
+
+---
+
+### Announcements
+
+* We've left comments on some of the Discussion [5 - 2] notes
+* Important Dates: HW2 (March 13), Midterm (March 23), Project Milestone 2
+(March 27)
+
+---
+
+### Module 2 [Visualizing Structured Data]
+
+Over the next three weeks, we'll study techniques to visualization time series,
+geospatial data, and trees / networks.
+
+.pull-left[
+&lt;img src="https://krisrs1128.github.io/stat436_s24/posts/2022-12-27-week06-02/2022-12-27-week06-02_files/figure-html5/unnamed-chunk-2-2.png"/&gt;
+]
+.pull-right[
+&lt;img src="https://krisrs1128.github.io/stat436_s24/posts/2022-12-27-week08-02/2022-12-27-week08-02_files/figure-html5/unnamed-chunk-3-1.png"/&gt;
+]
+
+---
+
+### Today
+
+By the end of the class, you should be able to...
+
+* Construct and visualize a `tsibble` time series object
+* Discuss the presence of trend, seasonal, or cyclic structure in a time series
+
+---
+
+### In-Class Exercise [6 - 1]
+
+* I will pause at a few points during the demo today, and I want you to guess
+what the next step in the analysis is.
+* At the end of the demo, you can summarize your guesses and submit them: https://go.wisc.edu/rc7li7
+* You should be able to make your submission before the end of class.
+
+---
+
+### In-Class Demo: Expectations
+
+* Take out your laptops, follow-along, and ask questions (raise your hand, or comment on google doc)
+* You and I will both run into bugs -- this is a normal part of the process
+* We will try to balance conceptual sketches with practical implementation
+
+---
+
+### In-Class Demo [6 - 1]
+
+* We will work through as much of [Global Carbon Footprint Network] as we can.
+Before we do this, take a look at the data with  your group and respond to part
+(a): https://go.wisc.edu/wi625o
+* Starter code is available here: https://go.wisc.edu/98vpl5
+
+---
+
+## March 2, 2024
+
+1. In-Class Discussion [6 - 2]
+1. In-Class Demo [6 - 2]
+1. In-Class Exercise [6 - 2]
+
+---
+
+### Announcements
+
+* Important Dates: HW2 (March 13), Midterm (March 23), Project Milestone 2
+(March 27)
+
+---
+
+### Today
+
+By the end of the class, you should be able to...
+
+* Compute and interpret time series features using the `feasts` package
+* Design and critique interactive visualizations based on time series features
+
+---
+
+### Inpsiration
+
+I think of this course as a foundation for long-term study of visualization, so
+I thought it might be interesting to occasionally share some "inspirational"
+visualizations.
+
+&lt;iframe src="https://player.vimeo.com/video/363453522?h=ea9887b2e6" width="750" height="450" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;a href="https://vimeo.com/363453522"&gt;[VIS19 Preview] Periphery Plots for Contextualizing Heterogeneous Time-Based Charts (short paper)&lt;/a&gt;&lt;/p&gt;
+
+---
+
+### Inspiration
+
+Figure 1 from [_StoryFlow: Tracking the Evolution of Stories_](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6634164).
+
+&lt;img src="figure/storyflow.png" width="1000" style="display: block; margin: auto;" /&gt;
+
+---
+
+### In-Class Demo [6 - 2]
+
+* We will work through [Global Carbon Footprint II].
+* Before we do this, work with your neighbors to brainstorm a response to part
+(b). Summarize your discussion: https://go.wisc.edu/k96khu
+* Starter code is available here: https://go.wisc.edu/k99j43
+
+---
+
+### In-Class Exercise [6 - 2]
+
+* Work through parts (a - b) in the [Spotify Time Series I] problem on the
+exercise sheet: https://go.wisc.edu/6hzcz2
+* You can discuss this with your neighbors, but make your submission
+individually.
+* You will get full credit if you make an honest attempt -- if you become stuck
+at some step, describe the difficulty that you encountered.
+
+---
+
+## March 7, 2024
+
+1. In-Class Discussion [7 - 1]
+1. In-Class Demo [7 - 1]
+1. In-Class Exercise [7 - 1]
+
+---
+
+### Announcements
+
+* Important Dates: HW2 (March 13), Midterm (March 23), Project Milestone 2
+(March 27)
+
+---
+
+### Exercise Review
+
+Let's look at the most streamed song of 2017, which was "Shape of You." The
+dataset
+[here](https://uwmadison.box.com/shared/static/hvplyr3jy6vbt7s80lqgfx81ai4hdl0q.csv)
+contains the number of streams for this song across regions, for each day in
+which it was in the Spotify 100 most streamed songs for that region. Create a
+`tsibble` object from this dataset, keying by `region` and indexing by `date`.
+
+
+```r
+song &lt;- read_csv("https://uwmadison.box.com/shared/static/hvplyr3jy6vbt7s80lqgfx81ai4hdl0q.csv")
+head(song)
+```
+
+```
+## # A tibble: 6 x 5
+##   artist     track_name   region date       streams
+##   &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;  &lt;date&gt;       &lt;dbl&gt;
+## 1 Ed Sheeran Shape of You ar     2017-01-06   57617
+## 2 Ed Sheeran Shape of You ar     2017-01-07   51212
+## 3 Ed Sheeran Shape of You ar     2017-01-08   47299
+## 4 Ed Sheeran Shape of You ar     2017-01-09   58157
+## 5 Ed Sheeran Shape of You ar     2017-01-10   56384
+## 6 Ed Sheeran Shape of You ar     2017-01-11   59494
+```
+
+---
+
+### Exercise Review
+
+---
+
+### Today
+
+By the end of class today, you should be able to,
+
+* Read in and describe geospatial properties of a dataset in vector format
+* Create a map from (and visually encode data contained within) a spatial data
+frame.
+
+---
+
+### In-Class Discussion [7 - 1]
+
+Document: https://go.wisc.edu/mce6cq
+
+Prompt: In your own words, explain the key characteristics of vector datasets.
+Why can't vector data simply be stored as `csv` files?
+
+---
+
+### In-Class Exercise [7 - 1]
+
+* I will pause at a few points during the demo today, and I want you to guess
+what the next step in the analysis is.
+* At the end of the demo, you can summarize your guesses and submit them: https://go.wisc.edu/75hiln
+* You should be able to make your submission before the end of class.
+
+---
+
+
+### In-Class Demo [7 - 1]
+
+* We will work through parts (a - c) of [Glacial Lakes].
+* Starter code is available here: https://go.wisc.edu/przc3a
+
+---
+
+## March 9, 2024
+
+1. In-Class Discussion [7 - 2]
+1. In-Class Demo [7 - 2]
+1. In-Class Exercise [7 - 2]
+
+---
+
+### Announcements
+
+* Important Dates: HW2 (March 13), Midterm (March 23), Project Milestone 2
+(March 27)
+
+---
+
+### Today
+
+By the end of class today, you should be able to,
+
+* Read in and describe geospatial properties of a dataset in raster format
+* Create a map from (and visually encode data contained within) a raster
+dataset.
+
+---
+
+### Inspiration
+
+"Visualizing Urban Accessibility: Investigating Multi-Stakeholder Perspectives through a Map-based Design Probe Study" by Saha et al. (2022)
+
+&lt;iframe src="https://idl.cs.washington.edu/files/2022-VisualizingUrbanAccessibility-CHI.pdf"&gt;&lt;/iframe&gt;
+
+---
+
+### Inspiration
+
+http://nbremer.github.io/urbanization/
+
+&lt;iframe src="http://nbremer.github.io/urbanization"&gt;&lt;/iframe&gt;
+
+---
+
+### Inspiration
+
+https://climate-conflict.org/
+
+&lt;iframe src="https://climate-conflict.org"&gt;&lt;/iframe&gt;
+
+---
+
+### In-Class Demo [7 - 2]
+
+* We will work through part (e) of [Glacial Lakes].
+Before we do this, brainstorm with your group for solutions to part (d): https://go.wisc.edu/v3p541
+* Starter code is available here: https://go.wisc.edu/qogipo
+
+---
+
+### In-Class Exercise [7 - 2]
+
+* Work through [Geospatial Portfolio] in the exercise sheet: https://go.wisc.edu/9206e5
+* You can make submissions with your project team.
+
+---
+
+## March 21, 2024
+
+1. In-Class Demo [8 - 1]
+1. Practice Midterm Review
+
+---
+
+### Announcements
+
+* Important Dates: Midterm (March 23), Project Milestone 2 (March 27)
+* The midterm will be held in two rooms during the usual class time: 494 and 594
+Van Hise
+  - It only covers up to the Week 7 material.
+  - The format will be similar to the practice, though the content will be be
+  adapted to this year's material.
+  - Last names A - L in 594, M - Z in 494.
+  - Any questions about the exam?
+* Canvas and gradescope have been linked. You can submit through either.
+
+---
+
+### Today
+
+By the end of the class, you should be able to...
+
+* Read in a network or tree dataset using the `tidygraph` package
+* Create a node-link network or tree visualization with visual encodings for
+node properties
+
+---
+
+### In-Class Demo [8 - 1]
+
+* We will work through [COVID-19 Phylogeny] in the exercises sheet.
+* Starter code is available here: https://go.wisc.edu/x4us3h
+
+---
+
+### Practice Midterm Review
+
+* With your team, respond to the prompts here: https://go.wisc.edu/1z345r
+  - Also submit your team's slides : https://go.wisc.edu/7087tb
+* After gathering initial responses, we will ask you to comment on the solutions
+given by other teams.
+* We provide solutions at the end of class. If there are problems we don't get
+to, we will provide answers in comments on the slides after class.
+
+---
+
+## March 28, 2024
+
+1. In-Class Discussion [9 - 1]
+1. In-Class Demo [9 - 1]
+1. Project / Portfolio Reviews
+
+---
+
+### Announcements
+
+1. Will return midterm at the end of class. You can also pick it up during my
+Office Hours.
+1. Undergraduate Statistics/Data Science Research Quick Talks
+  - Register here: https://go.wisc.edu/9gg04t
+1. Homework 3 deadline extended to April 10
+1. Project and Portfolio Peer Reviews also due April 10
+
+---
+
+### Midterm Grade Distribution
+
+See syllabus for course grading mechanism (max of absolute and percentile scores).
+
+
+
+---
+
+### In-Class Discussion [9 - 1]
+
+With your group, work through this exercise: https://go.wisc.edu/42n061
+
+---
+
+### In-Class Demo [9 - 1]
+
+* We will work through [Women, Business, and the Law] in the exercise sheet
+* Starter code is available here: https://go.wisc.edu/b9xwy4
+
+---
+
+### Project and Portfolio Peer Reviews
+
+* Use this time to work on your peer review assignment
+* Both (1) reply on Piazza and (2) upload to Canvas.
+* The reviews should be submitted individually (not in teams)
+
+---
+
+## March 30, 2024
+
+1. In-Class Discussion [9 - 2]
+1. In-Class Demo [9 - 2]
+1. In-Class Exercise [9 - 2]
+
+---
+
+### Announcements
+
+1. Undergraduate Statistics/Data Science Research Quick Talks
+  - Register here: https://go.wisc.edu/9gg04t
+1. Homework 3 - April 10
+1. Project and Portfolio Peer Reviews - April 10
+
+---
+
+
+### Clustering Examples
+
+From "Robust decomposition of cell type mixtures in spatial transcriptomics" by Cable et al. (2021).
+
+&lt;img src="figure/slide-seq-spatial.png" width="600" style="display: block; margin: auto;" /&gt;
+
+---
+
+### Clustering Examples
+
+From "Color Naming Models for Color Selection, Image Editing and Palette Design"
+by Heer and Stone (2012).
+
+&lt;img src="figure/color-1.png" width="650" style="display: block; margin: auto;" /&gt;
+
+---
+
+### Clustering Examples
+
+From "Color Naming Models for Color Selection, Image Editing and Palette Design"
+by Heer and Stone (2012).
+
+&lt;img src="figure/color-2.png" width="900" style="display: block; margin: auto;" /&gt;
+
+---
+
+### Clustering Examples
+
+From "Color Naming Models for Color Selection, Image Editing and Palette Design"
+by Heer and Stone (2012).
+
+&lt;img src="figure/color-3.png" width="1000" style="display: block; margin: auto;" /&gt;
+
+---
+
+### In-Class Discussion [9 - 2]
+
+With your group, work through this problem:  https://go.wisc.edu/lfvsq4
+
+---
+
+### In-Class Demo [9 - 2]
+
+* We will work through [Taxi Trips] in the exercise sheet
+* Starter code is available here: https://go.wisc.edu/241m16
+
+---
+
+### In-Class Exercise [9 - 2]
+
+* With your team, please work through [Milestone Reflection] in the exercise
+sheet.
+* Submission link: https://go.wisc.edu/g7l63w
+
+---
+
+### April 4, 2024
+
+1. In-Class Discussion [10 - 1]
+1. In-Class Demo [10 - 1]
+1. In-Class Exercise [10 - 1]
+
+---
+
+### Announcements
+
+1. Homework 3 - April 10
+1. Project and Portfolio Peer Reviews - April 10
+1. Project Milestone 2 is graded
+1. The Project Milestone 2 accountability form is available on gradescope
+
+---
+
+### Today
+
+By the end of the class, you should be able to...
+
+   * Using PCA, "map" the rows of a high-dimensional, numerical dataset
+   * Design and interpret a visualization of PCA component directions
+
+---
+
+### PCA Example
+
+This example is from "Genes Mirror Geography" by Novembre et al. (2008).
+
+&lt;img src="figure/genes-geography-1.png" width="500" style="display: block; margin: auto;" /&gt;
+
+---
+
+### PCA Example
+
+This example is from "Genes Mirror Geography" by Novembre et al. (2008).
+
+&lt;img src="figure/genes-geography-2.png" width="500" style="display: block; margin: auto;" /&gt;
+
+---
+
+### In-Class Discussion [10 - 1]
+
+With your group, work through [PCA Interpretation]: https://go.wisc.edu/9p3m6e
+
+---
+
+### In-Class Demo
+
+* We will work through [Food nutrients] in the exercises sheet.
+* Starter code is available here: https://go.wisc.edu/zdd3l6
+
+---
+
+### In-Class Exercise [10 - 1]
+
+* Submit (https://go.wisc.edu/00z9v7) an answer to [Code Analysis] from the
+exercises sheet.
+
+[Code Analysis] Pick one code example from this week’s lecture notes. Provide a
+3 - 4 sentence summary of the overall implementation strategy. Then, add
+comments every 10 - 15 lines describing what each section of code is doing. If
+there are parts that you do not understand, add a ??? next to it (we will review
+these in the next lecture).
+
+---
+
+### April 6, 2024
+
+1. In-Class Discussion [10 - 2]
+1. In-Class Demo [10 - 2]
+1. In-Class Exercise [10 - 2]
+
+---
+
+### Announcements
+
+1. Homework 3 - April 10
+1. Project and Portfolio Peer Reviews - April 10
+
+---
+
+### Exercise Review
+
+The main themes from Exercise 10-1 were:
+
+---
+
+### Today
+
+By the end of the class, you should be able to...
+
+   * Using UMAP, "map" the rows of a high-dimensional, numerical dataset
+   * Interpret a UMAP display
+   
+---
+
+### Nonlinear Dimensionality Reduction Example
+
+This example is from "A Topography of Climate Change Research" by Callaghan et
+al. (2020). They also used an initial topic modeling step.
+
+&lt;img src="figure/climate-tomography-1.png" width="400" style="display: block; margin: auto;" /&gt;
+
+---
+
+### Nonlinear Dimensionality Reduction Example
+
+Each panel corresponds to the fastest growing topics within different IPCC
+working groups.
+
+&lt;img src="figure/climate-tomography-2.png" width="1000" style="display: block; margin: auto;" /&gt;
+
+---
+
+### In-Class Discussion [10 - 2]
+
+With your group, work through [How to Misread UMAP]: https://go.wisc.edu/y6pwjf 
+
+---
+
+### In-Class Exercise [10 - 2]
+
+* I will pause at a few points during the demo today, and I want you to guess
+what the next step in the analysis is.
+* At the end of the demo, you can summarize your guesses and submit them:
+* You should be able to make your submission before the end of class.
+
+---
+
+### In-Class Demo [10 - 2]
+
+* We will work through [Single-Cell Genomics] in the exercises sheet.
+* Starter code is available here: https://go.wisc.edu/0c4531
+
+---
+
+### April 11, 2024
+
+1. In-Class Discussion [11 - 1]
+1. In-Class Demo [11 - 1]
+
+---
+
+### Announcements
+
+1. Homework 4 due May 1
+1. Project Milestone 3 due May 7
+
+---
+
+### In-Class Discussion [11 - 1]
+
+With your group, respond to [Interpreting Topic Models]: https://go.wisc.edu/2asv4g	
+
+---
+
+### In-Class Demo [11 - 1]
+
+* We will work through [Topics in Pride and Prejudice] in the exercises sheet.
+* Starter code is available here: https://go.wisc.edu/6t88i8
+
+---
+
+### April 13, 2024
+
+1. In-Class Discussion [11 - 2]
+1. In-Class Demo [11 - 2]
+1. In-Class Exercise [11 - 2]
+
+---
+
+### Announcements
+
+1. Homework 4 due May 1
+1. Project Milestone 3 due May 7
+
+---
+
+### In-Class Discussion [11 - 2]
+
+To prepare for today's in-class demo, respond to these prompts with your group:
+https://go.wisc.edu/ckl6zb
+
+---
+
+### In-Class Demo [11 - 2]
+
+* We will work through [Hotel Reviews] in the exercises sheet.
+* Starter code is available here: https://go.wisc.edu/0c4531
+
+---
+
+### In-Class Exercise [11 - 2]
+
+Individually, write a short discussion (one paragraph) responding to the prompt in [Beauty and Functionality] from the exercise sheet: https://go.wisc.edu/y1153i	
+
+---
+
+### April 18, 2024
+
+1. In-Class Discussion [12 - 1]
+1. In-Class Demo [12 - 1]
+1. In-Class Exercise [12 - 1]
+
+---
+
+### Announcements
+
+1. Homework 4 due May 1
+1. Project Milestone 3 due May 7
+1. Homework 2 grades will be released by April 25
+
+---
+
+### In-Class Discussion [12 - 1]
+
+With your group, respond to [Model Visualization Purpose]: https://go.wisc.edu/91cj7y
+
+---
+
+### In-Class Exercise [12 - 1]
+
+* I will pause at a few points during the demo today, and I want you to guess
+what the next step in the analysis is.
+* At the end of the demo, you can summarize your guesses and submit them:
+* You should be able to make your submission before the end of class.
+
+---
+
+### In-Class Demo [12 - 1]
+
+We will work through [Gender Pay Gap] in the exercise sheet:
+https://go.wisc.edu/yrb899
+
+---
+
+### April 20, 2024
+
+1. In-Class Discussion [12 - 2]
+1. In-Class Demo [12 - 2]
+1. In-Class Exercise [12 - 2]
+
+---
+
+### Announcements
+
+1. Homework 4 due May 1
+1. Project Milestone 3 due May 7
+
+---
+
+### In-Class Discussion [12 - 2]
+
+With your group, respond to [3 - 2 - 1]: https://go.wisc.edu/yaf303
+
+---
+
+### In-Class Demo [12 - 2]
+
+We will work through [Evolutionary Ecology] in the exercise sheet: https://go.wisc.edu/68302k
+
+---
+
+### In-Class Exercise [12 - 2]
+
+With your team, respond to the prompt below: https://go.wisc.edu/jm8s7q
+
+[Concept Map] Prepare a concept map to summarize the last week of reading
+material. An effective submission will include a thorough coverage of both
+abstract concepts and practical examples, summarized concisely into short
+phrases. It will also include well-justified links between nodes, with text
+explanations for edges whose interpretation might not be obvious at first.
+
+---
+
+### April 26, 2024
+
+1. In-Class Discussion [13 - 1]
+1. In-Class Demo [13 - 1]
+1. In-Class Exercise [13 - 1]
+
+---
+
+### Announcements
+
+1. Homework 4 due May 1
+1. Project Milestone 3 due May 7
+1. Project Presentations on May 2, 4 (~ 8.5 minutes)
+
+---
+
+### Review
+
+_When would prior and posterior predictions be used?_
+
+* Whenever you are using a Bayesian model and want to compare prior distributions / likelihood models.
+* Examples: [Political science](https://www.annualreviews.org/doi/10.1146/annurev.polisci.7.012003.104706), [genetics](https://www.pnas.org/doi/10.1073/pnas.1412301112), [psychology](https://www.mskcc.org/sites/default/files/node/176881/documents/2019-06-03-16-06-14/li_schofield_gonen_dptutorial19.pdf), [evolution](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3985471/), [epidemiology](https://www.asc.ohio-state.edu/goel.1/STAT825/PAPERS/CressiePPMC.pdf)
+  - Typically problems where there is interest in a compact generative model.
+ 
+_Can UMAP be said to be a dimensionality reduction method for 2D visualization?_
+
+This is an appropriate interpretation, but be aware that you can reduce to more
+than just two dimensions with UMAP.
+
+---
+
+### Review
+
+Profiles for linear model and random forest:
+
+![](https://krisrs1128.github.io/stat436_s24/posts/2022-12-27-week12-2/2022-12-27-week12-2_files/figure-html5/unnamed-chunk-6-1.png)
+---
+
+### Topic Modeling
+
+How does it learn topics / what is the mathematical foundation?
+
+.pull-left[
+* [Variational Inference: A Review for Statisticians](https://arxiv.org/pdf/1601.00670.pdf)
+* [Using SVD for Topic Modeling](https://doi.org/10.1080/01621459.2022.2123813)
+]
+
+.pull-right[
+
+]
+
+---
+
+### In-Class Discussion [13 - 1]
+
+With your group, respond to [Tensorflow Playground]: https://go.wisc.edu/p1yo87
+
+---
+
+### In-Class Demo [13 - 1]
+
+We will work through [Deep Learning as a Mixture of Separating Planes] in the exercise sheet: https://go.wisc.edu/41ll54
+
+---
+
+### In-Class Exercise [13 - 1]
+
+Submission: https://go.wisc.edu/e2r259
+
+[Project Planning] Make a plan for your project's next steps. This should cover
+both how you will make your visualizations and how you will prepare your
+presentation/report?
+
+* What are the main categories for the tasks that remain?
+* For each category that you listed, what are the immediate next steps?
+* Who is responsible for which part? How will you coordinate?
+
+---
+
+
+### April 28, 2024
+
+1. In-Class Discussion [13 - 2]
+1. In-Class Demo [13 - 2]
+
+---
+
+### Announcements
+
+1. Homework 4 due May 1
+1. Project Milestone 3 due May 7
+1. Project Presentations on May 2, 4
+  - Can be a walkthrough/demo, rather than slides
+  - Code and visualizations don't have to be finalized
+1.  Nightingale Magazine Visualization Competition
+
+---
+
+### In-Class Discussion [13 - 2]
+
+With your group, respond to [Top Ten Worst Graphs]: https://go.wisc.edu/41ox43
+
+---
+
+
+### In-Class Demo [13 - 2]
+
+* Related: [UMAP Image Collection](https://observablehq.com/@cpietsch/explorawolke-fisheye-view-snappy)
+
+We will work through [Histopathology Embeddings] in the exercise sheet: https://go.wisc.edu/s4i0lb
+
+---
+
+### May 2, 2024: Announcements
+
+* Today's team slides are on Canvas
+* Leave questions and responses about the presentations here:
+https://go.wisc.edu/v8265h
+* If you would like one of  your portfolio submissions to be hosted on the
+course website, please complete this form (https://go.wisc.edu/13vey7) by May 15
+
+---
+
+### May 4, 2024: Annoucements 
+
+* Today's team slides are on Canvas
+* Leave questions and responses about the presentations here:
+https://go.wisc.edu/v8265h
+* If you would like one of  your portfolio submissions to be hosted on the
+course website, please complete this form (https://go.wisc.edu/13vey7) by May 15
+
+---
+
+### Conclusion
+
+1. I have been impressed by your curiosity in the portfolios and projects.
+1. Beyond the specific topics, remember the learning techniques: examples,
+tinkering, and visual explanations.
+1. There are many data analysis problems out there and too many people who fear
+statistics -- use your visualization skills to help!
+
+
+
+```r
+x &lt;- data.frame(
+  x = rnorm(100),
+  y = rnorm(100, 0, 5)
+)
+ggplot(x) +
+  geom_point(aes(x, y)) +
+  coord_fixed()
+```
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-18-1.png" width="650" style="display: block; margin: auto;" /&gt;
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
