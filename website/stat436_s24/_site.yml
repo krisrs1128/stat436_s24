@@ -1,9 +1,9 @@
 name: "stat436_s23"
-title: "STAT 436 (Spring 2023)"
+title: "STAT 436 (Spring 2024)"
 description: |
-  STAT 436 (Spring 2023)
+  STAT 436 (Spring 2024)
 output_dir: "_site"
-base_url: "https://krisrs1128.github.io/stat436_s23/website/stat436_s23"
+base_url: "https://krisrs1128.github.io/stat436_s24/website/stat436_s24"
 navbar:
   right:
     - text: "Home"
