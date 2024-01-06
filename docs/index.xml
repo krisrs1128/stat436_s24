@@ -138,6 +138,39 @@ downstream visualization.</description>
       <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
     </item>
     <item>
+      <title>Time Series Patterns</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week06-02</link>
+      <description>Vocabulary for describing visual structure in time series.</description>
+      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week06-02</guid>
+      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week06-02/2024-12-27-week06-02_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>Seasonal Plots</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week06-03</link>
+      <description>Approaches for visualizing seasonality.</description>
+      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week06-03</guid>
+      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Cross and Auto-Correlation</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week06-04</link>
+      <description>Summaries of relationships between and within time series.</description>
+      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week06-04</guid>
+      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Collections of Time Series</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week06-05</link>
+      <description>Navigating across related time series.</description>
+      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week06-05</guid>
+      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
+    </item>
+    <item>
       <title>Introduction to Networks and Trees</title>
       <dc:creator>Kris Sankaran</dc:creator>
       <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week08-01</link>
@@ -210,39 +243,6 @@ downstream visualization.</description>
       <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week09-05</link>
       <description>How reliable are the results of a clustering?</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week09-05</guid>
-      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Time Series Patterns</title>
-      <dc:creator>Kris Sankaran</dc:creator>
-      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week06-02</link>
-      <description>Vocabulary for describing visual structure in time series.</description>
-      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week06-02</guid>
-      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
-      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week06-02/2024-12-27-week06-02_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
-    </item>
-    <item>
-      <title>Seasonal Plots</title>
-      <dc:creator>Kris Sankaran</dc:creator>
-      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week06-03</link>
-      <description>Approaches for visualizing seasonality.</description>
-      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week06-03</guid>
-      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Cross and Auto-Correlation</title>
-      <dc:creator>Kris Sankaran</dc:creator>
-      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week06-04</link>
-      <description>Summaries of relationships between and within time series.</description>
-      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week06-04</guid>
-      <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Collections of Time Series</title>
-      <dc:creator>Kris Sankaran</dc:creator>
-      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week06-05</link>
-      <description>Navigating across related time series.</description>
-      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week06-05</guid>
       <pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate>
     </item>
     <item>
