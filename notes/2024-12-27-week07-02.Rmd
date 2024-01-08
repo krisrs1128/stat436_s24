@@ -32,7 +32,7 @@ data. Specifically, there are 7 types of geometric information that are commonly
 used, as given in the figure below.
 
 ```{r}
-include_graphics("../activities/figure/sf-classes.png")
+include_graphics("https://krisrs1128.github.io/stat479/posts/2021-03-02-week7-2/sf-classes.png")
 ```
 
 3. We can construct these geometric objects from scratch. For example, starting
