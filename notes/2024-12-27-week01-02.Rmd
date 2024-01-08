@@ -15,8 +15,7 @@ library(knitr)
 knitr::opts_chunk$set(cache = TRUE, message = FALSE, warning = FALSE, echo = TRUE, fig.height = 5, retina = 4)
 ```
 
-
-_[Reading](https://clauswilke.com/dataviz/aesthetic-mapping.html), [Recording](https://mediaspace.wisc.edu/media/Week%201%20%5B2%5D%20A%20Vocabulary%20of%20Marks/1_1tjacb3v),  [Rmarkdown](https://github.com/krisrs1128/stat479_s22/blob/main/_posts/2022-01-23-week01-02/week01-02.Rmd)_
+_[Reading](https://clauswilke.com/dataviz/aesthetic-mapping.html), [Recording](https://mediaspace.wisc.edu/media/Week%201%20%5B2%5D%20A%20Vocabulary%20of%20Marks/1_1tjacb3v),  [Rmarkdown](https://github.com/krisrs1128/stat436_s24/blob/main/notes/2024-12-27-week01-02.Rmd)_
 
 1. The choice of encodings can have a strong effect on (1) the types of
 comparisons that a visualization suggests and (2) the chance that readers leave with complete and accurate conclucions.

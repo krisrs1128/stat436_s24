@@ -11,7 +11,7 @@ output:
     self_contained: false
 ---
 
-[Recording](https://mediaspace.wisc.edu/media/Week+2+-+1A+Elements+of+a+Shiny+App/1_rlzn96xp), [Code](https://github.com/krisrs1128/stat679_code/blob/main/notes/week2-1.Rmd)
+[Recording](https://mediaspace.wisc.edu/media/Week+2+-+1A+Elements+of+a+Shiny+App/1_rlzn96xp), [Code](https://github.com/krisrs1128/stat436_s24/blob/main/notes/2024-12-27-week04-01.Rmd)
 
 ```{r, echo = FALSE}
 library(knitr)

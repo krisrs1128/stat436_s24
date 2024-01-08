@@ -16,7 +16,7 @@ library(knitr)
 knitr::opts_chunk$set(cache = FALSE, message = FALSE, warning = FALSE, echo = TRUE, fig.height = 5, retina = 4)
 ```
 
-_[Reading](https://emilyriederer.netlify.app/post/crosstalk/), [Recording](https://mediaspace.wisc.edu/media/t/1_h7dh543g),  [Rmarkdown](https://github.com/krisrs1128/stat479_s22/blob/main/_posts/2022-02-16-week05-04/week05-04.Rmd)_
+_[Reading](https://emilyriederer.netlify.app/post/crosstalk/), [Recording](https://mediaspace.wisc.edu/media/t/1_h7dh543g),  [Rmarkdown](https://github.com/krisrs1128/stat436_s24/blob/main/notes/2024-12-27-week05-04.Rmd)_
 
 ```{r}
 library(ggplot2)

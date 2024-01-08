@@ -3,14 +3,13 @@ title: Geospatial Interaction
 layout: post
 description: |
   Idioms for interacting with geographic data.
-date: 2023-01-10
 output:
   distill::distill_article:
     self_contained: false
   always_allow_html: true
 ---
 
-[Code](https://github.com/krisrs1128/stat436_s23/blob/main/notes/2022-12-27-week07-05.Rmd), [Recording](https://mediaspace.wisc.edu/media/Week%208%20-%204%3A%20Geospatial%20Interaction/1_e0i2pm2s)
+[Code](https://github.com/krisrs1128/stat436_s24/blob/main/notes/2024-12-27-week07-05.Rmd), [Recording](https://mediaspace.wisc.edu/media/Week%208%20-%204%3A%20Geospatial%20Interaction/1_e0i2pm2s)
 
 ```{r, echo = FALSE}
 library(knitr)

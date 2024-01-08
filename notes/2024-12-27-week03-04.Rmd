@@ -15,8 +15,7 @@ library(knitr)
 knitr::opts_chunk$set(cache = TRUE, message = FALSE, warning = FALSE, echo = TRUE, fig.height = 5, retina = 4)
 ```
 
-
-_[Reading](https://clauswilke.com/dataviz/multi-panel-figures.html), [Recording](https://mediaspace.wisc.edu/media/Week%203%20%5B4%5D%20Patchwork/1_59ftmcdh),  [Rmarkdown](https://github.com/krisrs1128/stat479_s22/blob/main/_posts/2022-02-06-week03-04/week03-04.Rmd)_
+_[Reading](https://clauswilke.com/dataviz/multi-panel-figures.html), [Recording](https://mediaspace.wisc.edu/media/Week%203%20%5B4%5D%20Patchwork/1_59ftmcdh),  [Rmarkdown](https://github.com/krisrs1128/stat436_s24/blob/main/notes/2024-12-27-week03-04.Rmd)_
 
 1. In the last set of notes we discussed principles for designing effective
 compound figures. In these notes, we'll review the `patchwork` R package, which

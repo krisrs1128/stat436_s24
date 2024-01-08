@@ -12,7 +12,7 @@ output:
 ---
 
 
-_[Reading](https://r4ds.had.co.nz/tidy-data.html), [Recording](https://mediaspace.wisc.edu/media/Week%204%20%5B1%5D%20Tidy%20Data/1_13526lye), [Rmarkdown](https://raw.githubusercontent.com/krisrs1128/stat479/master/_posts/2021-01-27-week4-1/week4-1.Rmd)_
+_[Reading](https://r4ds.had.co.nz/tidy-data.html), [Recording](https://mediaspace.wisc.edu/media/Week%204%20%5B1%5D%20Tidy%20Data/1_13526lye), [Rmarkdown](https://github.com/krisrs1128/stat436_s24/blob/main/notes/2024-12-27-week02-01.Rmd)_
 
 
 ```{r setup, include=FALSE}

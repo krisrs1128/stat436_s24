@@ -26,7 +26,7 @@ th <- theme_minimal() +
 theme_set(th)
 ```
 
-_[Reading](https://clauswilke.com/dataviz/multi-panel-figures.html), [Recording](https://mediaspace.wisc.edu/media/Week%203%20%5B3%5D%20Compound%20Figures/1_0uwq18nf), [Rmarkdown](https://github.com/krisrs1128/stat479_s22/blob/main/_posts/2022-02-06-week03-03/week03-03.Rmd)_
+_[Reading](https://clauswilke.com/dataviz/multi-panel-figures.html), [Recording](https://mediaspace.wisc.edu/media/Week%203%20%5B3%5D%20Compound%20Figures/1_0uwq18nf), [Rmarkdown](https://github.com/krisrs1128/stat436_s24/blob/main/notes/2024-12-27-week03-03.Rmd)_
 
 1. Faceting is useful whenever we want different rows of the data to appear in
 different panels. What if we want to compare different columns, or work with

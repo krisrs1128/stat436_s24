@@ -11,7 +11,7 @@ output:
     self_contained: false
 ---
 
-_[Reading](https://r4ds.had.co.nz/tidy-data.html), [Recording](https://mediaspace.wisc.edu/media/Week%204%20%5B2%5D%20Pivoting/1_dp7cqka3), [Rmarkdown](https://raw.githubusercontent.com/krisrs1128/stat479/master/_posts/2021-01-27-week4-2/week4-2.Rmd)_
+_[Reading](https://r4ds.had.co.nz/tidy-data.html), [Recording](https://mediaspace.wisc.edu/media/Week%204%20%5B2%5D%20Pivoting/1_dp7cqka3), [Rmarkdown](https://github.com/krisrs1128/stat436_s24/blob/main/notes/2024-12-27-week02-02.Rmd)_
 
 
 ```{r setup, include=FALSE}

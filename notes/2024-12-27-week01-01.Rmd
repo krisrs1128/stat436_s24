@@ -16,7 +16,7 @@ library("knitr")
 knitr::opts_chunk$set(cache = FALSE, message = FALSE, warning = FALSE, echo = TRUE)
 ```
 
-_[Reading](https://rafalab.github.io/dsbook/ggplot2.html), [Recording](https://mediaspace.wisc.edu/media/1_w7aw5yln),  [Rmarkdown](https://github.com/krisrs1128/stat479_s22/blob/main/_posts/2022-01-23-week01-01/week01-01.Rmd)_
+_[Reading](https://rafalab.github.io/dsbook/ggplot2.html), [Recording](https://mediaspace.wisc.edu/media/1_w7aw5yln),  [Rmarkdown](https://github.com/krisrs1128/stat436_s24/blob/main/notes/2024-12-27-week01-01.Rmd)_
 
 [ggplot2](https://ggplot2.tidyverse.org/) is an R implementation of the _Grammar
 of Graphics_. The idea is to define the basic "words" from which visualizations
