@@ -1,7 +1,7 @@
 ---
 title: "Final Takeaways"
 description: | 
-  Some major themes from STAT 479, in a nutshell.
+  Some major themes from STAT 436, in a nutshell.
 author:
   - name: Kris Sankaran
     affiliation: UW Madison
@@ -9,7 +9,6 @@ layout: post
 output:
   distill::distill_article:
     self_contained: false
-date: 2022-12-28
 ---
 
 ```{r setup, include=FALSE}
@@ -17,7 +16,7 @@ library("knitr")
 opts_chunk$set(cache = FALSE, message = FALSE, warning = FALSE, echo = TRUE)
 ```
 
-_[Recording](https://mediaspace.wisc.edu/media/Week%2014%20%5B1%5D%20Final%20Takeaways/1_g0ijyqpn), [Rmarkdown](https://github.com/krisrs1128/stat479/blob/master/_posts/2021-04-23-week14-1/week14-1.Rmd)_
+_[Recording](https://mediaspace.wisc.edu/media/Week%2014%20%5B1%5D%20Final%20Takeaways/1_g0ijyqpn), [Rmarkdown](https://github.com/krisrs1128/stat436_s24/blob/main/notes/2024-12-27-week14-1.Rmd)_
 
 1. We've covered many practical visualization strategies in this course.
 However, I hope a few overarching themes have come across as well. In these

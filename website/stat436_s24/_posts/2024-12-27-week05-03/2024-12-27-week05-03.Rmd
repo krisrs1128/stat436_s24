@@ -9,7 +9,7 @@ output:
 ---
 
 
-[Code](https://github.com/krisrs1128/stat679_code/blob/main/notes/week3-3.Rmd), [Recording](https://mediaspace.wisc.edu/media/Week%203%20-%203%3A%20Linked%20Brushing/1_jdtr6xg6)
+[Code](https://github.com/krisrs1128/stat436_s24/blob/main/notes/2024-12-27-week05-03.Rmd), [Recording](https://mediaspace.wisc.edu/media/Week%203%20-%203%3A%20Linked%20Brushing/1_jdtr6xg6)
 
 ```{r, echo = FALSE}
 library(knitr)

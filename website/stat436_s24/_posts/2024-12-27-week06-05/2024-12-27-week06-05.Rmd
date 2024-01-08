@@ -15,7 +15,7 @@ output:
 knitr::opts_chunk$set(cache = FALSE, message = FALSE, warning = FALSE, echo = TRUE)
 ```
 
-_[Reading](https://otexts.com/fpp3/exploring-australian-tourism-data.html), [Recording](https://mediaspace.wisc.edu/media/Week%206%20%5B5%5D%20Collections%20of%20Time%20Series/1_413ogf8e), [Rmarkdown](https://raw.githubusercontent.com/krisrs1128/stat479/master/_posts/2021-02-23-week6-5/week6-5.Rmd)_
+_[Reading](https://otexts.com/fpp3/exploring-australian-tourism-data.html), [Recording](https://mediaspace.wisc.edu/media/Week%206%20%5B5%5D%20Collections%20of%20Time%20Series/1_413ogf8e), [Rmarkdown](https://github.com/krisrs1128/stat436_s24/blob/main/notes/2024-12-27-week06-05.Rmd)_
 
 ```{r}
 library(broom)

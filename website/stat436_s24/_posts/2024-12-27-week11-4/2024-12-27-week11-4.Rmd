@@ -9,7 +9,6 @@ layout: post
 output:
   distill::distill_article:
     self_contained: false
-date: 2022-12-31
 ---
 
 ```{r setup, include=FALSE}
@@ -17,7 +16,7 @@ library("knitr")
 opts_chunk$set(cache = TRUE, message = FALSE, warning = FALSE, echo = TRUE)
 ```
 
-_[Reading](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1006599), [Recording](https://mediaspace.wisc.edu/media/Week%2011%20%5B4%5D%20Topic%20Modeling%20Case%20Study/1_xorwv5pn), [Rmarkdown](https://github.com/krisrs1128/stat479/blob/master/_posts/2021-03-30-week11-4/week11-4.Rmd)_
+_[Reading](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1006599), [Recording](https://mediaspace.wisc.edu/media/Week%2011%20%5B4%5D%20Topic%20Modeling%20Case%20Study/1_xorwv5pn), [Rmarkdown](https://github.com/krisrs1128/stat436_s24/blob/main/notes/2024-12-27-week11-4.Rmd)_
 
 ```{r}
 library(tidyverse)

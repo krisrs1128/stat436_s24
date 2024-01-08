@@ -9,7 +9,6 @@ layout: post
 output:
   distill::distill_article:
     self_contained: false
-date: 2022-12-29
 ---
 
 ```{r setup, include=FALSE}
@@ -17,7 +16,7 @@ library("knitr")
 opts_chunk$set(cache = FALSE, message = FALSE, warning = FALSE, echo = TRUE)
 ```
 
-_[Reading](https://distill.pub/2016/handwriting/), [Recording](https://mediaspace.wisc.edu/media/Week%2013%20%5B1%5D%20%20Introduction%20to%20Feature%20Learning/1_7qiw6ydn), [Rmarkdown](https://github.com/krisrs1128/stat479/blob/master/_posts/2021-04-12-week13-1/week13-1.Rmd)_
+_[Reading](https://distill.pub/2016/handwriting/), [Recording](https://mediaspace.wisc.edu/media/Week%2013%20%5B1%5D%20%20Introduction%20to%20Feature%20Learning/1_7qiw6ydn), [Rmarkdown](https://github.com/krisrs1128/stat436_s24/blob/main/notes/2024-12-27-week13-1.Rmd)_
 
 ```{r}
 library(keras)

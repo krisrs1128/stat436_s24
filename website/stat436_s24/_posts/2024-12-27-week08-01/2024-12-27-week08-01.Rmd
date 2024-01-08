@@ -16,7 +16,7 @@ library("knitr")
 opts_chunk$set(cache = FALSE, message = FALSE, warning = FALSE, echo = TRUE)
 ```
 
-_[Reading 1](https://search.library.wisc.edu/catalog/9911196629502121) (Chapter 9), [Reading 2](https://web.stanford.edu/class/bios221/book/Chap-Graphs.html), [Recording](https://mediaspace.wisc.edu/media/Week%208%20%5B1%5D%20Introduction%20to%20Networks%20and%20Trees/1_qie3eehm), [Rmarkdown](https://raw.githubusercontent.com/krisrs1128/stat479/master/_posts/2021-03-06-week8-1/week8-1.Rmd)_
+_[Reading 1](https://search.library.wisc.edu/catalog/9911196629502121) (Chapter 9), [Reading 2](https://web.stanford.edu/class/bios221/book/Chap-Graphs.html), [Recording](https://mediaspace.wisc.edu/media/Week%208%20%5B1%5D%20Introduction%20to%20Networks%20and%20Trees/1_qie3eehm), [Rmarkdown](https://github.com/krisrs1128/stat436_s24/blob/main/notes/2024-12-27-week08-01.Rmd)_
 
 ```{r}
 library(tidyverse)

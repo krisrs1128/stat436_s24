@@ -9,7 +9,6 @@ layout: post
 output:
   distill::distill_article:
     self_contained: false
-date: 2022-12-31
 ---
 
 ```{r setup, include=FALSE}
@@ -17,7 +16,7 @@ library("knitr")
 opts_chunk$set(cache = TRUE, message = FALSE, warning = FALSE, echo = TRUE)
 ```
 
-_Reading [1](https://www.tidytextmining.com/topicmodeling.html) and [2](https://github.com/krisrs1128/stat479/blob/master/_posts/2021-03-30-week11-3/week11-3.Rmd), [Recording](https://mediaspace.wisc.edu/media/Week%2011%20%5B3%5D%20Visualizing%20Topic%20Models/1_t6bn2guv), [Rmarkdown](https://github.com/krisrs1128/stat479/blob/master/_posts/2021-03-30-week11-3/week11-3.Rmd)_
+_Reading [1](https://www.tidytextmining.com/topicmodeling.html) and [2](https://github.com/krisrs1128/stat479/blob/master/_posts/2021-03-30-week11-3/week11-3.Rmd), [Recording](https://mediaspace.wisc.edu/media/Week%2011%20%5B3%5D%20Visualizing%20Topic%20Models/1_t6bn2guv), [Rmarkdown](https://github.com/krisrs1128/stat436_s24/blob/main/notes/2024-12-27-week11-3.Rmd)_
 
 ```{r}
 library(tidyverse)

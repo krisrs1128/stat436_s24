@@ -15,7 +15,7 @@ output:
 knitr::opts_chunk$set(cache = FALSE, message = FALSE, warning = FALSE, echo = TRUE)
 ```
 
-_[Reading](https://search.library.wisc.edu/catalog/9911196629502121) (Chapter 9), [Recording](https://mediaspace.wisc.edu/media/Week%208%20%5B2%5D%20Node%20-%20Link%20Diagrams/1_3kbgjvps), [Rmarkdown](https://raw.githubusercontent.com/krisrs1128/stat479/master/_posts/2021-03-06-week8-2/week8-2.Rmd)_
+_[Reading](https://search.library.wisc.edu/catalog/9911196629502121) (Chapter 9), [Recording](https://mediaspace.wisc.edu/media/Week%208%20%5B2%5D%20Node%20-%20Link%20Diagrams/1_3kbgjvps), [Rmarkdown](https://github.com/krisrs1128/stat436_s24/blob/main/notes/2024-12-27-week08-02.Rmd)_
 
 ```{r}
 library(tidyverse)

@@ -8,7 +8,7 @@ output:
 ---
 
 
-[Recording](https://mediaspace.wisc.edu/media/Week+2+-+3A+IMDB+Shiny+Application/1_yitx0198), [Code](https://github.com/krisrs1128/stat679_code/blob/main/notes/week2-3.Rmd)
+[Recording](https://mediaspace.wisc.edu/media/Week+2+-+3A+IMDB+Shiny+Application/1_yitx0198), [Code](https://github.com/krisrs1128/stat436_s24/blob/main/notes/2024-12-27-week04-03.Rmd)
 
 ```{r, echo = FALSE}
 library(knitr)

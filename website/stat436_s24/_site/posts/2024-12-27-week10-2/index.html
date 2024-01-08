@@ -95,8 +95,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <link rel="canonical" href="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-2/"/>
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2023-01-01"/>
-<meta property="article:created" itemprop="dateCreated" content="2023-01-01"/>
+<meta property="article:published" itemprop="datePublished" content="2024-01-07"/>
+<meta property="article:created" itemprop="dateCreated" content="2024-01-07"/>
 <meta name="article:author" content="Kris Sankaran"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -116,20 +116,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
 <meta name="citation_title" content="STAT 436 (Spring 2024): Principal Components Analysis I"/>
 <meta name="citation_fulltext_html_url" content="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-2/"/>
-<meta name="citation_online_date" content="2023/01/01"/>
-<meta name="citation_publication_date" content="2023/01/01"/>
+<meta name="citation_online_date" content="2024/01/07"/>
+<meta name="citation_publication_date" content="2024/01/07"/>
 <meta name="citation_author" content="Kris Sankaran"/>
 <meta name="citation_author_institution" content="UW Madison"/>
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","layout","output","date","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Principal Components Analysis I"]},{"type":"character","attributes":{},"value":["Linear dimensionality reduction using PCA."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Kris Sankaran"]},{"type":"character","attributes":{},"value":["UW Madison"]}]}]},{"type":"character","attributes":{},"value":["post"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["2023-01-01"]},{"type":"character","attributes":{},"value":["https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-2/"]},{"type":"character","attributes":{},"value":["https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-2/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","layout","output","date","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Principal Components Analysis I"]},{"type":"character","attributes":{},"value":["Linear dimensionality reduction using PCA."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Kris Sankaran"]},{"type":"character","attributes":{},"value":["UW Madison"]}]}]},{"type":"character","attributes":{},"value":["post"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["01-07-2024"]},{"type":"character","attributes":{},"value":["https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-2/"]},{"type":"character","attributes":{},"value":["https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-2/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"NULL"}
+  {"type":"character","attributes":{},"value":["2024-12-27-week10-2_files/anchor-4.2.2/anchor.min.js","2024-12-27-week10-2_files/bowser-1.9.3/bowser.min.js","2024-12-27-week10-2_files/distill-2.2.21/template.v2.js","2024-12-27-week10-2_files/header-attrs-2.25/header-attrs.js","2024-12-27-week10-2_files/jquery-3.6.0/jquery-3.6.0.js","2024-12-27-week10-2_files/jquery-3.6.0/jquery-3.6.0.min.js","2024-12-27-week10-2_files/jquery-3.6.0/jquery-3.6.0.min.map","2024-12-27-week10-2_files/popper-2.6.0/popper.min.js","2024-12-27-week10-2_files/tippy-6.2.7/tippy-bundle.umd.min.js","2024-12-27-week10-2_files/tippy-6.2.7/tippy-light-border.css","2024-12-27-week10-2_files/tippy-6.2.7/tippy.css","2024-12-27-week10-2_files/tippy-6.2.7/tippy.umd.min.js","2024-12-27-week10-2_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2138,7 +2138,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Principal Components Analysis I","description":"Linear dimensionality reduction using PCA.","authors":[{"author":"Kris Sankaran","authorURL":"#","affiliation":"UW Madison","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-01-01T00:00:00.000-08:00","citationText":"Sankaran, 2023"}
+{"title":"Principal Components Analysis I","description":"Linear dimensionality reduction using PCA.","authors":[{"author":"Kris Sankaran","authorURL":"#","affiliation":"UW Madison","affiliationURL":"#","orcidID":""}],"publishedDate":"2024-01-07T00:00:00.000-08:00","citationText":"Sankaran, 2024"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2171,11 +2171,11 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="d-byline">
   Kris Sankaran  (UW Madison)
   
-<br/>2023-01-01
+<br/>01-07-2024
 </div>
 
 <div class="d-article">
-<p><em><a href="https://juliasilge.com/blog/cocktail-recipes-umap/">Reading</a>, <a href="https://mediaspace.wisc.edu/media/Week%2010%20%5B2%5D%20Principal%20Components%20Analysis%20I/1_xc5q0v9t">Recording</a>, <a href="https://github.com/krisrs1128/stat479/blob/master/_posts/2021-03-24-week10-2/week10-2.Rmd">Rmarkdown</a></em></p>
+<p><em><a href="https://juliasilge.com/blog/cocktail-recipes-umap/">Reading</a>, <a href="https://mediaspace.wisc.edu/media/Week%2010%20%5B2%5D%20Principal%20Components%20Analysis%20I/1_xc5q0v9t">Recording</a>, <a href="https://github.com/krisrs1128/stat436_s24/blob/main/notes/2024-12-27-week10-2.Rmd">Rmarkdown</a></em></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidymodels.tidymodels.org'>tidymodels</a></span><span class='op'>)</span></span>
@@ -2305,21 +2305,21 @@ to visualize and interpret these results in the next lecture.</p></li>
 </ol>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>tidy</span><span class='op'>(</span><span class='va'>pca_prep</span>, <span class='fl'>2</span><span class='op'>)</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='va'>pca_prep</span>, <span class='fl'>2</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code># A tibble: 1,600 x 4
    terms             value component id       
    &lt;chr&gt;             &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;    
- 1 light_rum        0.163  PC1       pca_iDznR
- 2 lemon_juice     -0.0140 PC1       pca_iDznR
- 3 lime_juice       0.224  PC1       pca_iDznR
- 4 sweet_vermouth  -0.0661 PC1       pca_iDznR
- 5 orange_juice     0.0308 PC1       pca_iDznR
- 6 powdered_sugar  -0.476  PC1       pca_iDznR
- 7 dark_rum         0.124  PC1       pca_iDznR
- 8 cranberry_juice  0.0954 PC1       pca_iDznR
- 9 pineapple_juice  0.119  PC1       pca_iDznR
-10 bourbon_whiskey  0.0963 PC1       pca_iDznR
+ 1 light_rum        0.163  PC1       pca_cUzoa
+ 2 lemon_juice     -0.0140 PC1       pca_cUzoa
+ 3 lime_juice       0.224  PC1       pca_cUzoa
+ 4 sweet_vermouth  -0.0661 PC1       pca_cUzoa
+ 5 orange_juice     0.0308 PC1       pca_cUzoa
+ 6 powdered_sugar  -0.476  PC1       pca_cUzoa
+ 7 dark_rum         0.124  PC1       pca_cUzoa
+ 8 cranberry_juice  0.0954 PC1       pca_cUzoa
+ 9 pineapple_juice  0.119  PC1       pca_cUzoa
+10 bourbon_whiskey  0.0963 PC1       pca_cUzoa
 # i 1,590 more rows</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
@@ -2343,21 +2343,21 @@ to visualize and interpret these results in the next lecture.</p></li>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>tidy</span><span class='op'>(</span><span class='va'>pca_prep</span>, <span class='fl'>2</span>, type <span class='op'>=</span> <span class='st'>"variance"</span><span class='op'>)</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='va'>pca_prep</span>, <span class='fl'>2</span>, type <span class='op'>=</span> <span class='st'>"variance"</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code># A tibble: 160 x 4
    terms    value component id       
    &lt;chr&gt;    &lt;dbl&gt;     &lt;int&gt; &lt;chr&gt;    
- 1 variance  2.00         1 pca_iDznR
- 2 variance  1.71         2 pca_iDznR
- 3 variance  1.50         3 pca_iDznR
- 4 variance  1.48         4 pca_iDznR
- 5 variance  1.37         5 pca_iDznR
- 6 variance  1.32         6 pca_iDznR
- 7 variance  1.30         7 pca_iDznR
- 8 variance  1.20         8 pca_iDznR
- 9 variance  1.19         9 pca_iDznR
-10 variance  1.18        10 pca_iDznR
+ 1 variance  2.00         1 pca_cUzoa
+ 2 variance  1.71         2 pca_cUzoa
+ 3 variance  1.50         3 pca_cUzoa
+ 4 variance  1.48         4 pca_cUzoa
+ 5 variance  1.37         5 pca_cUzoa
+ 6 variance  1.32         6 pca_cUzoa
+ 7 variance  1.30         7 pca_cUzoa
+ 8 variance  1.20         8 pca_cUzoa
+ 9 variance  1.19         9 pca_cUzoa
+10 variance  1.18        10 pca_cUzoa
 # i 150 more rows</code></pre>
 </div>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
@@ -2384,13 +2384,13 @@ to visualize and interpret these results in the next lecture.</p></li>
 <div class="appendix-bottom">
   <h3 id="citation">Citation</h3>
   <p>For attribution, please cite this work as</p>
-  <pre class="citation-appendix short">Sankaran (2023, Jan. 1). STAT 436 (Spring 2024): Principal Components Analysis I. Retrieved from https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-2/</pre>
+  <pre class="citation-appendix short">Sankaran (2024, Jan. 7). STAT 436 (Spring 2024): Principal Components Analysis I. Retrieved from https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-2/</pre>
   <p>BibTeX citation</p>
-  <pre class="citation-appendix long">@misc{sankaran2023principal,
+  <pre class="citation-appendix long">@misc{sankaran2024principal,
   author = {Sankaran, Kris},
   title = {STAT 436 (Spring 2024): Principal Components Analysis I},
   url = {https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-2/},
-  year = {2023}
+  year = {2024}
 }</pre>
 </div>
 <!--/radix_placeholder_appendices-->
