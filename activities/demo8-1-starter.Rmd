@@ -1,0 +1,49 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(warnings = FALSE, message = FALSE)
+```
+
+```{r}
+library(tidyverse)
+library(tidygraph)
+library(ggraph)
+theme_set(theme_bw())
+```
+
+[COVID-19 Phylogeny] We will visualize a phylogenetic tree of [SARS-CoV-2
+genetic sequences](https://observablehq.com/@mbostock/sars-cov-2-phylogenetic-tree).
+Each sequence has been annotated with the date and location it was found, and we
+will try to see how genetic variation covaries with these measurements.
+
+a. Build a `tbl_graph` using the
+[links](https://raw.githubusercontent.com/krisrs1128/stat479_s22/main/_slides/week8/exercises/data/covid-edges.csv)
+and
+[nodes](https://raw.githubusercontent.com/krisrs1128/stat479_s22/main/_slides/week8/exercises/data/covid-nodes.csv)
+associated with the phylogenetic tree. Note that many nodes do not have
+variables associated with them. This is because annotations are only
+available for the leaves of the
+tree, and nodes are unobserved common ancestor viruses.
+
+```{r}
+edges <- read_csv("https://raw.githubusercontent.com/krisrs1128/stat436_s24/main/data/covid-edges.csv")
+nodes <- read_csv("https://raw.githubusercontent.com/krisrs1128/stat436_s24/main/data/covid-nodes.csv")
+```
+
+b. Visualize the phylogenetic tree using the data from (a).
+
+```{r}
+#ggraph(G) +
+```
+
+c. Visually encode the date or location at which each sequence was found (for
+a challenge, try encoding both). Justify your choice of encodings -- what are
+some advantages / downsides of the approach you decided on?
+
+d. Discuss the resulting visualization. For example, how much genetic
+diversity do different countries have? Where are different waves located
+genetically?

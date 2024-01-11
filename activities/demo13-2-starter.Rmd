@@ -1,0 +1,111 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(warnings = FALSE, message = FALSE)
+```
+
+```{r}
+library(tidyverse)
+
+th <- theme_minimal() + 
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.background = element_rect(fill = "#f7f7f7"),
+    panel.border = element_rect(fill = NA, color = "#0c0c0c", size = 0.6),
+    axis.text = element_text(size = 14),
+    axis.title = element_text(size = 16),
+    legend.position = "bottom"
+  )
+theme_set(th)
+```
+
+[Histopathology Embeddings] This problem investigates the features learned by
+a residual network model trained trained to classify histopathology slides.
+Specifically, the script at [this
+link](https://colab.research.google.com/drive/1bPFz718F-YE0iUcdkm2kc0Aeg8g6-Neh?usp=sharing)
+was used to train a model to images from the Pcam [benchmark
+dataset](https://www.kaggle.com/competitions/histopathologic-cancer-detection/data).
+Each image is a tissue slide. The class labels describe whether the center $32 \times 32$ patch within the image contains any cancerous cells.
+
+In the process, we will also practice using the `reticulate` package to read in
+numpy arrays produced by the python training script linked above. This language
+interoperability makes it possible to use the packages best suited to both
+modeling (`pytorch`) and visualization (`ggplot2`).
+
+a. We have hosted a subsample of the training images at [this
+link](https://github.com/krisrs1128/stat479_s22/blob/main/_slides/week13/exercises/subset.tar.gz?raw=true).
+Their corresponding [labels](https://github.com/krisrs1128/stat479_s22/blob/main/_slides/week13/exercises/y.npy?raw=true) and [file names](https://raw.githubusercontent.com/krisrs1128/stat479_s22/main/_slides/week13/exercises/fnames.npy) are stored as numpy arrays. Visualize the raw images corresponding to 10 images from each class. _Hint: To unzip these files from the command line, you can use `tar -zxvf subset.tar.gz`_  
+
+```{python}
+import numpy as np
+fnames = np.load("fnames.npy")
+y = np.load("y.npy")
+```
+
+```{r}
+library(fs)
+library(raster)
+library(reticulate)
+library(tmap)
+
+# download the subset.tar.gz and unzip
+data_dir <- path("/Users/ksankaran/Downloads/subset/")
+ix <- which(py$y == 1)[1:10]
+```
+
+```{r}
+ix <- which(py$y == 0)[1:10]
+```
+
+b. For the subsample in part (a), we have saved the residual network
+features from the final pre-classification layer. They are available
+at [this
+link](https://github.com/krisrs1128/stat479_s22/blob/main/_slides/week13/exercises/h.npy?raw=true).
+Generate UMAP embeddings for the images based on these features, and shade
+in each sample according to its class.
+
+```{python}
+h = np.load("h.npy")
+```
+
+```{r}
+library(tidymodels)
+library(embed)
+```
+
+```{r, fig.width = 10, fig.height = 10}
+```
+
+c. Using `annotation_raster` layers from `ggplot2`, display the original
+images from (a) at the locations of the UMAP coordinates from (b). The
+correspondence between image filenames and features is given by [this
+array](https://github.com/krisrs1128/stat479_s22/blob/main/_slides/week13/exercises/fnames.npy?raw=true).
+In particular, the $i^{th}$ element of this array is the source image for
+the $i^{th}$ row of the features matrix.
+
+```{r, fig.width = 10, fig.height = 10}
+library(progress)
+pb <- progress_bar$new()
+
+s <- .1
+for (i in seq_len(nrow(coords))) {
+  im <- brick(data_dir / path(coords$file[i]))
+  p <- p + 
+    annotation_raster(
+      as.array(im) / 255, 
+      xmin = coords$UMAP1[i] - s, 
+      xmax = coords$UMAP1[i] + s, 
+      ymin = coords$UMAP2[i] - s, 
+      ymax = coords$UMAP2[i] + s
+    )
+  
+  pb$tick()
+}
+
+p
+#ggsave("~/Downloads/image.png", width = 12, height = 12, dpi = 500)
+```

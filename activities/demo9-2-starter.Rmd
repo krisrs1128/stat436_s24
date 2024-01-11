@@ -1,0 +1,104 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(warnings = FALSE, message = FALSE)
+```
+
+```{r}
+library(tidyverse)
+th <- theme_minimal() + 
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.background = element_rect(fill = "#f7f7f7"),
+    panel.border = element_rect(fill = NA, color = "#0c0c0c", size = 0.6),
+    axis.text = element_text(size = 14),
+    axis.title = element_text(size = 16),
+    legend.position = "bottom"
+  )
+theme_set(th)
+```
+
+[Taxi Trips] In this problem, we will use hierarchical clustering to find
+typical taxi trip trajectories in Porto, Portugal. The data are a subset from
+the the [ECML / PKDD 2015
+Challenge](http://www.geolink.pt/ecmlpkdd2015-challenge/dataset.html) -- the
+link provides a complete data dictionary. We have preprocessed it into two
+formats. The first
+([`wide`](https://uwmadison.box.com/shared/static/cv0lij4d9gn3s8m2k98t2ue34oz6sbj5.csv))
+includes each taxi trip on its own row, with latitude and longitude coordinates
+along the journey given as separate columns (`x_0, y_0` is the origin of the
+trip and `x_15`, `y_15` is the destination). The second
+([`long`](https://uwmadison.box.com/shared/static/098cjaetm8vy0mufq21mc8i9nue2rr2b.csv))
+format spreads each point of the journey into a separate row.
+    
+a. Filter the `long` form of the data down to trip `1389986517620000047` and
+plot its trajectory as a sequence of points.
+
+```{r}
+trips <- read_csv("https://uwmadison.box.com/shared/static/098cjaetm8vy0mufq21mc8i9nue2rr2b.csv", col_types = cols(TRIP_ID = col_character()))
+trips_wide <- read_csv("https://uwmadison.box.com/shared/static/cv0lij4d9gn3s8m2k98t2ue34oz6sbj5.csv", col_types = cols(TRIP_ID = col_character()))
+
+# test code on a subset
+trips <- trips %>%
+  filter(row_number() < 1000)
+
+trips_wide <- trips_wide %>%
+  filter(TRIP_ID %in% trips$TRIP_ID)
+```
+
+The code below filters to the required trip and uses a scatterplot to show the
+trajectory.
+
+```{r, fig.width = 5, fig.height = 2}
+trips %>%
+  filter(TRIP_ID == "1389986517620000047") %>%
+  ggplot(aes(x, y)) +
+  geom_point() +
+  coord_fixed()
+```
+
+    
+b. We could hierarchically cluster rows in either the `wide` or the `long`
+format datasets. How would the interpretation of the results differ between the
+two approaches?
+
+If we hierarchically clustered the `long` dataset, then a trip might be split
+into different clusters. The resulting clusters would be related to the
+geographical positions of each trip timepoint, rather than the shape of the
+overall trajectory.
+
+On the other hand, clustering the `wide` dataset will identify trajectories that
+have similar overall shapes. For example, we would expect this approach to
+identify main highways in the city, or common origin-destination pairs.
+
+c. Compute a hierarchical clustering of the `wide` format data, using only the
+columns starting with `x` or `y` as features.
+
+The `dist` function below computes the pairwise distances between trajectories,
+and this is then fed into a hierarchical clustering routine.
+
+```{r}
+# test the code using a subset of data
+#hclust_res <- trips_wide %>%
+#  filter(row_number() < 100)
+```
+
+d. Cut the hierarchical clustering tree so that 8 clusters are produced.
+Visualize the trajectories of the taxi trips either colored or faceted by their
+cluster.
+
+```{r, fig.cap = "An example result for problem 3(c). A small amount of jitter has been added, to make the larger highways more clearly visible.", fig.width = 8, dev = "png", dpi = 1200}
+# ggplot(trips) +
+#   geom_point(
+#     aes(x = x, y = y, col = as.factor(cluster)),
+#     size = 0.1, alpha = 0.05, position = position_jitter(w = 0.0005, h = 0.0005)
+#   ) +
+#   scale_color_brewer(palette = "Set2") +
+#   coord_fixed() +
+#   guides(color = guide_legend(override.aes = list(size = 2, alpha = 1))) +
+#   labs(x = "Longitude", y = "Latitude", col = "Cluster")
+```

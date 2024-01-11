@@ -1,0 +1,64 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(warnings = FALSE, message = FALSE)
+```
+
+```{r}
+library(tidyverse)
+library(tidymodels)
+th <- theme_minimal() + 
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.background = element_rect(fill = "#f7f7f7"),
+    panel.border = element_rect(fill = NA, color = "#0c0c0c"),
+    axis.text = element_text(size = 14),
+    axis.title = element_text(size = 16),
+    strip.text = element_text(size = 16),
+    legend.position = "bottom"
+  )
+theme_set(th)
+```
+
+[Food nutrients] This problem will use PCA to provide a low-dimensional view
+of a 14-dimensional nutritional facts
+[dataset](https://uwmadison.box.com/shared/static/nmgouzobq5367aex45pnbzgkhm7sur63.csv).
+The data were originally curated by the USDA and are regularly used in
+[visualization studies](http://bl.ocks.org/syntagmatic/raw/3150059/).
+    
+```{r}
+nutrients <- read_csv("https://uwmadison.box.com/shared/static/nmgouzobq5367aex45pnbzgkhm7sur63.csv")
+```
+    
+a. Define a tidymodels `recipe` that normalizes all nutrient features and The
+code below defines a recipe that first normalizes the predictors and then
+performs PCA.
+
+```{r}
+# pca_recipe <- 
+```
+
+b. Visualize the top 6 principal components. What types of food do you expect to
+have low or high values for PC1 or PC2?
+
+```{r, fig.width = 10, fig.height = 8}
+```
+
+c. Compute the average value of PC2 within each category of the `group` column.
+Give the names of the groups sorted by this average.
+
+```{r}
+```
+
+d. Visualize the scores of each food item with respect to the first two
+principal components. Facet the visualization according to the `group` column,
+and sort the facets according to the results of part (c). How does the result
+compare with your guess from part (b)?
+
+```{r}
+```
+

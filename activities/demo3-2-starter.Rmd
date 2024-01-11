@@ -1,0 +1,39 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(warnings = FALSE, message = FALSE)
+```
+
+[Multiple Weather Variables] In this problem, we will construct a compound
+figure to simultaneously visualize several weather variables in one display. The
+block below reads a dataset that includes temperature, precipitation, and wind
+measurements for New York City and Seattle over the course of several years. It
+then then averages each variable for each day (1 - 365) in the year.
+
+```{r}
+library(tidyverse)
+weather <- read_csv("https://raw.githubusercontent.com/krisrs1128/stat479_s22/main/exercises/data/weather.csv") %>%
+  mutate(day_in_year = lubridate::yday(date)) %>%
+  group_by(location, day_in_year) %>%
+  summarise(across(precipitation:wind, mean))
+```
+
+a. Construct three base `ggplot2` plots based on the variables that are
+provided. For example, you may construct a line plot (`geom_line`) of
+average precipitation, a histogram (`geom_histogram`) of per-city
+windspeeds, or a ribbon plot (`geom_ribbon`) of temperature ranges over
+time. Make sure to display at least two weather variables from among the
+four that are provided.
+
+b. Design a compound figure based on the base plots in part (a). Why did you
+lay out the subplots in the locations that you did? Ensure that consistent
+visual encodings are used throughout, that legends are collected, and that
+clear but unobtrusive annotation is provided.
+
+c. Discuss, but do not implement, an alternative compound figure for the
+same data, with either different base plots or overall layout (or both). For
+which visual comparisons are either designs best suited?

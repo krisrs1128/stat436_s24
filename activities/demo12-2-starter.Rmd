@@ -1,0 +1,112 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(warnings = FALSE, message = FALSE)
+```
+
+```{r}
+library(tidyverse)
+library(brms)
+library(ggdist)
+library(gganimate)
+
+th <- theme_minimal() + 
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.background = element_rect(fill = "#f7f7f7"),
+    panel.border = element_rect(fill = NA, color = "#0c0c0c", size = 0.6),
+    axis.text = element_text(size = 14),
+    axis.title = element_text(size = 16),
+    legend.position = "bottom"
+  )
+theme_set(th)
+```
+
+[Evolutionary Ecology] This problem visualizes the uncertainty of estimates
+derived from an evolutionary ecology model. Vonesh and Bolker (2005) ran an
+experiment to see how three factors -- size, initial population density, and
+presence of predators -- influenced tadpole survival. There were several
+replicate tanks for each combination of factors. As an initial analysis
+strategy, it is natural to quantify the uncertainty in per-tank survival
+probability using a multilevel model. This is discussed in full detail in
+Chapter 12 of McElreath's [Statistical Rethinking](https://xcelab.net/rm/statistical-rethinking/)^[This book is accompanied by a fantastic set of [free lectures](https://www.youtube.com/playlist?list=PLDcUM9US4XdMROZ57-OIRtIK0aOynbgZN).].
+This model implements a kind of partial pooling: Each tank is allowed to have
+its own survival probability, but information is shared across all the tanks.
+
+a. Each row in the raw dataset below describes a single tank. Visualize
+variation in tank-level survival, as well as the potential influence of
+initial density and tadpole size.
+```{r}
+x <- read_csv("https://raw.githubusercontent.com/krisrs1128/stat679_code/main/activities/week13/reedfrogs.csv") %>%
+  mutate(tank = as.factor(tank))
+x
+```
+
+b. The code below fits the following model, where $y_{i}$ represents the
+number of tadpoles that survive in tank $i$, $N_{i}$ is the initial
+tadpole density, and $p_{i}$ is the (unknown) survival probability.
+
+\begin{align*}
+y_{i} &\sim \text{Bin}\left(N_{i}, p_{i}\right) \\
+p_{i} &= \text{logit}^{-1}\left(\alpha_{i}\right) \\
+\alpha_{i} &\sim \mathcal{N}\left(0, 2\right)
+\end{align*}
+```{r, message = FALSE, warning = FALSE}
+fit <- brm(
+  data = x, family = binomial,
+  surv | trials(density) ~ 0 + factor(tank),
+  prior(normal(0, 2)),
+  silent = 2, refresh = 0,
+  chains = 1
+)
+
+posterior <- as_draws_df(fit)
+```
+Make a graded confidence plot of the posterior $p_{i}$ associated with each
+tank. Overlay the tank's original survival probability, and comment on how
+uncertainty varies across experimental settings.
+
+```{r}
+inv_logit <- function(x) {
+  exp(x) / (1 + exp(x))
+}
+
+posterior <- posterior %>%
+  pivot_longer(matches("factortank"), names_to = "variable") %>%
+  ### ??
+```
+
+c. Create a version of the same figure that shows the full posterior
+densities, rather than simply their quantiles.
+
+d. In assessment of more complex models, it is often interesting to
+visualize samples simulated from the fitted model. If the simulation
+captures the most salient aspects of the original data without simply
+memorizing it, then we can have more faith in our model. Conversely, if
+important features are not reflected, then we may need to refine the model.
+The code below samples 4000 survival counts for each tank in the fitted
+model.
+    
+```{r}
+y_sim <- posterior_predict(fit)
+```
+  
+Create a static visualization that shows the variation associated with 10 of
+these 4000 hypothetical datasets.
+
+e. Create an animated hypothetical outcome plot of the same data used in the
+previous part.
+
+```{r}
+p <- y_sim %>%
+  filter(.draw < 100) %>%
+  ggplot() +
+  geom_point(aes(y_sim, reorder(tank, y_sim), fill = pred, col = pred)) +
+  facet_wrap(size ~ density, scale = "free") +
+  transition_time(.draw)
+#anim_save("animation.gif", p)
+```

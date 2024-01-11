@@ -1,0 +1,52 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(warnings = FALSE, message = FALSE)
+```
+```{r}
+library(tidyverse)
+library(caret)
+library(DALEX)
+library(tidyverse)
+
+th <- theme_minimal() + 
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.background = element_rect(fill = "#f7f7f7"),
+    panel.border = element_rect(fill = NA, color = "#0c0c0c", size = 0.6),
+    axis.text = element_text(size = 14),
+    axis.title = element_text(size = 16),
+    legend.position = "bottom"
+  )
+theme_set(th)
+```
+
+[Gender Pay Gap] This problem uses CP profiles to investigate the gender gap in
+a Glassdoor dataset of employee salaries. It is helpful to use a model, because
+it allows us to control for multiple other factors -- a direct plot of salary
+vs. gender could be criticized as not accounting for confounding variables. The
+code below trains a gradient boosting machine model on `BasePay` variable
+(yearly salary in USD), using all potential predictors in the dataset.
+    
+```{r, warning = FALSE, message = FALSE}
+salary <- read_csv("https://github.com/krisrs1128/stat479_s22/raw/main/_slides/week12/exercises/Glassdoor%20Gender%20Pay%20Gap.csv")
+
+x <- salary %>%
+  select(Gender:Seniority) %>%
+  mutate(across(where(is.character), as.factor)) # gbm needs chr -> factor
+y <- salary$BasePay
+fit <- train(x, y, method = "gbm", verbose = FALSE)
+```
+
+a. Before attempting to explain the model, it is helpful to consider its
+accuracy. Make a plot of the truth (`y`) against model predictions (`y_hat <- predict(fit)`) and comment on model performance.
+
+b. Compute aggregate CP profiles grouped by gender and comment on the extent
+of the gender pay gap. According to the fitted prediction surface, is there
+more or less of a pay gap at certain ages or levels of seniority?
+
+c. Show the analogous display without aggregating (i.e., `geom = "profiles"`). What is the interpretation of each line in this plot?

@@ -1,0 +1,118 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(warnings = FALSE, message = FALSE)
+```
+
+[California Wildfires] In this problem, we will interactively visualize a
+[dataset](https://uwmadison.box.com/shared/static/k5vvekf1bhh9e16qb9s66owygc70t7dm.csv)
+giving statistics of recent California wildfires. The steps below guide you
+through the process of building this visualization.
+
+```{r}
+library(tidyverse)
+library(shiny)
+theme_set(theme_bw())
+
+dotplot <- function(df) {
+  ggplot(df) +
+    geom_point(aes(day_of_year, Counties, size = AcresBurned,  col = selected)) +
+    scale_color_manual(values = c("orange", "#e3e3e3"))
+}
+
+
+fires <- read_csv("https://uwmadison.box.com/shared/static/k5vvekf1bhh9e16qb9s66owygc70t7dm.csv") |>
+  mutate(quantile = rank(AcresBurned) / n())
+```
+    
+a. (Static) Plot the day of the year that each fire started against the
+county within which it was located. Use the size of the mark to encode the
+number of acres burned in each fire.
+
+```{r, fig.width = 8, fig.height = 6}
+counties_order <- fires |>
+  group_by(Counties) |>
+  summarise(total = sum(AcresBurned, na.rm = T)) |>
+  arrange(total) |>
+  pull(Counties)
+
+fires <- fires |>
+  mutate(Counties = factor(Counties, levels = counties_order))
+
+ggplot(fires) +
+  geom_point(aes(day_of_year, Counties, size = AcresBurned))
+```
+
+b. (Interactive) Provide a way for the viewer to interactively highlight or
+reveal details about subsets of fires. For example, introduce a slider to
+interactively highlight selected years, a tooltip to highlight the name of a
+fire, or a select to search for counties, or a slider to filter by fire
+size.
+
+```{r}
+ui <- fluidPage(
+  sliderInput("year", "Year", 2013, 2019, c(2013, 2019), sep = ""),
+  plotOutput("dotplot", width = 800, height = 500)
+)
+
+server <- function(input, output) {
+  current_data <- reactive({
+    fires |>
+      mutate(
+        selected = year >= input$year[1] & year <= input$year[2],
+        selected = factor(selected, levels = c("TRUE", "FALSE"))
+      )
+  })
+  output$dotplot <- renderPlot(dotplot(current_data()))
+}
+
+shinyApp(ui, server)
+```
+
+c. Introduce at least one other UI output. For example, print a table of the
+selected fires, interactively print summary statistics, or show a histogram
+of fire sizes. Sketch the reactivity graph associated with your application.
+
+```{r}
+ui <- fluidPage(
+  sliderInput("year", "Year", 2013, 2019, c(2013, 2019), sep = ""),
+  fluidRow(
+    column(8, plotOutput("dotplot")),
+    # column(4, plotOutput("histogram", ## update to make this brushable.
+  ),
+  dataTableOutput("table")
+)
+server <- function(input, output) {
+  # define a reactive values variable to store the currently selected fires.
+  # Call it histogram_selection so that the code below works.
+  
+  # add an observeEvent to check whenever the histogram has been brushed
+
+  output$dotplot <- renderPlot({
+    fires |>
+      mutate(
+        selected = histogram_selection() & year >= input$year[1] & year <= input$year[2],
+        selected = factor(selected, levels = c("TRUE", "FALSE"))
+        ) |>
+      dotplot()
+  })
+
+  output$histogram <- renderPlot({
+    ggplot(fires) +
+      geom_histogram(aes(AcresBurned)) +
+      scale_x_log10()
+  })
+  
+  output$table <- renderDataTable({
+    fires |>
+      filter(histogram_selection() & year >= input$year[1] & year <= input$year[2]) |>
+      arrange(-AcresBurned)
+  })
+}
+
+shinyApp(ui, server)
+```

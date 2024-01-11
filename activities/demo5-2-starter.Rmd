@@ -1,0 +1,106 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(warnings = FALSE, message = FALSE)
+```
+
+[Interactive German Traffic] This problem will revisit the previous problem
+from an interactive point of view. We will build a visualization that helps
+users explore daily traffic patterns across multiple German cities, using
+interactivity to help users navigate the collection. We will need additional
+features related to the day of the week for each timepoint, created by the
+`wday` function below,
+
+```{r}
+library(tidyverse)
+library(lubridate)
+library(shiny)
+theme_set(theme_bw())
+
+plot_traffic <- function(df) {
+  ggplot(df) +
+    geom_line(aes(date, value, group = name)) +
+    labs(x = "Date", y = "Traffic") +
+    theme(
+      #panel.background = element_rect(fill= "transparent"),
+      #plot.background = element_rect(fill = "transparent", color = NA),
+      axis.title = element_text(size = 20)
+    )
+}
+
+traffic <- read_csv("https://uwmadison.box.com/shared/static/x0mp3rhhic78vufsxtgrwencchmghbdf.csv") |>
+ mutate(day_of_week = wday(date))
+```
+
+a. Design and implement a Shiny app that allows users to visualize traffic
+over time across selected subsets of cities. Make sure that it is possible
+to view data from more than one city at a time. It is not necessary to label
+the cities within the associated figure.
+
+b. Introduce new inputs to allow users to select a contiguous range of days
+of the week. For example, the user should have a way of zooming into the
+samples taken within the Monday - Wednesday range.
+
+First, let's experiment with a different layout. We'll also add some text
+describing where the data come from and how to use the app.
+
+```{r}
+descriptive_text <- p("Explore traffic patterns over six days in 2016, across 38 German cities. These data were downloaded from a", a("Ridgeline Plot demo", href="https://observablehq.com/@d3/ridgeline-plot"), "by Mike Bostock, using data originally shared by Moritz Klick. Select a city in the dropdown menu to begin. Drag the slider endpoints to focus on a time range of interest")
+```
+
+```{r, eval = FALSE}
+ui <- fluidPage(
+  titlePanel("City Traffic Explorer"),
+  selectInput("city", "City", unique(traffic$name), multiple = TRUE),
+  sliderInput("day_of_week", "Days", 2, 7, c(2, 7)),
+  plotOutput("time_series")
+)
+
+server <- function(input, output) {
+  output$time_series <- renderPlot({
+    traffic |>
+      filter(
+        name %in% input$city, 
+        day_of_week >= input$day_of_week[1] & day_of_week <= input$day_of_week[2]
+      ) |>
+      plot_traffic()
+  })
+}
+
+shinyApp(ui, server)
+```
+
+Next, let's experiment with some custom themes.
+
+```{r, eval = FALSE}
+library(bslib)
+
+ui <- fluidPage(
+  titlePanel("City Traffic Explorer"),
+  sidebarLayout(
+    sidebarPanel(
+      descriptive_text,
+      selectInput("city", "City", unique(traffic$name), multiple = TRUE),
+      sliderInput("day_of_week", "Days", 2, 7, c(2, 7)),
+    ),
+    mainPanel(plotOutput("time_series"))
+  )
+)
+
+server <- function(input, output) {
+  output$time_series <- renderPlot({
+    traffic |>
+      filter(
+        name %in% input$city, 
+        day_of_week >= input$day_of_week[1] & day_of_week <= input$day_of_week[2]
+      ) |>
+      plot_traffic()
+  }) # use bg = "transparent" to make the plot transparent
+}
+
+shinyApp(ui, server)
+```

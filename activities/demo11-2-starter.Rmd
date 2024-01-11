@@ -1,0 +1,58 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+library(knitr)
+library(tidyverse)
+library(topicmodels)
+library(tidytext)
+
+th <- theme_minimal() + 
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.background = element_rect(fill = "#f7f7f7"),
+    panel.border = element_rect(fill = NA, color = "#0c0c0c", size = 0.6),
+    axis.text = element_text(size = 14),
+    axis.title = element_text(size = 16),
+    legend.position = "bottom"
+  )
+theme_set(th)
+```
+
+[Hotel Reviews] In this problem, we will practice using Latent Dirichlet
+Allocation to understand the topics that come up across hotel reviews from an
+online database. We will also study whether there are certain topics that are
+more common in positive vs. negative reviews.
+
+a. Transform the raw reviews into a collection of per-review word counts.
+Remove stopwords from across all lexicons in `tidytext::stopwords`.
+
+```{r}
+reviews <- read_csv("https://github.com/krisrs1128/stat479_s22/blob/main/_slides/week11/exercises/reviews.csv?raw=true")
+reviews_dtm <- reviews %>%
+  unnest_tokens(word, Review) %>%
+  filter(!(word %in% stop_words$word)) %>%
+  count(document, word) %>%
+  cast_dtm(document, word, n)
+```
+    
+b. Convert the `data.frame` from (a) into a topic models Document-Term
+matrix (i.e., an object of class `DocumentTermMatrix`). Fit an LDA model
+with 8 topics to the prepared object.
+
+c. Create a heatmap of topic distributions for the 50 words $d$ with the
+largest inter-quartile across topics (i.e., largest IQR for
+$\left(\beta_{dk}\right)_{k = 1}^{8}\right)$. Provide an interpretation for
+one of the topics, based on the words that have high probability within it.
+
+d. Create a Structure plot displaying the topic memberships for each review.
+Sort reviews according to their order on a hierarchical clustering tree, and
+facet documents according to hotel rating. Are there certain topics that
+appear to be more common in negative vs. positive reviews?

@@ -1,0 +1,28 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r}
+knitr::opts_chunk$set(warnings = FALSE, message = FALSE)
+```
+
+
+[Olympics Derivations] This problem gives some practice with deriving and visualizing new variables.
+
+```{r}
+olympics <- read_csv("https://uwmadison.box.com/shared/static/rzw8h2x6dp5693gdbpgxaf2koqijo12l.csv")
+olympics
+```
+
+a. Create new columns for the city and country of birth for each athlete in the
+London 2012 Olympics
+[dataset](https://uwmadison.box.com/s/rzw8h2x6dp5693gdbpgxaf2koqijo12l).
+
+b. Compute the standard deviation of athlete age within each sport. Which sport
+has widest SD in age?
+
+c. Make a visualization of sports against participant age. Sort sports by
+age variance.
+

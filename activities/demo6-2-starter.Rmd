@@ -1,0 +1,85 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(warnings = FALSE, message = FALSE)
+```
+
+```{r}
+library(tidyverse)
+library(tsibble)
+library(feasts)
+library(plotly)
+library(slider)
+library(shiny)
+theme_set(theme_bw())
+```
+
+[Global Carbon Footprint Network II] This problem creates interactive versions
+of the carbon emissions dataset introduced in the previous problem.
+
+a. Using `ggplotly`, create a line plot where country names can be revelaed
+on hover.
+
+This code is copied from the previous demo.
+
+```{r}
+carbon <- read_csv("https://raw.githubusercontent.com/krisrs1128/stat479_s22/main/_slides/week6/data/cleaned.csv")
+carbon_ts <- carbon |>
+  pivot_longer(-c("country", "Country Code"), names_to = "year") |>
+  filter(country != "Switzerland") |>
+  mutate(year = as.integer(year)) |>
+  as_tsibble(index = year, key = country)
+
+smoothed_carbon <- carbon_ts |>
+  group_by(country) |>
+  mutate(smoothed = slide_dbl(value, ~ mean(.), .before = 5, .after = 5)) |>
+  ungroup()
+```
+
+We now construct a plotly object from the ggplot time series.
+
+```{r}
+p <- ggplot(smoothed_carbon) +
+  geom_line(aes(year, smoothed, group = country))
+ggplotly(p)
+```
+
+What if we want to be able to hover and get the country names?
+
+b. Propose an interactive time series visualization that graphically queries a
+time series feature (or several features) that can be generated using the
+`feasts` package. What questions is your visualization particularly well-suited
+to? What questions is it not appropriate for?
+
+c. Implement your proposal from part (b).
+
+```{r}
+ui <- fluidPage(
+  fluidRow(
+    column(6, plotOutput("scatter", brush = "brush")),
+    column(6, plotlyOutput("trends"))
+  )
+)
+
+server <- function(input, output) {
+  selected <- reactiveVal(rep(FALSE, nrow(carbon_trends)))
+  observeEvent(
+    input$brush, {
+      ## ??
+  })
+  
+  output$scatter <- renderPlot({
+    ## ??
+  })
+  
+  output$trends <- renderPlotly({
+    ## ??
+  })
+}
+
+shinyApp(ui, server)
+```
