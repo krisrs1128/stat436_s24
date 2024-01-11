@@ -21,11 +21,11 @@ London 2012 Olympics
 [dataset](https://uwmadison.box.com/s/rzw8h2x6dp5693gdbpgxaf2koqijo12l).
 
 ```{r}
-olympics %>%
-  mutate(birth_city = str_split(`Place of birth`, "\\(")) %>%
-  unnest_wider(birth_city, "_") %>%
-  select(-birth_city_2) %>%
-  rename(birth_city = birth_city_1) %>%
+olympics |>
+  mutate(birth_city = str_split(`Place of birth`, "\\(")) |>
+  unnest_wider(birth_city, "_") |>
+  select(-birth_city_2) |>
+  rename(birth_city = birth_city_1) |>
   select(Name, birth_city, Country)
 ```
 
@@ -35,9 +35,9 @@ b. Compute the standard deviation of athlete age within each sport. Which sport
 has widest SD in age?
 
 ```{r}
-olympics %>%
-  group_by(Sport) %>%
-  summarise(age_sd = sd(Age)) %>%
+olympics |>
+  group_by(Sport) |>
+  summarise(age_sd = sd(Age)) |>
   arrange(-age_sd)
 ```
 
@@ -45,12 +45,12 @@ c. Make a visualization of sports against participant age. Sort sports by
 age variance.
 
 ```{r}
-counts <- olympics %>%
+counts <- olympics |>
   count(Sport)
 
-olympics %>%
-  left_join(counts) %>%
-  filter(n > 5) %>%
+olympics |>
+  left_join(counts) |>
+  filter(n > 5) |>
   ggplot() +
   geom_boxplot(
     aes(Age, reorder(Sport, Age, sd))

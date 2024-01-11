@@ -36,10 +36,10 @@ Remove stopwords from across all lexicons in `tidytext::stopwords`.
 
 ```{r}
 reviews <- read_csv("https://github.com/krisrs1128/stat479_s22/blob/main/_slides/week11/exercises/reviews.csv?raw=true")
-reviews_dtm <- reviews %>%
-  unnest_tokens(word, Review) %>%
-  filter(!(word %in% stop_words$word)) %>%
-  count(document, word) %>%
+reviews_dtm <- reviews |>
+  unnest_tokens(word, Review) |>
+  filter(!(word %in% stop_words$word)) |>
+  count(document, word) |>
   cast_dtm(document, word, n)
 ```
     

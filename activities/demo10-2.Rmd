@@ -39,8 +39,8 @@ tailored to single-cell genomics data.
 
 ```{r}
 pbmc <- read_csv("https://uwmadison.box.com/shared/static/ai539s30rjsw5ke4vxbjrxjaiihq7edk.csv")
-umap_rec <- recipe(~., data = pbmc) %>%
-  update_role(cell_tag, new_role = "id") %>%
+umap_rec <- recipe(~., data = pbmc) |>
+  update_role(cell_tag, new_role = "id") |>
   step_umap(all_predictors(), learn_rate = 0.1, neighbors = 5)
 umap_prep <- prep(umap_rec)
 ```
@@ -49,7 +49,7 @@ b. Compute the UMAP embeddings across cells. Color points in by their value of
 the GNLY molecule.
 
 ```{r}
-scores <- bake(umap_prep, pbmc) %>%
+scores <- bake(umap_prep, pbmc) |>
   left_join(pbmc)
 ggplot(scores) +
   geom_point(aes(UMAP1, UMAP2, col = GNLY), size = 0.5, alpha = 0.4) +

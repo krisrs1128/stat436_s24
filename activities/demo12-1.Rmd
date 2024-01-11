@@ -35,8 +35,8 @@ code below trains a gradient boosting machine model on `BasePay` variable
 ```{r, warning = FALSE, message = FALSE}
 salary <- read_csv("https://github.com/krisrs1128/stat479_s22/raw/main/_slides/week12/exercises/Glassdoor%20Gender%20Pay%20Gap.csv")
 
-x <- salary %>%
-  select(Gender:Seniority) %>%
+x <- salary |>
+  select(Gender:Seniority) |>
   mutate(across(where(is.character), as.factor)) # gbm needs chr -> factor
 y <- salary$BasePay
 fit <- train(x, y, method = "gbm", verbose = FALSE)
@@ -46,7 +46,7 @@ a. Before attempting to explain the model, it is helpful to consider its
 accuracy. Make a plot of the truth (`y`) against model predictions (`y_hat <- predict(fit)`) and comment on model performance.
 
 ```{r}
-data.frame(y = y, y_hat = predict(fit)) %>%
+data.frame(y = y, y_hat = predict(fit)) |>
   ggplot() +
     geom_abline(slope = 1, col = "red", linewidth = 1) +
     geom_point(aes(y, y_hat), alpha = 0.6, size = 0.5) +

@@ -22,7 +22,7 @@ library(lubridate)
 library(shiny)
 theme_set(theme_bw())
 
-traffic <- read_csv("https://uwmadison.box.com/shared/static/x0mp3rhhic78vufsxtgrwencchmghbdf.csv") %>%
+traffic <- read_csv("https://uwmadison.box.com/shared/static/x0mp3rhhic78vufsxtgrwencchmghbdf.csv") |>
  mutate(day_of_week = wday(date))
 ```
 

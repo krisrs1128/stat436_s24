@@ -21,7 +21,7 @@ Hindu Kush Himalaya, created during an ecological survey in 2015 by the
 International Centre for Integrated Mountain Development.
 
 ```{r}
-lakes <- read_sf("https://raw.githubusercontent.com/krisrs1128/stat436_s23/main/data/GL_3basins_2015.topojson") %>%
+lakes <- read_sf("https://raw.githubusercontent.com/krisrs1128/stat436_s23/main/data/GL_3basins_2015.topojson") |>
   mutate(log_area = log(Area))
 
 cols <- c("#023859", "#99ADBF")

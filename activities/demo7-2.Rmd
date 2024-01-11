@@ -23,7 +23,7 @@ ecological survey in 2015 by the International Centre for Integrated Mountain
 Development.
 
 ```{r}
-lakes <- read_sf("https://raw.githubusercontent.com/krisrs1128/stat436_s23/main/data/GL_3basins_2015.topojson") %>%
+lakes <- read_sf("https://raw.githubusercontent.com/krisrs1128/stat436_s23/main/data/GL_3basins_2015.topojson") |>
   mutate(log_area = log(Area))
 cols <- c("#023859", "#99ADBF")
 
@@ -67,30 +67,30 @@ server <- function(input, output) {
   
   # filter the table based on interactions
   output$table <- renderDataTable({
-    current_lakes <- lakes %>%
+    current_lakes <- lakes |>
       filter(selected())
     
     clicked_lake <- clicked()$id
     if (!is.null(clicked_lake)) {
-      current_lakes <- current_lakes %>%
+      current_lakes <- current_lakes |>
         filter(GL_ID == clicked_lake)
     }
-    current_lakes %>%
+    current_lakes |>
       arrange(-Area)
   })
   
   # initial map render
   output$map <- renderLeaflet({
-    lakes %>%
-      leaflet() %>%
-      addProviderTiles("Esri.WorldImagery") %>%
+    lakes |>
+      leaflet() |>
+      addProviderTiles("Esri.WorldImagery") |>
       addPolygons(color = cols[1])
   })
   
   # rerender the polygons without resetting the whole map
   observe({
-    leafletProxy("map", data = filter(lakes, selected())) %>%
-      clearShapes() %>%
+    leafletProxy("map", data = filter(lakes, selected())) |>
+      clearShapes() |>
       addPolygons(color = cols[1], label = ~ GL_ID, layerId = ~ GL_ID)
   })
   

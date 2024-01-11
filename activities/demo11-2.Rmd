@@ -36,10 +36,10 @@ Remove stopwords from across all lexicons in `tidytext::stopwords`.
 
 ```{r}
 reviews <- read_csv("https://github.com/krisrs1128/stat479_s22/blob/main/_slides/week11/exercises/reviews.csv?raw=true")
-reviews_dtm <- reviews %>%
-  unnest_tokens(word, Review) %>%
-  filter(!(word %in% stop_words$word)) %>%
-  count(document, word) %>%
+reviews_dtm <- reviews |>
+  unnest_tokens(word, Review) |>
+  filter(!(word %in% stop_words$word)) |>
+  count(document, word) |>
   cast_dtm(document, word, n)
 ```
     
@@ -58,13 +58,13 @@ one of the topics, based on the words that have high probability within it.
 
 ```{r}
 topics <- tidy(fit, matrix = "beta")
-term_order <- topics %>%
-  group_by(term) %>%
-  summarise(beta_iqr = IQR(beta)) %>%
-  arrange(-beta_iqr) %>%
+term_order <- topics |>
+  group_by(term) |>
+  summarise(beta_iqr = IQR(beta)) |>
+  arrange(-beta_iqr) |>
   pull(term)
-topic_mat <- topics %>%
-  pivot_wider(names_from = "topic", values_from = "beta") %>%
+topic_mat <- topics |>
+  pivot_wider(names_from = "topic", values_from = "beta") |>
   column_to_rownames("term")
 ```
 
@@ -80,8 +80,8 @@ appear to be more common in negative vs. positive reviews?
 ```{r}
 hclust_result <- hclust(dist(fit@gamma))
 document_order <- fit@documents[hclust_result$order]
-memberships <- tidy(fit, matrix = "gamma") %>%
-  left_join(reviews %>% mutate(document = as.character(document))) %>%
+memberships <- tidy(fit, matrix = "gamma") |>
+  left_join(reviews |> mutate(document = as.character(document))) |>
   mutate(document = factor(document, levels = document_order))
 ```
 
@@ -105,11 +105,11 @@ This is outside the scope of this class, but if we wanted, we could even fit
 a model to predict review rating just from the topic memberships.
 
 ```{r}
-pd <- memberships %>%
-  pivot_wider(names_from = "topic", values_from = "gamma") %>%
+pd <- memberships |>
+  pivot_wider(names_from = "topic", values_from = "gamma") |>
   select(Rating:6)
 
 library(caret)
-rf_fit <- train(x = pd %>% select(-Rating), y = as.factor(pd$Rating), method = "rf")
+rf_fit <- train(x = pd |> select(-Rating), y = as.factor(pd$Rating), method = "rf")
 rf_fit # better than the 20% baseline
 ```

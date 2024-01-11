@@ -58,12 +58,12 @@ topic appear. Only copy the first sentence into your solution.
 
 ```{r}
 # gamma <- tidy(fit, matrix = "gamma")
-# top_ix <- gamma %>%
-#   filter(topic == 2) %>%
-#   slice_max(gamma, n = 1) %>%
+# top_ix <- gamma |>
+#   filter(topic == 2) |>
+#   slice_max(gamma, n = 1) |>
 #   pull(document)
-# sentence <- paragraphs %>%
-#   filter(paragraph == top_ix) %>%
+# sentence <- paragraphs |>
+#   filter(paragraph == top_ix) |>
 #   pull(text)
 # sentence
 ```

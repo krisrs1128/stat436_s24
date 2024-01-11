@@ -79,14 +79,14 @@ h = np.load("h.npy")
 ```{r}
 library(tidymodels)
 library(embed)
-umap_rec <- data.frame(py$h) %>%
+umap_rec <- data.frame(py$h) |>
   mutate(
     file = py$fnames,
     y = as.factor(py$y)
-  ) %>%
-  recipe(~ ., data = .) %>%
-  update_role(y, file, new_role = "id") %>%
-  step_normalize(all_predictors()) %>%
+  ) |>
+  recipe(~ ., data = .) |>
+  update_role(y, file, new_role = "id") |>
+  step_normalize(all_predictors()) |>
   step_umap(all_predictors())
 
 umap_prep <- prep(umap_rec)

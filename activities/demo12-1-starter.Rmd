@@ -35,8 +35,8 @@ code below trains a gradient boosting machine model on `BasePay` variable
 ```{r, warning = FALSE, message = FALSE}
 salary <- read_csv("https://github.com/krisrs1128/stat479_s22/raw/main/_slides/week12/exercises/Glassdoor%20Gender%20Pay%20Gap.csv")
 
-x <- salary %>%
-  select(Gender:Seniority) %>%
+x <- salary |>
+  select(Gender:Seniority) |>
   mutate(across(where(is.character), as.factor)) # gbm needs chr -> factor
 y <- salary$BasePay
 fit <- train(x, y, method = "gbm", verbose = FALSE)

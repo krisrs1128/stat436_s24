@@ -16,9 +16,9 @@ then then averages each variable for each day (1 - 365) in the year.
 
 ```{r}
 library(tidyverse)
-weather <- read_csv("https://raw.githubusercontent.com/krisrs1128/stat479_s22/main/exercises/data/weather.csv") %>%
-  mutate(day_in_year = lubridate::yday(date)) %>%
-  group_by(location, day_in_year) %>%
+weather <- read_csv("https://raw.githubusercontent.com/krisrs1128/stat479_s22/main/exercises/data/weather.csv") |>
+  mutate(day_in_year = lubridate::yday(date)) |>
+  group_by(location, day_in_year) |>
   summarise(across(precipitation:wind, mean))
 ```
 

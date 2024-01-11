@@ -40,9 +40,9 @@ code below defines a recipe that first normalizes the predictors and then
 performs PCA.
 
 ```{r}
-pca_recipe <- recipe(~., data = nutrients) %>%
-  update_role(name, id, starts_with("group"), new_role = "id") %>%
-  step_normalize(all_predictors()) %>%
+pca_recipe <- recipe(~., data = nutrients) |>
+  update_role(name, id, starts_with("group"), new_role = "id") |>
+  step_normalize(all_predictors()) |>
   step_pca(all_predictors())
 pca_prep <- prep(pca_recipe)
 ```
@@ -61,9 +61,9 @@ positive values for carbohydrates and very negative values for water and fats,
 we suspect that these are starchy foods, like bread or pasta.
 
 ```{r, fig.width = 10, fig.height = 8}
-pca_result <- tidy(pca_prep, 2) %>%
+pca_result <- tidy(pca_prep, 2) |>
   mutate(terms = str_replace(terms, " \\(g\\)", ""))
-ggplot(pca_result %>% filter(component %in% str_c("PC", 1:6))) +
+ggplot(pca_result |> filter(component %in% str_c("PC", 1:6))) +
   geom_col(aes(x = value, y = terms)) +
   facet_wrap(~ component) +
   labs(x = "Component", y = "Features")
@@ -78,10 +78,10 @@ compute the mean of PC2 within each food group using the `group_by` and
 
 ```{r}
 pca_scores <- bake(pca_prep, nutrients)
-group_order <- pca_scores %>%
-  group_by(group) %>%
-  summarise(mpc2 = mean(PC2)) %>%
-  arrange(mpc2) %>%
+group_order <- pca_scores |>
+  group_by(group) |>
+  summarise(mpc2 = mean(PC2)) |>
+  arrange(mpc2) |>
   pull(group)
 ```
 
@@ -97,8 +97,8 @@ a standard scatterplot, though we make the axes slightly bolder and customize
 the color and axes labels.
 
 ```{r, fig.width = 12}
-pca_scores %>%
-  mutate(group = factor(group, levels = group_order)) %>%
+pca_scores |>
+  mutate(group = factor(group, levels = group_order)) |>
   ggplot(aes(x = PC1, y = PC2)) +
   geom_vline(xintercept = 0, col = "#4a4a4a") +
   geom_hline(yintercept = 0, col = "#4a4a4a") +

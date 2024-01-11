@@ -49,8 +49,8 @@ a challenge, try encoding both). Justify your choice of encodings -- what are
 some advantages / downsides of the approach you decided on?
 
 ```{r}
-G <- G %>%
-  activate(nodes) %>%
+G <- G |>
+  activate(nodes) |>
   mutate(country_group = fct_lump_n(country, n = 8))
 
 ggraph(G) +

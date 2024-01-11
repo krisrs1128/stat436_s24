@@ -37,7 +37,7 @@ useful to convert the original `data.frame` object to this new `tsibble`
 class.
 
 ```{r}
-carbon <- carbon %>%
+carbon <- carbon |>
   pivot_longer(-c("country", "Country Code"), names_to = "year")
 ```
 
@@ -48,25 +48,25 @@ as_tsibble(carbon, index = year, key = country)
 
 This still doesn't work -- there are duplicates!
 ```{r, eval = FALSE}
-carbon %>%
-  mutate(year = as.integer(year)) %>%
+carbon |>
+  mutate(year = as.integer(year)) |>
   as_tsibble(index = year, key = country)
 ```
 
 For some reason, there are duplicated entries for Switzerland. This is one of
 the reasons for using something like `tsibble`.
 ```{r}
-carbon %>%
-  mutate(year = as.integer(year)) %>%
-  duplicates(key = country, index = year) %>%
+carbon |>
+  mutate(year = as.integer(year)) |>
+  duplicates(key = country, index = year) |>
   arrange(year)
 ```
 
 This code finally makes the tsibble.
 ```{r}
-carbon_ts <- carbon %>%
-  filter(country != "Switzerland") %>%
-  mutate(year = as.integer(year)) %>%
+carbon_ts <- carbon |>
+  filter(country != "Switzerland") |>
+  mutate(year = as.integer(year)) |>
   as_tsibble(index = year, key = country)
 ```
 
@@ -94,8 +94,8 @@ d. Create a lag plot of the series for the United States. How do you
 interpret this figure?
 
 ```{r}
-carbon_ts %>%
-  filter(country == "United States") %>%
+carbon_ts |>
+  filter(country == "United States") |>
   gg_lag()
 ```
 
@@ -112,8 +112,8 @@ sometimes it comes in handy.
 
 ```{r}
 library(slider)
-smoothed_carbon <- carbon_ts %>%
-  group_by(country) %>%
+smoothed_carbon <- carbon_ts |>
+  group_by(country) |>
   mutate(smoothed = slide_dbl(value, ~ mean(.), .before = 5, .after = 5))
 ggplot(smoothed_carbon) +
   geom_line(aes(year, smoothed, group = country))

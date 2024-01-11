@@ -21,7 +21,7 @@ Hindu Kush Himalaya, created during an ecological survey in 2015 by the
 International Centre for Integrated Mountain Development.
 
 ```{r}
-lakes <- read_sf("https://raw.githubusercontent.com/krisrs1128/stat436_s23/main/data/GL_3basins_2015.topojson") %>%
+lakes <- read_sf("https://raw.githubusercontent.com/krisrs1128/stat436_s23/main/data/GL_3basins_2015.topojson") |>
   mutate(log_area = log(Area))
 
 cols <- c("#023859", "#99ADBF")
@@ -33,8 +33,8 @@ coordinates of the largest lakes in each Sub-basin?
 There are `r nrow(lakes)` lakes in this dataset.
 
 ```{r}
-top_lakes <- lakes %>%
-  group_by(Sub_Basin) %>%
+top_lakes <- lakes |>
+  group_by(Sub_Basin) |>
   slice_max(Area)
 ```
 
@@ -56,11 +56,11 @@ size. We can't use `reorder()` like in the usual ggplot `facet` commands, but we
 can manually set the factors levels to sort the faceting panels.
 
 ```{r}
-basin_order <- top_lakes %>%
-  arrange(-Area) %>%
+basin_order <- top_lakes |>
+  arrange(-Area) |>
   pull(Sub_Basin) 
 
-top_lakes <- top_lakes %>%
+top_lakes <- top_lakes |>
   mutate(Sub_Basin = factor(Sub_Basin, levels = basin_order))
 ```
 
@@ -78,7 +78,7 @@ longitude between 85.8 and 86. Optionally, add a basemap associated with
 each lake.
 
 ```{r}
-lakes_sub <- lakes %>%
+lakes_sub <- lakes |>
   filter(
     Latitude > 28.2, Latitude < 28.4,
     Longitude > 85.8, Longitude < 86

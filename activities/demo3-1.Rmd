@@ -22,7 +22,7 @@ a. Derive a new column containing the attack-to-defense ratio, defined as
 $\frac{\text{Attack}}{\text{Defense}}$.
 
 ```{r}
-pokemon <- pokemon %>%
+pokemon <- pokemon |>
   mutate(attack_to_defense = Attack / Defense)
 ```
 
@@ -31,8 +31,8 @@ b. For each `type_1` group of Pokemon, compute the median attack-to-defense
 ratio.
 
 ```{r}
-pokemon %>%
-  group_by(type_1) %>%
+pokemon |>
+  group_by(type_1) |>
   summarise(attack_to_defense = median(attack_to_defense))
 ```
 

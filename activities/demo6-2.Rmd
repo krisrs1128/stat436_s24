@@ -28,15 +28,15 @@ This code is copied from the previous demo.
 
 ```{r}
 carbon <- read_csv("https://raw.githubusercontent.com/krisrs1128/stat479_s22/main/_slides/week6/data/cleaned.csv")
-carbon_ts <- carbon %>%
-  pivot_longer(-c("country", "Country Code"), names_to = "year") %>%
-  filter(country != "Switzerland") %>%
-  mutate(year = as.integer(year)) %>%
+carbon_ts <- carbon |>
+  pivot_longer(-c("country", "Country Code"), names_to = "year") |>
+  filter(country != "Switzerland") |>
+  mutate(year = as.integer(year)) |>
   as_tsibble(index = year, key = country)
 
-smoothed_carbon <- carbon_ts %>%
-  group_by(country) %>%
-  mutate(smoothed = slide_dbl(value, ~ mean(.), .before = 5, .after = 5)) %>%
+smoothed_carbon <- carbon_ts |>
+  group_by(country) |>
+  mutate(smoothed = slide_dbl(value, ~ mean(.), .before = 5, .after = 5)) |>
   ungroup()
 ```
 
@@ -62,11 +62,11 @@ these feature values.
 c. Implement your proposal from part (b).
 
 ```{r}
-trends <- smoothed_carbon %>%
-  features(value, features = feature_set(tags = "trend")) %>%
+trends <- smoothed_carbon |>
+  features(value, features = feature_set(tags = "trend")) |>
   mutate(log_spikiness = log(spikiness))
 
-carbon_trends <- smoothed_carbon %>%
+carbon_trends <- smoothed_carbon |>
   left_join(trends)
 ```
 
@@ -86,7 +86,7 @@ server <- function(input, output) {
   })
   
   mutated_trends <- reactive({
-    carbon_trends %>%
+    carbon_trends |>
       mutate(selected = selected())
   })
   
@@ -99,8 +99,8 @@ server <- function(input, output) {
   output$trends <- renderPlotly({
     current <- mutated_trends()
     if (any(current$selected)) {
-      p <- current %>%
-        filter(selected) %>%
+      p <- current |>
+        filter(selected) |>
         ggplot() +
         geom_line(aes(year, smoothed, group = country), col = "#273859") +
         theme(legend.position = "none")

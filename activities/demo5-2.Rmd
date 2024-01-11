@@ -33,7 +33,7 @@ plot_traffic <- function(df) {
     )
 }
 
-traffic <- read_csv("https://uwmadison.box.com/shared/static/x0mp3rhhic78vufsxtgrwencchmghbdf.csv") %>%
+traffic <- read_csv("https://uwmadison.box.com/shared/static/x0mp3rhhic78vufsxtgrwencchmghbdf.csv") |>
  mutate(day_of_week = wday(date))
 ```
 
@@ -69,11 +69,11 @@ ui <- fluidPage(
 
 server <- function(input, output) {
   output$time_series <- renderPlot({
-    traffic %>%
+    traffic |>
       filter(
         name %in% input$city, 
         day_of_week >= input$day_of_week[1] & day_of_week <= input$day_of_week[2]
-      ) %>%
+      ) |>
       plot_traffic()
   })
 }
@@ -108,11 +108,11 @@ ui <- fluidPage(
 
 server <- function(input, output) {
   output$time_series <- renderPlot({
-    traffic %>%
+    traffic |>
       filter(
         name %in% input$city, 
         day_of_week >= input$day_of_week[1] & day_of_week <= input$day_of_week[2]
-      ) %>%
+      ) |>
       plot_traffic()
   }, bg = "transparent")
 }

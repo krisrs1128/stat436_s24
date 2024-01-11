@@ -58,7 +58,7 @@ ui <- fluidPage(
 
 server <- function(input, output) {
   output$scatterplot <- renderPlot({
-    current_data <- penguins %>%
+    current_data <- penguins |>
       filter(
         island %in% input$island,
         species %in% input$species
@@ -68,7 +68,7 @@ server <- function(input, output) {
   })
   
   output$histogram1 <- renderPlot({
-    current_data <- penguins %>%
+    current_data <- penguins |>
       filter(
         island %in% input$island,
         species %in% input$species
@@ -78,7 +78,7 @@ server <- function(input, output) {
   })
   
   output$histogram2 <- renderPlot({
-    current_data <- penguins %>%
+    current_data <- penguins |>
       filter(
         island %in% input$island,
         species %in% input$species

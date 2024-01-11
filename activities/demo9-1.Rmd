@@ -36,20 +36,20 @@ corresponds to a single country $\times$ year combination.
 ```{r}
 # read in and create a codebook
 survey <- read_csv("https://github.com/krisrs1128/stat479_s22/blob/main/_slides/week9/exercises/Viz5-July-2020-economic-empowerement.csv?raw=true")
-question_mapping <- survey %>%
-  select(Question, `Question Category`) %>%
-  distinct() %>%
+question_mapping <- survey |>
+  select(Question, `Question Category`) |>
+  distinct() |>
   mutate(q_id = str_c("Q", row_number()))
 
 recode_vector <- setNames(question_mapping$Question, question_mapping$q_id)
-survey <- survey %>%
+survey <- survey |>
   mutate(
     Question = fct_recode(Question, !!!recode_vector),
     answer = as.numeric(ifelse(`Text Answer` == "Yes", 1, 0))
-  ) %>%
+  ) |>
   select(Country, `WBL Report Year`, Question, answer)
 
-survey <- survey %>%
+survey <- survey |>
   pivot_wider(names_from = "Question", values_from = "answer")
 ```
 
@@ -59,13 +59,13 @@ original text of the questions stored in `question_mapping`.
 
 ```{r}
 # run kmeans
-fit <- survey %>%
-  select(starts_with("Q")) %>%
+fit <- survey |>
+  select(starts_with("Q")) |>
   kmeans(centers = 5)
 
 # make it "long" again
-centroids <- data.frame(fit$centers) %>%
-  rownames_to_column("cluster") %>%
+centroids <- data.frame(fit$centers) |>
+  rownames_to_column("cluster") |>
   pivot_longer(-cluster, names_to = "q_id")
 ```
 
@@ -92,7 +92,7 @@ least progress towards equality?).
 interpret <- bind_cols(
   survey, 
   cluster = as.factor(fit$cluster)
-) %>%
+) |>
   count(`WBL Report Year`, cluster)
 
 slope_fun <- function(x) {

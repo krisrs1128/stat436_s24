@@ -41,7 +41,7 @@ a. Each row in the raw dataset below describes a single tank. Visualize
 variation in tank-level survival, as well as the potential influence of
 initial density and tadpole size.
 ```{r}
-x <- read_csv("https://raw.githubusercontent.com/krisrs1128/stat679_code/main/activities/week13/reedfrogs.csv") %>%
+x <- read_csv("https://raw.githubusercontent.com/krisrs1128/stat679_code/main/activities/week13/reedfrogs.csv") |>
   mutate(tank = as.factor(tank))
 x
 ```
@@ -75,8 +75,8 @@ inv_logit <- function(x) {
   exp(x) / (1 + exp(x))
 }
 
-posterior <- posterior %>%
-  pivot_longer(matches("factortank"), names_to = "variable") %>%
+posterior <- posterior |>
+  pivot_longer(matches("factortank"), names_to = "variable") |>
   ### ??
 ```
 
@@ -102,8 +102,8 @@ e. Create an animated hypothetical outcome plot of the same data used in the
 previous part.
 
 ```{r}
-p <- y_sim %>%
-  filter(.draw < 100) %>%
+p <- y_sim |>
+  filter(.draw < 100) |>
   ggplot() +
   geom_point(aes(y_sim, reorder(tank, y_sim), fill = pred, col = pred)) +
   facet_wrap(size ~ density, scale = "free") +

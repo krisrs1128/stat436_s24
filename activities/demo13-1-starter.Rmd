@@ -49,15 +49,15 @@ probabilities for each sample after the model has converged.
 
 ```{r}
 library(keras)
-model <- keras_model_sequential() %>% 
-  layer_dense(units = 20, activation = "relu", input_shape = c(2)) %>% 
-  layer_dense(units = 20, activation = "relu", input_shape = c(20)) %>% 
-  layer_dense(units = 20, activation = "relu", input_shape = c(20)) %>% 
+model <- keras_model_sequential() |> 
+  layer_dense(units = 20, activation = "relu", input_shape = c(2)) |> 
+  layer_dense(units = 20, activation = "relu", input_shape = c(20)) |> 
+  layer_dense(units = 20, activation = "relu", input_shape = c(20)) |> 
   layer_dense(2, activation = "softmax")
-model %>% 
-  compile(optimizer = "adam", loss = "categorical_crossentropy") %>%
+model |> 
+  compile(optimizer = "adam", loss = "categorical_crossentropy") |>
   fit(
-    x = simulation %>% select(starts_with("x")) %>% as.matrix(),
+    x = simulation |> select(starts_with("x")) |> as.matrix(),
     y = to_categorical(simulation$y),
     metric = "accuracy",
     epochs = 60,

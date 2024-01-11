@@ -18,7 +18,7 @@ library(tidyverse)
 library(shiny)
 theme_set(theme_bw())
 
-fires <- read_csv("https://uwmadison.box.com/shared/static/k5vvekf1bhh9e16qb9s66owygc70t7dm.csv") %>%
+fires <- read_csv("https://uwmadison.box.com/shared/static/k5vvekf1bhh9e16qb9s66owygc70t7dm.csv") |>
   mutate(quantile = rank(AcresBurned) / n())
 ```
     
@@ -27,13 +27,13 @@ county within which it was located. Use the size of the mark to encode the
 number of acres burned in each fire.
 
 ```{r, fig.width = 8, fig.height = 6}
-counties_order <- fires %>%
-  group_by(Counties) %>%
-  summarise(total = sum(AcresBurned, na.rm = T)) %>%
-  arrange(total) %>%
+counties_order <- fires |>
+  group_by(Counties) |>
+  summarise(total = sum(AcresBurned, na.rm = T)) |>
+  arrange(total) |>
   pull(Counties)
 
-fires <- fires %>%
+fires <- fires |>
   mutate(Counties = factor(Counties, levels = counties_order))
 
 ggplot(fires) +
@@ -60,7 +60,7 @@ ui <- fluidPage(
 
 server <- function(input, output) {
   current_data <- reactive({
-    fires %>%
+    fires |>
       mutate(
         selected = year >= input$year[1] & year <= input$year[2],
         selected = factor(selected, levels = c("TRUE", "FALSE"))
@@ -85,7 +85,7 @@ ui <- fluidPage(
 
 server <- function(input, output) {
   current_data <- reactive({
-    fires %>%
+    fires |>
       mutate(
         selected = year >= input$year[1] & 
           year <= input$year[2] &

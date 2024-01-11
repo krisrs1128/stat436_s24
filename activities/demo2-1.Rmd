@@ -32,8 +32,8 @@ appears on its own row.
 b. Implement your proposed arrangement from part (a).
 
 ```{r}
-plants_reshaped <- plants %>%
-  pivot_longer(starts_with("height")) %>%
+plants_reshaped <- plants |>
+  pivot_longer(starts_with("height")) |>
   mutate(day = str_extract(name, "[0-9]+"))
 ```
 

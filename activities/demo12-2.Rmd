@@ -41,7 +41,7 @@ a. Each row in the raw dataset below describes a single tank. Visualize
 variation in tank-level survival, as well as the potential influence of
 initial density and tadpole size.
 ```{r}
-x <- read_csv("https://raw.githubusercontent.com/krisrs1128/stat679_code/main/activities/week13/reedfrogs.csv") %>%
+x <- read_csv("https://raw.githubusercontent.com/krisrs1128/stat679_code/main/activities/week13/reedfrogs.csv") |>
   mutate(tank = as.factor(tank))
 x
 ```
@@ -81,10 +81,10 @@ inv_logit <- function(x) {
   exp(x) / (1 + exp(x))
 }
 
-posterior <- posterior %>%
-  pivot_longer(matches("factortank"), names_to = "variable") %>%
-  mutate(probability = inv_logit(value)) %>%
-  mutate(tank = str_extract(variable, "[0-9]+")) %>%
+posterior <- posterior |>
+  pivot_longer(matches("factortank"), names_to = "variable") |>
+  mutate(probability = inv_logit(value)) |>
+  mutate(tank = str_extract(variable, "[0-9]+")) |>
   left_join(x)
 ggplot(posterior) +
   stat_pointinterval(aes(probability, reorder(tank, value), col = pred)) +
@@ -118,14 +118,14 @@ Create a static visualization that shows the variation associated with 10 of
 these 4000 hypothetical datasets.
 
 ```{r}
-y_sim <- posterior_predict(fit) %>%
-  as_tibble() %>%
-  set_names(1:ncol(.)) %>%
-  mutate(.draw = row_number()) %>%
-  pivot_longer(-.draw, names_to = "tank", values_to = "y_sim") %>%
+y_sim <- posterior_predict(fit) |>
+  as_tibble() |>
+  set_names(1:ncol(.)) |>
+  mutate(.draw = row_number()) |>
+  pivot_longer(-.draw, names_to = "tank", values_to = "y_sim") |>
   left_join(x)
-y_sim %>%
-  filter(.draw < 10) %>%
+y_sim |>
+  filter(.draw < 10) |>
   ggplot() +
   stat_dots(aes(y_sim, reorder(tank, y_sim), fill = pred, col = pred), dotsize = .5, binwidth = 1) +
   facet_wrap(size ~ density, scale = "free")
@@ -136,8 +136,8 @@ previous part.
 
 
 ```{r}
-p <- y_sim %>%
-  filter(.draw < 100) %>%
+p <- y_sim |>
+  filter(.draw < 100) |>
   ggplot() +
   geom_point(aes(y_sim, reorder(tank, y_sim), fill = pred, col = pred)) +
   facet_wrap(size ~ density, scale = "free") +

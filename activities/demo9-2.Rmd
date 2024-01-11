@@ -43,10 +43,10 @@ trips <- read_csv("https://uwmadison.box.com/shared/static/098cjaetm8vy0mufq21mc
 trips_wide <- read_csv("https://uwmadison.box.com/shared/static/cv0lij4d9gn3s8m2k98t2ue34oz6sbj5.csv", col_types = cols(TRIP_ID = col_character()))
 
 # test code on a subset
-# trips <- trips %>%
+# trips <- trips |>
 #   filter(row_number() < 1000)
 # 
-# trips_wide <- trips_wide %>%
+# trips_wide <- trips_wide |>
 #   filter(TRIP_ID %in% trips$TRIP_ID)
 ```
 
@@ -54,8 +54,8 @@ The code below filters to the required trip and uses a scatterplot to show the
 trajectory.
 
 ```{r, fig.width = 5, fig.height = 2}
-trips %>%
-  filter(TRIP_ID == "1389986517620000047") %>%
+trips |>
+  filter(TRIP_ID == "1389986517620000047") |>
   ggplot(aes(x, y)) +
   geom_point() +
   coord_fixed()
@@ -82,9 +82,9 @@ The `dist` function below computes the pairwise distances between trajectories,
 and this is then fed into a hierarchical clustering routine.
 
 ```{r}
-hclust_res <- trips_wide %>%
-  select(-TRIP_ID) %>%
-  dist() %>%
+hclust_res <- trips_wide |>
+  select(-TRIP_ID) |>
+  dist() |>
   hclust()
 ```
 
@@ -97,10 +97,10 @@ By then joining this with the original long-format dataset, we can plot each
 taxi trip coordinate with the associated trajectory cluster.
 
 ```{r, fig.cap = "An example result for problem 3(c). A small amount of jitter has been added, to make the larger highways more clearly visible.", fig.width = 8, dev = "png", dpi = 1200}
-trips_wide <- trips_wide %>%
+trips_wide <- trips_wide |>
   mutate(cluster = cutree(hclust_res, 8))
 
-trips <- trips %>%
+trips <- trips |>
   left_join(trips_wide)
 
 ggplot(trips) +

@@ -42,10 +42,10 @@ paragraphs. That is, the $i^{th}$ row of `dtm` should correspond to the $i^{th}$
 row of `paragraph`. Make sure to remove all stopwords.
 
 ```{r}
-dtm <- paragraphs %>%
-  unnest_tokens(word, text) %>%
-  filter(!word %in% stop_words$word) %>%
-  count(paragraph, word) %>%
+dtm <- paragraphs |>
+  unnest_tokens(word, text) |>
+  filter(!word %in% stop_words$word) |>
+  count(paragraph, word) |>
   cast_dtm(paragraph, word, n)
 ```
 
@@ -63,9 +63,9 @@ Reorder the bars so that each topic's top words are displayed in order of
 decreasing probability.
 
 ```{r}
-beta <- tidy(fit, matrix = "beta") %>%
-  group_by(topic) %>%
-  slice_max(beta, n = 30) %>%
+beta <- tidy(fit, matrix = "beta") |>
+  group_by(topic) |>
+  slice_max(beta, n = 30) |>
   mutate(term = reorder_within(term, -beta, topic))
 ```
 
@@ -87,12 +87,12 @@ topic appear. Only copy the first sentence into your solution.
 
 ```{r}
 gamma <- tidy(fit, matrix = "gamma")
-top_ix <- gamma %>%
-  filter(topic == 2) %>%
-  slice_max(gamma, n = 1) %>%
+top_ix <- gamma |>
+  filter(topic == 2) |>
+  slice_max(gamma, n = 1) |>
   pull(document)
-sentence <- paragraphs %>%
-  filter(paragraph == top_ix) %>%
+sentence <- paragraphs |>
+  filter(paragraph == top_ix) |>
   pull(text)
 sentence
 ```
