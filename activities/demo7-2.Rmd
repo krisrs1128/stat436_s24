@@ -52,6 +52,7 @@ server <- function(input, output) {
   selected <- reactiveVal(rep(TRUE, nrow(lakes)))
   observeEvent(
     input$plot_brush, {
+      clicked(NULL)
       selected(brushedPoints(lakes, input$plot_brush, allRows = TRUE)$selected_)
     }
   )
@@ -69,14 +70,36 @@ server <- function(input, output) {
     current_lakes <- lakes %>%
       filter(selected())
     
+    clicked_lake <- clicked()$id
+    if (!is.null(clicked_lake)) {
+      current_lakes <- current_lakes %>%
+        filter(GL_ID == clicked_lake)
+    }
     current_lakes %>%
       arrange(-Area)
   })
   
   # initial map render
   output$map <- renderLeaflet({
-    ###
+    lakes %>%
+      leaflet() %>%
+      addProviderTiles("Esri.WorldImagery") %>%
+      addPolygons(color = cols[1])
   })
+  
+  # rerender the polygons without resetting the whole map
+  observe({
+    leafletProxy("map", data = filter(lakes, selected())) %>%
+      clearShapes() %>%
+      addPolygons(color = cols[1], label = ~ GL_ID, layerId = ~ GL_ID)
+  })
+  
+  # check whether we've clicked on any polygon
+  clicked <- reactiveVal()
+  observeEvent(input$map_shape_click, { 
+    clicked(input$map_shape_click)
+  })
+  
 }
 
 shinyApp(ui, server)

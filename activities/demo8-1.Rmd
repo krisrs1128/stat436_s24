@@ -32,17 +32,52 @@ tree, and nodes are unobserved common ancestor viruses.
 ```{r}
 edges <- read_csv("https://raw.githubusercontent.com/krisrs1128/stat479_s22/main/_slides/week8/exercises/data/covid-edges.csv")
 nodes <- read_csv("https://raw.githubusercontent.com/krisrs1128/stat479_s22/main/_slides/week8/exercises/data/covid-nodes.csv")
+G <- tbl_graph(edges = edges)
 ```
 
 b. Visualize the phylogenetic tree using the data from (a).
 
 ```{r}
-#ggraph(G) +
+ggraph(G) +
+  geom_edge_diagonal(width = 1, colour = "#d3d3d3") +
+  geom_node_point(aes(col = date)) +
+  theme_void()
 ```
 
 c. Visually encode the date or location at which each sequence was found (for
 a challenge, try encoding both). Justify your choice of encodings -- what are
 some advantages / downsides of the approach you decided on?
+
+```{r}
+G <- G %>%
+  activate(nodes) %>%
+  mutate(country_group = fct_lump_n(country, n = 8))
+
+ggraph(G) +
+  geom_edge_diagonal(width = 1, colour = "#d3d3d3") +
+  geom_node_point(aes(col = country_group))
+```
+
+We can encode both country group and date by using both color and faceting.
+
+```{r}
+ggraph(G) +
+  geom_edge_diagonal(width = 1, colour = "#d3d3d3") +
+  geom_node_point(aes(col = date)) +
+  theme_void() +
+  facet_wrap(~ reorder(country_group, date, min, na.rm = TRUE))
+```
+
+Note that we can switch which variable gets encoded through color / facet.
+
+```{r}
+ggraph(G) +
+  geom_edge_diagonal(width = 1, colour = "#d3d3d3") +
+  geom_node_point(aes(col = country_group)) +
+  scale_color_brewer(palette = "Set3") +
+  theme_void() +
+  facet_wrap(~ cut(date, 8))
+```
 
 d. Discuss the resulting visualization. For example, how much genetic
 diversity do different countries have? Where are different waves located

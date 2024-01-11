@@ -1,0 +1,53 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r}
+knitr::opts_chunk$set(warnings = FALSE, message = FALSE)
+```
+
+
+[Plant Growth Experiment] This problem will give you practice with tidying a
+dataset so that it can be easily visualized. The data describe the height of
+several plants measured every 7 days. The plants have been treated with
+different amounts of a growth stimulant. The first few rows are printed below --
+`height.x` denotes the height of the plant on day `x`.
+
+```{r}
+library(tidyverse)
+plants <- read_csv("https://uwmadison.box.com/shared/static/qg9gwk2ldjdtcmmmiropcunf34ddonya.csv")
+plants
+```
+
+a. Propose an alternative arrangement of rows and columns that conforms to the
+tidy data principle.
+
+According to the tidy data principle, each sample should have its own row. Right
+now, however, there are four samples on each row -- one for each week of the
+experiment. We need to reshape the data so that each of these four measurements
+appears on its own row.
+
+b. Implement your proposed arrangement from part (a).
+
+```{r}
+plants_reshaped <- plants %>%
+  pivot_longer(starts_with("height")) %>%
+  mutate(day = str_extract(name, "[0-9]+"))
+```
+
+
+c. Using the dataset from (b), design and implement a visualization showing the
+growth of the plants over time according to different treatments.
+
+```{r}
+ggplot(plants_reshaped) +
+  geom_line(aes(day, value, group = plantid)) +
+  facet_wrap(~ treatment)
+```
+
+```{r}
+ggplot(plants_reshaped) +
+  geom_line(aes(day, value, group = interaction(plantid, treatment), col = treatment))
+```

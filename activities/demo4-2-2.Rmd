@@ -1,0 +1,163 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(warnings = FALSE, message = FALSE)
+```
+
+```{r}
+library(tidyverse)
+library(shiny)
+```
+
+[Improving an app] Make the following apps more concise, modular, and
+readable by using reactive expressions to capture duplicated computation and /
+or externalizing complex computations into functions which are defined outside
+of the server.
+
+a. Program (a)
+
+```{r, eval = FALSE}
+ui <- fluidPage(
+  titlePanel("Calculator"),
+  numericInput("x", "Enter the value of x", 0),
+  textOutput("f1"),
+  textOutput("f2"),
+  textOutput("f3")
+)
+
+server <- function(input, output) {
+  output$f1 <- renderText({ 3 * input$x ^ 2 + 3})
+  output$f2 <- renderText({ sqrt(3 * input$x ^ 2 + 3) - 5})
+  output$f3 <- renderText({ 30 * input$x ^ 2 + 30})
+}
+    
+shinyApp(ui, server)
+```
+
+Our revised version of this app is below. We use the fact that the three outputs
+use the same intermediate calculation.
+
+```{r}
+ui <- fluidPage(
+  titlePanel("Calculator"),
+  numericInput("x", "Enter the value of x", 0),
+  textOutput("f1"),
+  textOutput("f2"),
+  textOutput("f3")
+)
+
+server <- function(input, output) {
+  f <- reactive({
+    3 * input$x ^ 2 + 3
+  })
+  
+  output$f1 <- renderText(f())
+  output$f2 <- renderText({ sqrt(f()) - 5})
+  output$f3 <- renderText(10 * f())
+}
+    
+shinyApp(ui, server)
+```
+
+
+b. Program (b)
+    
+```{r, eval = FALSE}
+penguins <- read_csv("https://uwmadison.box.com/shared/static/ijh7iipc9ect1jf0z8qa2n3j7dgem1gh.csv")
+islands <- unique(penguins$island)
+species <- unique(penguins$species)
+
+ui <- fluidPage(
+  titlePanel("Penguins Plot"),
+  selectInput("species", "Species", species, multiple = TRUE),
+  selectInput("island", "Island", islands, multiple = TRUE),
+  selectInput("var1", "First Variable", colnames(penguins)[3:6]),
+  selectInput("var2", "Second Variable", colnames(penguins)[3:6]),
+  plotOutput("scatterplot"),
+  plotOutput("histogram1"),
+  plotOutput("histogram2"),
+)
+
+server <- function(input, output) {
+  output$scatterplot <- renderPlot({
+    current_data <- penguins %>%
+      filter(
+        island %in% input$island,
+        species %in% input$species
+      )
+    ggplot(current_data) +
+      geom_point(aes(.data[[input$var1]], .data[[input$var2]]))
+  })
+  
+  output$histogram1 <- renderPlot({
+    current_data <- penguins %>%
+      filter(
+        island %in% input$island,
+        species %in% input$species
+      )
+    ggplot(current_data) +
+      geom_histogram(aes(.data[[input$var1]]))
+  })
+  
+  output$histogram2 <- renderPlot({
+    current_data <- penguins %>%
+      filter(
+        island %in% input$island,
+        species %in% input$species
+      )
+    ggplot(current_data) +
+      geom_histogram(aes(.data[[input$var2]]))
+  })
+  
+}
+
+shinyApp(ui, server)
+```
+
+The data are being filtered in almost the exact the same way within each
+`renderPlot`. Therefore, it makes sense to introduce a new reactive element. We
+used a trick to use string variables to specify columns within `aes`.
+Specifically, we can refer to the original column using `.data[[v]]`, where `v`
+is a variable storing the column name we want to encode.
+
+```{r}
+histogram <- function(df, v) {
+  ggplot(df) +
+    geom_histogram(aes(.data[[v]]))
+}
+
+ui <- fluidPage(
+  titlePanel("Penguins Plot"),
+  selectInput("species", "Species", species, multiple = TRUE),
+  selectInput("island", "Island", islands, multiple = TRUE),
+  selectInput("var1", "First Variable", colnames(penguins)[3:6]),
+  selectInput("var2", "Second Variable", colnames(penguins)[3:6]),
+  plotOutput("scatterplot"),
+  plotOutput("histogram1"),
+  plotOutput("histogram2"),
+)
+
+server <- function(input, output) {
+  current_data <- reactive({
+    penguins %>%
+      filter(
+        island %in% input$island,
+        species %in% input$species
+      )
+  })
+  
+  output$scatterplot <- renderPlot({
+    ggplot(current_data()) +
+      geom_point(aes(.data[[input$var1]], .data[[input$var2]]))
+  })
+  
+  output$histogram1 <- renderPlot(histogram(current_data(), input$var1))
+  output$histogram2 <- renderPlot(histogram(current_data(), input$var2))
+}
+
+shinyApp(ui, server)
+```

@@ -1,0 +1,111 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(warnings = FALSE, message = FALSE)
+```
+
+```{r}
+library(tidyverse)
+library(tidymodels)
+th <- theme_minimal() + 
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.background = element_rect(fill = "#f7f7f7"),
+    panel.border = element_rect(fill = NA, color = "#0c0c0c"),
+    axis.text = element_text(size = 14),
+    axis.title = element_text(size = 16),
+    strip.text = element_text(size = 16),
+    legend.position = "bottom"
+  )
+theme_set(th)
+```
+
+
+[Food nutrients] This problem will use PCA to provide a low-dimensional view
+of a 14-dimensional nutritional facts
+[dataset](https://uwmadison.box.com/shared/static/nmgouzobq5367aex45pnbzgkhm7sur63.csv).
+The data were originally curated by the USDA and are regularly used in
+[visualization studies](http://bl.ocks.org/syntagmatic/raw/3150059/).
+    
+```{r}
+nutrients <- read_csv("https://uwmadison.box.com/shared/static/nmgouzobq5367aex45pnbzgkhm7sur63.csv")
+```
+    
+a. Define a tidymodels `recipe` that normalizes all nutrient features and The
+code below defines a recipe that first normalizes the predictors and then
+performs PCA.
+
+```{r}
+pca_recipe <- recipe(~., data = nutrients) %>%
+  update_role(name, id, starts_with("group"), new_role = "id") %>%
+  step_normalize(all_predictors()) %>%
+  step_pca(all_predictors())
+pca_prep <- prep(pca_recipe)
+```
+
+specifies that PCA should be performed.
+
+b. Visualize the top 6 principal components. What types of food do you expect to
+have low or high values for PC1 or PC2?
+
+The first 6 components are plotted below. Each component can be thought of as a
+derived feature or contrast that explains a significant amount of the variation
+across the foods. Since the first PC has a very positive weight on water and a
+very negative weight on calories and fat, we suspect that it distinguishes
+between fruit / vegetables and everything else. Since the second PC has very
+positive values for carbohydrates and very negative values for water and fats,
+we suspect that these are starchy foods, like bread or pasta.
+
+```{r, fig.width = 10, fig.height = 8}
+pca_result <- tidy(pca_prep, 2) %>%
+  mutate(terms = str_replace(terms, " \\(g\\)", ""))
+ggplot(pca_result %>% filter(component %in% str_c("PC", 1:6))) +
+  geom_col(aes(x = value, y = terms)) +
+  facet_wrap(~ component) +
+  labs(x = "Component", y = "Features")
+```
+
+c. Compute the average value of PC2 within each category of the `group` column.
+Give the names of the groups sorted by this average.
+
+The `bake` function below extracts the PC scores for each sample. We then
+compute the mean of PC2 within each food group using the `group_by` and
+`summarise` pattern.
+
+```{r}
+pca_scores <- bake(pca_prep, nutrients)
+group_order <- pca_scores %>%
+  group_by(group) %>%
+  summarise(mpc2 = mean(PC2)) %>%
+  arrange(mpc2) %>%
+  pull(group)
+```
+
+d. Visualize the scores of each food item with respect to the first two
+principal components. Facet the visualization according to the `group` column,
+and sort the facets according to the results of part (c). How does the result
+compare with your guess from part (b)?
+
+We mutate the `group` column so that the facets will be reordered according to
+the results of (c). In general, the facets of a ggplot2 plot will always be
+ordered by the factor levels of the defining variable. From here, the result is
+a standard scatterplot, though we make the axes slightly bolder and customize
+the color and axes labels.
+
+```{r, fig.width = 12}
+pca_scores %>%
+  mutate(group = factor(group, levels = group_order)) %>%
+  ggplot(aes(x = PC1, y = PC2)) +
+  geom_vline(xintercept = 0, col = "#4a4a4a") +
+  geom_hline(yintercept = 0, col = "#4a4a4a") +
+  geom_point(size = 0.4, alpha = 0.6) +
+  scale_x_continuous(breaks = seq(-8, 0, length.out = 3)) +
+  scale_color_brewer(palette = "Set2") +
+  facet_wrap(~ reorder(group, PC1), ncol = 9) +
+  coord_fixed() +
+  theme(strip.text = element_text(size = 8))
+```

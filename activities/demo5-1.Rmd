@@ -82,16 +82,17 @@ ui <- fluidPage(
   sliderInput("year", "Year", 2013, 2019, c(2013, 2019), sep = ""),
   fluidRow(
     column(8, plotOutput("dotplot")),
-    # column(4, plotOutput("histogram", ## update to make this brushable.
+    column(4, plotOutput("histogram", brush = brushOpts("fire_size", direction = "x")))
   ),
   dataTableOutput("table")
 )
 server <- function(input, output) {
-  # define a reactive values variable to store the currently selected fires.
-  # Call it histogram_selection so that the code below works.
+  histogram_selection <- reactiveVal(rep(TRUE, nrow(fires)))
+  observeEvent(
+    input$fire_size,
+    histogram_selection(brushedPoints(fires, input$fire_size, allRows = TRUE)$selected_)
+  )
   
-  # add an observeEvent to check whenever the histogram has been brushed
-
   output$dotplot <- renderPlot({
     fires %>%
       mutate(
@@ -100,7 +101,6 @@ server <- function(input, output) {
         ) %>%
       dotplot()
   })
-
   output$histogram <- renderPlot({
     ggplot(fires) +
       geom_histogram(aes(AcresBurned)) +
@@ -116,3 +116,4 @@ server <- function(input, output) {
 
 shinyApp(ui, server)
 ```
+

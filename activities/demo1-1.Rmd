@@ -1,0 +1,63 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+The data below measures properties of various Antarctic penguins.
+
+```{r, echo = TRUE}
+library(tidyverse)
+theme_set(theme_bw())
+penguins <- read_csv("https://uwmadison.box.com/shared/static/ijh7iipc9ect1jf0z8qa2n3j7dgem1gh.csv")
+```
+Create a single plot that makes it easy to answer both of these questions, (i)
+How is bill length related to bill depth within and across species? (ii) On
+which islands are which species found?
+
+```{r}
+head(penguins)
+
+ggplot(penguins) +
+  geom_point(aes(bill_length_mm, bill_depth_mm, col = species, shape = island))
+```
+
+
+```{r}
+ggplot(penguins) +
+  geom_point(aes(bill_length_mm, bill_depth_mm, col = island)) +
+  facet_wrap(~ species)
+```
+
+Read about [Simpson's
+paradox](https://en.wikipedia.org/wiki/Simpson%27s_paradox) and summarize it in
+your own words. Then, explain how part (i) provides a real-world example of this
+paradox.
+
+```{r}
+ggplot(penguins, aes(bill_length_mm, bill_depth_mm, col = species)) +
+  geom_point() +
+  geom_smooth(aes(fill = species), method = "lm") +
+  facet_wrap(~ island)
+```
+
+```{r, fig.width = 8, fig.height = 3}
+ggplot(penguins, aes(bill_length_mm, bill_depth_mm, col = species)) +
+  geom_point() +
+  geom_smooth(aes(fill = species), method = "lm") +
+  facet_wrap(~ island) +
+  scale_fill_brewer(palette = "Set2") +
+  scale_color_brewer(palette = "Set2") +
+  labs(x = "Bill Length (mm)", y = "Bill Depth (mm)", col = "Island", fill = "Island")
+```
+
+```{r, fig.width = 8, fig.height = 3}
+ggplot(penguins, aes(bill_length_mm, bill_depth_mm)) +
+  geom_point(aes(col = species)) +
+  geom_smooth(aes(col = species, fill = species), method = "lm") +
+  geom_smooth(method = "lm", se = FALSE, col = "#0c0c0c") +
+  facet_wrap(~ island) +
+  scale_fill_brewer(palette = "Set2") +
+  scale_color_brewer(palette = "Set2") +
+  labs(x = "Bill Length (mm)", y = "Bill Depth (mm)", col = "Island", fill = "Island")
+```

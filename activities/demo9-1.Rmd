@@ -1,0 +1,105 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(warnings = FALSE, message = FALSE)
+```
+
+```{r}
+library(tidyverse)
+th <- theme_minimal() + 
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.background = element_rect(fill = "#f7f7f7"),
+    panel.border = element_rect(fill = NA, color = "#0c0c0c"),
+    axis.text = element_text(size = 14),
+    axis.title = element_text(size = 16),
+    strip.text = element_text(size = 16),
+    legend.position = "bottom"
+  )
+theme_set(th)
+```
+
+[Women, Business and the Law] The World Bank's Women, Business, and the Law
+program has curated a dataset about gender equality across countries since 1971.
+Since there are more than 30 variables summarizing each country for each year,
+we will use clustering to observe the general trends across all measures.
+
+a. The code below reads in the data, simplifies column names (saving the
+original names in the `question_mapping` data.frame), and converts text Yes
+/ No responses to numerical 0 / 1. Widen the dataset so that each row
+corresponds to a single country $\times$ year combination.
+
+```{r}
+# read in and create a codebook
+survey <- read_csv("https://github.com/krisrs1128/stat479_s22/blob/main/_slides/week9/exercises/Viz5-July-2020-economic-empowerement.csv?raw=true")
+question_mapping <- survey %>%
+  select(Question, `Question Category`) %>%
+  distinct() %>%
+  mutate(q_id = str_c("Q", row_number()))
+
+recode_vector <- setNames(question_mapping$Question, question_mapping$q_id)
+survey <- survey %>%
+  mutate(
+    Question = fct_recode(Question, !!!recode_vector),
+    answer = as.numeric(ifelse(`Text Answer` == "Yes", 1, 0))
+  ) %>%
+  select(Country, `WBL Report Year`, Question, answer)
+
+survey <- survey %>%
+  pivot_wider(names_from = "Question", values_from = "answer")
+```
+
+b. Apply $K$-means to the question responses (you may choose $K$). Visualize
+the centroids and briefly interpret each cluster in context, using the
+original text of the questions stored in `question_mapping`.
+
+```{r}
+# run kmeans
+fit <- survey %>%
+  select(starts_with("Q")) %>%
+  kmeans(centers = 5)
+
+# make it "long" again
+centroids <- data.frame(fit$centers) %>%
+  rownames_to_column("cluster") %>%
+  pivot_longer(-cluster, names_to = "q_id")
+```
+
+```{r, fig.width = 10, fig.height = 8}
+# make the faceted centroids means, sorting clusters according to averages
+ggplot(centroids) +
+  geom_col(aes(value, reorder(q_id, value, var)), width = 1) +
+  facet_wrap(~ reorder(cluster, value), ncol = 5) +
+  theme(axis.text.y = element_text(size = 10))
+```
+    
+```{r, fig.height = 9, fig.width = 3}
+ggplot(centroids) +
+  geom_tile(aes(reorder(cluster, value), reorder(q_id, value), fill = value)) +
+  scale_fill_gradient(low = "white", high = "black")
+```
+
+    
+c. Visualize change in cluster sizes over time. Provide a brief
+interpretation (for example, in which types of questions is there the most /
+least progress towards equality?).
+
+```{r, fig.width = 10, fig.height = 4}
+interpret <- bind_cols(
+  survey, 
+  cluster = as.factor(fit$cluster)
+) %>%
+  count(`WBL Report Year`, cluster)
+
+slope_fun <- function(x) {
+  mean(diff(x))
+}
+  
+ggplot(interpret) +
+  geom_point(aes(`WBL Report Year`, n)) +
+  facet_wrap(~ reorder(cluster, n, slope_fun))
+```

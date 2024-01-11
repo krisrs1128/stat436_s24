@@ -55,7 +55,20 @@ time series feature (or several features) that can be generated using the
 `feasts` package. What questions is your visualization particularly well-suited
 to? What questions is it not appropriate for?
 
+We will try querying series according to their `spikiness` and `curvature`. The
+graphical query will allow us to highlight countries using a scatterplot of
+these feature values.
+
 c. Implement your proposal from part (b).
+
+```{r}
+trends <- smoothed_carbon %>%
+  features(value, features = feature_set(tags = "trend")) %>%
+  mutate(log_spikiness = log(spikiness))
+
+carbon_trends <- smoothed_carbon %>%
+  left_join(trends)
+```
 
 ```{r}
 ui <- fluidPage(
@@ -69,15 +82,30 @@ server <- function(input, output) {
   selected <- reactiveVal(rep(FALSE, nrow(carbon_trends)))
   observeEvent(
     input$brush, {
-      ## ??
+      selected(brushedPoints(carbon_trends, input$brush, allRows = TRUE)$selected_)
+  })
+  
+  mutated_trends <- reactive({
+    carbon_trends %>%
+      mutate(selected = selected())
   })
   
   output$scatter <- renderPlot({
-    ## ??
+    ggplot(mutated_trends()) +
+      geom_point(aes(log_spikiness, curvature, col = selected), size = 2) +
+      scale_color_manual(values = c("#B0D1D9", "#273859"), guide = "none")
   })
   
   output$trends <- renderPlotly({
-    ## ??
+    current <- mutated_trends()
+    if (any(current$selected)) {
+      p <- current %>%
+        filter(selected) %>%
+        ggplot() +
+        geom_line(aes(year, smoothed, group = country), col = "#273859") +
+        theme(legend.position = "none")
+      ggplotly(p)
+    }
   })
 }
 

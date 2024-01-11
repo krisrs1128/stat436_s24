@@ -18,13 +18,6 @@ library(tidyverse)
 library(shiny)
 theme_set(theme_bw())
 
-dotplot <- function(df) {
-  ggplot(df) +
-    geom_point(aes(day_of_year, Counties, size = AcresBurned,  col = selected)) +
-    scale_color_manual(values = c("orange", "#e3e3e3"))
-}
-
-
 fires <- read_csv("https://uwmadison.box.com/shared/static/k5vvekf1bhh9e16qb9s66owygc70t7dm.csv") %>%
   mutate(quantile = rank(AcresBurned) / n())
 ```
@@ -54,6 +47,12 @@ fire, or a select to search for counties, or a slider to filter by fire
 size.
 
 ```{r}
+dotplot <- function(df) {
+  ggplot(df) +
+    geom_point(aes(day_of_year, Counties, size = AcresBurned,  col = selected)) +
+    scale_color_manual(values = c("orange", "#e3e3e3"))
+}
+
 ui <- fluidPage(
   sliderInput("year", "Year", 2013, 2019, c(2013, 2019), sep = ""),
   plotOutput("dotplot", width = 800, height = 500)
@@ -80,38 +79,22 @@ of fire sizes. Sketch the reactivity graph associated with your application.
 ```{r}
 ui <- fluidPage(
   sliderInput("year", "Year", 2013, 2019, c(2013, 2019), sep = ""),
-  fluidRow(
-    column(8, plotOutput("dotplot")),
-    # column(4, plotOutput("histogram", ## update to make this brushable.
-  ),
-  dataTableOutput("table")
+  sliderInput("quantile", "Quantile", 0, 1, c(0, 1), 0.01),
+  plotOutput("dotplot", width = 800, height = 500)
 )
-server <- function(input, output) {
-  # define a reactive values variable to store the currently selected fires.
-  # Call it histogram_selection so that the code below works.
-  
-  # add an observeEvent to check whenever the histogram has been brushed
 
-  output$dotplot <- renderPlot({
+server <- function(input, output) {
+  current_data <- reactive({
     fires %>%
       mutate(
-        selected = histogram_selection() & year >= input$year[1] & year <= input$year[2],
+        selected = year >= input$year[1] & 
+          year <= input$year[2] &
+          quantile >= input$quantile[1] &
+          quantile <= input$quantile[2],
         selected = factor(selected, levels = c("TRUE", "FALSE"))
-        ) %>%
-      dotplot()
+      )
   })
-
-  output$histogram <- renderPlot({
-    ggplot(fires) +
-      geom_histogram(aes(AcresBurned)) +
-      scale_x_log10()
-  })
-  
-  output$table <- renderDataTable({
-    fires %>%
-      filter(histogram_selection() & year >= input$year[1] & year <= input$year[2]) %>%
-      arrange(-AcresBurned)
-  })
+  output$dotplot <- renderPlot(dotplot(current_data()))
 }
 
 shinyApp(ui, server)

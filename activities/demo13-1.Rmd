@@ -1,0 +1,108 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(warnings = FALSE, message = FALSE)
+```
+
+```{r}
+library(tidyverse)
+library(keras)
+
+th <- theme_minimal() + 
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.background = element_rect(fill = "#f7f7f7"),
+    panel.border = element_rect(fill = NA, color = "#0c0c0c", size = 0.6),
+    axis.text = element_text(size = 14),
+    axis.title = element_text(size = 16),
+    legend.position = "bottom"
+  )
+theme_set(th)
+```
+
+[Deep Learning as a Mixture of Separating Planes] In this exercise, we will
+visualize the predictions and hidden layer activations in a simple, but
+nonlinear, classification problem. The goal is to illustrate how nonlinear
+decision boundaries can be learned by deeper layers of a neural network, even
+though each neuron is a linear combination of the previous layer's units.
+
+a. The block below simulates a toy dataset with predictors `x` and response
+`y`. Provide a visualization for the dataset and comment on why a one-layer
+deep learning model would not be sufficient to achieve good performance.
+
+```{r}
+N <- 100
+x <- matrix(rt(N * 2, 12), N, 2)
+y <- rowSums(x ^ 2) < 1
+flip_ix <- sample(N, N / 20) # 5% unavoidable error
+y[flip_ix] <- !y[flip_ix]
+simulation <- data.frame(x = x, y = y)
+```
+
+```{r}
+ggplot(simulation) +
+  geom_point(aes(x.1, x.2, col = y))
+```
+
+b. The block below defines and fits a deep learning model with three hidden
+layers. Design and implement a visualization that shows the predicted
+probabilities for each sample after the model has converged.
+
+```{r}
+library(keras)
+model <- keras_model_sequential() %>% 
+  layer_dense(units = 20, activation = "relu", input_shape = c(2)) %>% 
+  layer_dense(units = 20, activation = "relu", input_shape = c(20)) %>% 
+  layer_dense(units = 20, activation = "relu", input_shape = c(20)) %>% 
+  layer_dense(2, activation = "softmax")
+model %>% 
+  compile(optimizer = "adam", loss = "categorical_crossentropy") %>%
+  fit(
+    x = simulation %>% select(starts_with("x")) %>% as.matrix(),
+    y = to_categorical(simulation$y),
+    metric = "accuracy",
+    epochs = 60,
+    verbose = 0
+  )
+```
+  
+```{r}
+x_grid <- seq(-4.5, 4.5, length.out = 50)
+x_grid <- expand.grid(x_grid, x_grid)
+x_grid$y_hat <- predict(model, as.matrix(x_grid))[, 2]
+ggplot(x_grid) +
+  geom_tile(aes(Var1, Var2, fill = y_hat)) +
+  geom_point(data = simulation, aes(x.1, x.2, col = y)) +
+  scale_fill_distiller(direction = 1) +
+  coord_fixed()
+```
+
+c. The block below defines a `keras` model that can be used to extract
+activations from the first hidden layer of the trained deep learning
+model. Design and implement a visualization to characterize how
+activations for a single neuron behave, as a function of the input $x$
+coordinates. Make the analogous visualization for a deeper layer.
+
+```{r}
+submodel <- keras_model(model$input, model$layers[[1]]$output)
+x_grid <- seq(-4.5, 4.5, length.out = 50)
+x_grid <- expand.grid(x_grid, x_grid)
+x_grid$h <- predict(submodel, as.matrix(x_grid))[, 2]
+ggplot(x_grid) +
+  geom_tile(aes(Var1, Var2, fill = h)) +
+  geom_point(data = simulation, aes(x.1, x.2, col = y)) +
+  scale_fill_distiller(direction = 1) +
+  coord_fixed()
+```
+
+d. Generate a heatmap of activations across all neurons from some layer of
+the model. Comment on the structure of the learned features.
+
+```{r}
+h <- predict(submodel, as.matrix(simulation[, 1:2]))
+superheat(t(h), pretty.order.rows = TRUE, pretty.order.col = TRUE)
+```

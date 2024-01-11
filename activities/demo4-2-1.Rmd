@@ -1,0 +1,123 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(warnings = FALSE, message = FALSE)
+```
+
+
+[Interactive German Traffic] This problem will revisit the previous problem
+from an interactive point of view. We will build a visualization that helps
+users explore daily traffic patterns across multiple German cities, using
+interactivity to help users navigate the collection. We will need additional
+features related to the day of the week for each timepoint, created by the
+`wday` function below,
+
+```{r}
+library(tidyverse)
+library(lubridate)
+library(shiny)
+theme_set(theme_bw())
+
+traffic <- read_csv("https://uwmadison.box.com/shared/static/x0mp3rhhic78vufsxtgrwencchmghbdf.csv") %>%
+ mutate(day_of_week = wday(date))
+```
+
+a. Design and implement a Shiny app that allows users to visualize traffic
+over time across selected subsets of cities. Make sure that it is possible
+to view data from more than one city at a time. It is not necessary to label
+the cities within the associated figure.
+
+We first define a function that, when given a subset of cities, draws a line
+plot.
+
+```{r, eval = FALSE}
+plot_traffic <- function(df) {
+  ggplot(df) +
+    geom_line(aes(date, value, group = name)) +
+    labs(x = "Date", y = "Traffic") +
+    theme(axis.title = element_text(size = 20))
+}
+```
+
+Our design will update a time series plot of all the cities every time a
+dropdown menu is updated. We will allow multiple cities to be selected
+simultaneously. Specifically, our UI has an input for choosing cities and
+displays the line plot as an output. Our server recognizes changes in the
+choice of cities, filters the data to that subset, and then draws the updated
+time series.
+    
+```{r, eval = FALSE}
+ui <- fluidPage(
+  selectInput("city", "City", unique(traffic$name), multiple = TRUE),
+  plotOutput("time_series")
+)
+
+server <- function(input, output) {
+  output$time_series <- renderPlot({
+    traffic %>%
+      filter(name %in% input$city) %>%
+      plot_traffic()
+  })
+}
+
+shinyApp(ui, server)
+```
+
+
+b. Introduce new inputs to allow users to select a contiguous range of days
+of the week. For example, the user should have a way of zooming into the
+samples taken within the Monday - Wednesday range.
+
+We use nearly the same design except that a new slider input is provided for
+choosing days of the week. When a range of days is chosen, then the time
+series will show only that range for the currently selected cities.
+
+```{r, eval = FALSE}
+ui <- fluidPage(
+  selectInput("city", "City", unique(traffic$name), multiple = TRUE),
+  sliderInput("day_of_week", "Days", 2, 7, c(2, 7)),
+  plotOutput("time_series")
+)
+
+server <- function(input, output) {
+  output$time_series <- renderPlot({
+    traffic %>%
+      filter(
+        name %in% input$city, 
+        day_of_week >= input$day_of_week[1] & day_of_week <= input$day_of_week[2]
+      ) %>%
+      plot_traffic()
+  })
+}
+
+shinyApp(ui, server)
+```
+  
+<iframe src="https://data-viz.it.wisc.edu/content/aa7c25b0-618f-41a2-80b7-1816c6ea9b41" width=900 height=550 data-external="1"/>
+
+c. Propose, but do not implement, at least one alternative strategy for
+supporting user queries from either part (a) or (b). What are the tradeoffs
+between the different approaches in terms of visual effectiveness and
+implementation complexity?
+
+One alternative implementation could use a graphical query (instead of a
+dropdown menu) to select cities of interest. We could show the cities as a
+scatterplot on a map, with circle size reflecting their average weekly
+traffic level. By brushing cities on the map, we could update the currently
+displayed time series.
+
+This approach would be more effective for multiple cities that are
+geographically close by. It could also guide users towards cities that have
+higher vs. lower traffic levels, to see if they have any systematic
+differences. It would be less effective if the cities that we would want to
+compare with one another are not geographically close (in that case, we
+might imagine using another feature of the cities to guide the query).
+
+The implementation becomes somewhat more complex, because we would have to
+use a brush query and implement a map. If users are familiar with the
+locations of the cities, and if spatial queries are of genuine interest,
+then this additional cost might be worthwhile.

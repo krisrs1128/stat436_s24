@@ -1,0 +1,90 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(warnings = FALSE, message = FALSE)
+```
+
+[Multiple Weather Variables] In this problem, we will construct a compound
+figure to simultaneously visualize several weather variables in one display. The
+block below reads a dataset that includes temperature, precipitation, and wind
+measurements for New York City and Seattle over the course of several years. It
+then then averages each variable for each day (1 - 365) in the year.
+
+```{r}
+library(tidyverse)
+theme_set(theme_bw())
+
+weather <- read_csv("https://raw.githubusercontent.com/krisrs1128/stat479_s22/main/exercises/data/weather.csv") %>%
+  mutate(day_in_year = lubridate::yday(date)) %>%
+  group_by(location, day_in_year) %>%
+  summarise(across(precipitation:wind, mean))
+```
+  
+a. Construct three base `ggplot2` plots based on the variables that are
+provided. For example, you may construct a line plot (`geom_line`) of
+average precipitation, a histogram (`geom_histogram`) of per-city
+windspeeds, or a ribbon plot (`geom_ribbon`) of temperature ranges over
+time. Make sure to display at least two weather variables from among the
+four that are provided.
+
+```{r}
+p <- list()
+p[["ribbon"]] <- ggplot(weather) +
+  geom_ribbon(aes(day_in_year, ymin = temp_min, ymax = temp_max, fill = location), alpha = 0.8) +
+  scale_x_continuous(expand = c(0, 0))
+
+p[["precip"]] <- ggplot(weather) +
+  geom_point(aes(day_in_year, precipitation, col = location, size = wind)) +
+  scale_x_continuous(expand = c(0, 0)) +
+  scale_y_continuous(expand = c(0, 0, 0.1, 0)) +
+  scale_size_continuous(range = c(0.1, 4))
+
+p[["range"]] <- ggplot(weather) +
+  geom_histogram(
+    aes(temp_max - temp_min, fill = location), 
+    alpha = 0.8, position = "identity"
+  ) +
+  scale_y_continuous(expand = c(0, 0, 0.1, 0))
+
+p
+```
+
+b. Design a compound figure based on the base plots in part (a). Why did you
+lay out the subplots in the locations that you did? Ensure that consistent
+visual encodings are used throughout, that legends are collected, and that
+clear but unobtrusive annotation is provided.
+
+```{r, fig.width = 10, fig.height = 5}
+library(patchwork)
+p[["range"]] + (p[["ribbon"]] / p[["precip"]])
+```
+
+A more refined version collects redundant legends and provides sub-plot labels.
+
+```{r}
+p[["range"]] <- p[["range"]] +
+  labs(x = "Temperature Range", title = "a")
+p[["ribbon"]] <- p[["ribbon"]] +
+  labs(x = "Day of Year", y = "Temperature", title = "b")
+p[["precip"]] <- p[["precip"]] + 
+  labs(x = NULL, title = "c") +
+  scale_color_discrete(guide = FALSE)
+p[["range"]] + (p[["ribbon"]] / p[["precip"]]) +
+  plot_layout(guides = "collect", widths = c(1, 3))
+```
+
+c. Discuss, but do not implement, an alternative compound figure for the
+same data, with either different base plots or overall layout (or both). For
+which visual comparisons are either designs best suited?
+
+For sub-plots (b - c), we could imagine grouping days of the year to just
+months. For (b), we could replace the ribbon with the average minimum and
+maximum temperatures. We could also use a boxplot for the bottom panel. The
+advantage of this approach is that it would help denoising the two figures. For
+example, the higher precipitation in New York during the summer would likely
+become more obvious. However, it would make it impossible to see the degree of
+day-to-day variability in these panels.

@@ -31,7 +31,7 @@ autocorrelation, cross-correlation, cyclic behavior.
 carbon <- read_csv("https://raw.githubusercontent.com/krisrs1128/stat479_s22/main/_slides/week6/data/cleaned.csv")
 head(carbon)
 
-carbon <- carbon |>
+carbon <- carbon %>%
   pivot_longer(-c("country", "Country code"), names_to = "year")
 ```
   
@@ -51,8 +51,8 @@ the original line plot?
 
 ```{r}
 library(slider)
-#smoothed_carbon <- carbon_ts |>
-#  group_by(country) |>
+#smoothed_carbon <- carbon_ts %>%
+#  group_by(country) %>%
 #  mutate(smoothed = slide_dbl(value, ~ mean(.), .before = 5, .after = 5))
 ```
 

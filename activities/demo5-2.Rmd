@@ -27,8 +27,8 @@ plot_traffic <- function(df) {
     geom_line(aes(date, value, group = name)) +
     labs(x = "Date", y = "Traffic") +
     theme(
-      #panel.background = element_rect(fill= "transparent"),
-      #plot.background = element_rect(fill = "transparent", color = NA),
+      panel.background = element_rect(fill= "transparent"),
+      plot.background = element_rect(fill = "transparent", color = NA),
       axis.title = element_text(size = 20)
     )
 }
@@ -57,9 +57,14 @@ descriptive_text <- p("Explore traffic patterns over six days in 2016, across 38
 ```{r, eval = FALSE}
 ui <- fluidPage(
   titlePanel("City Traffic Explorer"),
-  selectInput("city", "City", unique(traffic$name), multiple = TRUE),
-  sliderInput("day_of_week", "Days", 2, 7, c(2, 7)),
-  plotOutput("time_series")
+  sidebarLayout(
+    sidebarPanel(
+      descriptive_text,
+      selectInput("city", "City", unique(traffic$name), multiple = TRUE),
+      sliderInput("day_of_week", "Days", 2, 7, c(2, 7)),
+    ),
+    mainPanel(plotOutput("time_series"))
+  )
 )
 
 server <- function(input, output) {
@@ -82,6 +87,14 @@ Next, let's experiment with some custom themes.
 library(bslib)
 
 ui <- fluidPage(
+  theme = bs_theme(
+    bootswatch = "simplex",
+    fg =  "#261912",
+    bg = "#F2F2F2",
+    primary = "#77A690",
+    base_font = font_google("Poppins"),
+    heading_font = font_google("Oswald")
+  ),
   titlePanel("City Traffic Explorer"),
   sidebarLayout(
     sidebarPanel(
@@ -101,7 +114,7 @@ server <- function(input, output) {
         day_of_week >= input$day_of_week[1] & day_of_week <= input$day_of_week[2]
       ) %>%
       plot_traffic()
-  }) # use bg = "transparent" to make the plot transparent
+  }, bg = "transparent")
 }
 
 shinyApp(ui, server)

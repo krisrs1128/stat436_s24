@@ -1,0 +1,67 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(warnings = FALSE, message = FALSE)
+```
+
+[Pokemon]  This problem gives practice in deriving new variables to improve a
+faceted plot. The data below give attack and defense statistics for Pokemon,
+along with their types. We will build a visualization to answer the question --
+how do the different types of Pokemon vary in their attack and defense
+potential?
+
+```{r}
+pokemon <- read_csv("https://uwmadison.box.com/shared/static/hf5cmx3ew3ch0v6t0c2x56838er1lt2c.csv")
+```
+    
+a. Derive a new column containing the attack-to-defense ratio, defined as
+$\frac{\text{Attack}}{\text{Defense}}$.
+
+```{r}
+pokemon <- pokemon %>%
+  mutate(attack_to_defense = Attack / Defense)
+```
+
+
+b. For each `type_1` group of Pokemon, compute the median attack-to-defense
+ratio.
+
+```{r}
+pokemon %>%
+  group_by(type_1) %>%
+  summarise(attack_to_defense = median(attack_to_defense))
+```
+
+c. Plot the attack vs. defense scores for each Pokemon, faceted by `type_1`. Use
+the result of (b) to ensure that the panels are sorted from types with highest
+to lowest attack-to-defense ratio.
+
+```{r}
+ggplot(pokemon) + 
+  geom_abline(slope = 1, col = "#d3d3d3") +
+  geom_point(aes(Defense, Attack)) +
+  facet_wrap(~ reorder(type_1, attack_to_defense, median), ncol = 6)
+```
+
+```{r}
+ggplot(pokemon) + 
+  geom_abline(slope = 1, col = "#d3d3d3") +
+  geom_point(aes(Defense, Attack, col = Legendary)) +
+  facet_wrap(~ reorder(type_1, attack_to_defense, median), ncol = 6) +
+  scale_color_manual(values = c("#89C893", "#B74555")) +
+  guides(color = guide_legend(override.aes = list(size = 6))) +
+  facet_wrap(~ type_1, ncol = 6) +
+  theme(
+    panel.grid.minor = element_blank(),
+    legend.position = "bottom"
+  )
+```
+
+d. Propose, but do not implement, a visualization of this dataset that makes use
+of dynamic queries. What questions would the visualization answer? What would be
+the structure of interaction, and how would the display update when the user
+provides a cue?
