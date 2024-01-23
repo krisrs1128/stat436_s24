@@ -8,27 +8,32 @@ date: "`r Sys.Date()`"
 knitr::opts_chunk$set(warnings = FALSE, message = FALSE)
 ```
 
-[Pokemon]  This problem gives practice in deriving new variables to improve a
-faceted plot. The data below give attack and defense statistics for Pokemon,
-along with their types. We will build a visualization to answer the question --
-how do the different types of Pokemon vary in their attack and defense
-potential?
+[NCAA Trends] This [538
+article](https://fivethirtyeight.com/features/louisiana-tech-was-the-uconn-of-the-80s/)
+describes NCAA women's college basketball team performance over time. Each team
+was assigned a score representing how successfully it played during each year
+from 1982 to the present. This overall score is contained in the "points" column
+below.
 
 ```{r}
-pokemon <- read_csv("https://uwmadison.box.com/shared/static/hf5cmx3ew3ch0v6t0c2x56838er1lt2c.csv")
+ncaa <- read_csv("https://github.com/krisrs1128/stat992_f23/raw/main/exercises/ps1/ncaa_filtered.csv") 
 ```
-    
-a. Derive a new column containing the attack-to-defense ratio, defined as
-$\frac{\text{Attack}}{\text{Defense}}$.
 
-b. For each `type_1` group of Pokemon, compute the median attack-to-defense
-ratio.
+a. Derive new columns representing (i) the cumulative total number of points
+over time for each school (ii) the cumulative total number of points over
+time for a hypothetical team that earns 35 points a year.
 
-c. Plot the attack vs. defense scores for each Pokemon, faceted by `type_1`. Use
-the result of (b) to ensure that the panels are sorted from types with highest
-to lowest attack-to-defense ratio.
+b. Create a visualization that shows the running total number of points for
+each school over time. If you use faceting, ensure that facets are sorted in
+an informative way.
 
-d. Propose, but do not implement, a visualization of this dataset that makes use
-of dynamic queries. What questions would the visualization answer? What would be
-the structure of interaction, and how would the display update when the user
+c. Design a visualization that that compares each school's performance with
+that of the hypothetical team that averages 35 points per year. See the
+figure below for an example approach. Explain the strengths and weaknesses
+of your design and comment on a finding from your visualization.
+
+d. Note that the original data includes 250+ schools. Propose, but do not
+implement, a visualization of the full dataset that makes use of dynamic
+queries. What questions would the visualization answer? What would be the
+structure of interaction, and how would the display update when the user
 provides a cue?
