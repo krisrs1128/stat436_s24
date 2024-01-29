@@ -1,0 +1,41 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+The data below measures properties of various Antarctic penguins.
+
+```{r, echo = TRUE}
+library(tidyverse)
+theme_set(theme_bw())    
+penguins <- read_csv("https://uwmadison.box.com/shared/static/ijh7iipc9ect1jf0z8qa2n3j7dgem1gh.csv")
+```
+Create a single plot that makes it easy to answer both of these questions, (i)
+How is bill length related to bill depth within and across species? (ii) On
+which islands are which species found? 
+
+```{r}
+ggplot(penguins) +
+  geom_point(aes(bill_length_mm, bill_depth_mm, col = species, shape = island))
+
+ggplot(penguins,  aes(bill_length_mm, bill_depth_mm)) +
+  geom_smooth(aes(col = species), size = 2, method = "lm") +
+  geom_smooth(size = 2, col = "black", method = "lm") +
+  geom_point(aes(col = species), size = 5) +
+  facet_wrap(~ island) +
+  scale_color_manual(values = c("#b1236a", "#6ab123", "#236ab1")) +
+  labs(x = "Bill Length", y = "Bill Depth", col = "Species", title = "Penguin Bill Stats") +
+  theme(
+    axis.title = element_text(size = 36),
+    title = element_text(size = 40),
+    strip.text = element_text(size = 30),
+    legend.text = element_text(size = 26),
+    axis.text = element_text(size = 20)
+  )
+```
+{}
+
+* annotation - titles and axes
+* size of the text  
+* increase the size of the points
