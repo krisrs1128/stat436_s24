@@ -207,9 +207,7 @@ b. Using any tools of your choice, make one example visualization from your
 
 ### Beautiful Visualizations - Comments?
 
-.pull-left[
-&lt;img src="figures/exoplanets.png" width=400/&gt;
-]
+[link](https://www.behance.net/gallery/78642081/IAU100-exhibition-data-visualization-and-graphics)
 
 .pull-right[
 [Source](https://www.behance.net/gallery/78642081/IAU100-exhibition-data-visualization-and-graphics)
@@ -224,7 +222,7 @@ b. Using any tools of your choice, make one example visualization from your
 We will work through [Penguins] from the exercise sheet. We'll also see how you
 can create an HTML or PDF submission.
 
-* Demo link: [https://go.wisc.edu](https://go.wisc.edu)
+* Demo link: [https://go.wisc.edu/631kr1](https://go.wisc.edu/631kr1)
 * Solution: [https://go.wisc.edu/lqiprp](https://go.wisc.edu/lqiprp)
 
 ---
@@ -249,7 +247,16 @@ Response to *one* of the following questions in the exercise sheet:
 
 ### Announcements
 
-1. Office Hours are set (also on the syllabus)
+* Office Hours have been set.
+  - Kris, 3:30 - 5pm Fridays, Medical Sciences Center 7225C
+  - Yuliang, 4 - 5:30pm Mondays, Medical Sciences Center 1219
+* The group project counts for 30%, not 25%, of the total grade (syllabus updated).
+* A past midterm is posted under "March 12 - 14" on Canvas.
+* Sign-up with your team for one of the visualization shares by *February 6.*
+* Assignments:
+  - Project Milestone 0 [February 5]
+  - Project Milestone 1 [February 12]
+  - HW1 [February 19]
 
 ---
 
@@ -261,16 +268,83 @@ Response to *one* of the following questions in the exercise sheet:
 
 ---
 
+### Exercise Review
+
+* What is the meaning of these scales? Are 20 million slices of bread really
+comparable to 290,000 kg of poultry? What about CO2 equivalents?
+* A barchart would make quantitative comparisons much easier, especially for
+smaller circles
+* Bright pink background...
+* The text is sometimes quite small
+* Are apples really vegetables??
+* The icons are nice
+
+---
+
+### Exercise Review
+
+.center[
+ &lt;img src="figure/mosquito-predators.jpeg" width=600/&gt;
+]
+
+---
+
+### Exercise Review
+
+* This is actually quite elegant, though the visualization form is not that
+standard.
+* Several responses commented that additional labeling or color would help. Some of the existing annotation lacks context. I
+would caution that these additions should not come at the cost of the current
+information density.
+* In an interactive version, it would be nice to be able to filter by predation
+type
+
+---
+
+### Exercise Review
+
+.center[
+ &lt;img src="figure/elife_sunflower.jpeg" width=500/&gt;
+]
+
+---
+
+### Exercise Review
+
+* This is a very dense visualization, appropriate for a scientific venue, but
+requiring significant time to parse (though if a lot is learned through the
+process, this need not be a bad thing)
+* Having the scatterplot icons look like the properties of the sunflowers they
+are studying was a brilliant idea.
+* The linking of the same color across many subplots is a good practice.
+However, the circle sizes are not consistent between (a) and (b).
+* Some of the text makes the figure unnecessarily busy. E.g., do we really need
+to know latitude and longitude?
+
+---
+
+
 ### In-Class Demo [2-1]
 
-* We will work through [Plant Growth Experiment] in the exercises sheet.
-* Starter code is available here: https://go.wisc.edu/3s7k2f
+We will work through [Plant Growth Experiment] in the exercises sheet.
+
+* Live Demo: 
+* Completed Code: https://go.wisc.edu/tm5cw4
+
+---
+
+### Notebook Submissions
+
+* Make sure to remove extraneous package loading messages from your
+exercise and homework solutions.
+* There are also ways to customize the output colors, fonts, etc.
+* Let's look at how to do this with the previous demo.
 
 ---
 
 ### In-Class Exercise [2 - 1]
 
-* [Submit](https://go.wisc.edu/tcn2kq) an answer to [Code Analysis] from the exercises sheet.
+* Submit an answer to [Code Analysis] from the exercises sheet.
 
 [Code Analysis] Pick one code example from this week’s lecture notes. Provide a
 3 - 4 sentence summary of the overall implementation strategy. Then, add
@@ -283,8 +357,18 @@ these in the next lecture).
 ## February 2, 2024
 
 1. Review Exercise 2 - 1
-1. In-Class Demo 2 - 2 (https://go.wisc.edu/504ci4)
-1. In-Class Exercise 2 - 2 (https://go.wisc.edu/ni1n8e)
+1. In-Class Demo 2 - 2
+1. In-Class Exercise 2 - 2
+
+---
+
+### Announcements
+
+* Assignments:
+  - Project Milestone 0 [February 5]
+  - Project Milestone 1 [February 12]
+  - HW1 [February 19]
+* Sign-up with your team for one of the visualization shares by *February 6.*
 
 ---
 
@@ -292,10 +376,6 @@ these in the next lecture).
 
 ---
 
-### Notebook Submissions
-
-* I encourage you to remove extraneous package loading messages from your
-exercise and homework solutions (give example)
 * Pipe syntax seems to be a new concept. The main idea is to avoid storing
 intermediate computations.
 
@@ -318,18 +398,44 @@ df3 &lt;- df1 %&gt;%
 
 ---
 
-### In-Class Demo [2-2]
+### In-Class Demo [2 - 2]
 
-* We will work through [Olympics Derivations] in the exercises sheet.
-* Starter code is available here: https://go.wisc.edu/504ci4
+We will work through [Olympics Derivations] in the exercises sheet.
+
+* Live Demo:
+* Completed Code: https://go.wisc.edu/vq46n9
 
 ---
 
 ### In-Class Exercise [2 - 2]
 
-* Work with your project team (or if you do not have one, your neighbors in
-class), to complete the sections of this google doc: https://go.wisc.edu/ni1n8e
-* You do not need to submit anything to gradescope.
+Work through [Ikea Furniture] part (a) in the exercise sheet.
+
+As you prepare your solution, respond to the [Code Diary] (https://go.wisc.edu/62wr52) questions.
+
+If you finish part (a) during class, try to complete (b - c) as well.
+
+---
+
+[Ikea Furniture] The dataset below shows prices of pieces of Ikea furniture.
+We will compare prices of different furniture categories and label the
+(relatively few) articles which cannot be bought online.
+
+
+```r
+ikea &lt;- read_csv("https://uwmadison.box.com/shared/static/iat31h1wjg7abhd2889cput7k264bdzd.csv")
+```
+a. Make a plot that shows the relationship between the `category` of furniture
+and `price` (on a log-scale). Show each `item_id` as a point -- do not aggregate
+to boxplots or ridgelines -- but make sure to jitter and adjust the size the
+points to reduce the amount of overlap. _Hint: use `geom_jitter`._
+
+b. Modify the plot in (a) so that categories are sorted from those with highest
+to lowest average prices.
+
+c. Color points according to whether they can be purchased online. If they
+cannot be purchased online, add a text label giving the name of that item of
+furniture.
 
 ---
 
@@ -1598,7 +1704,7 @@ ggplot(x) +
   coord_fixed()
 ```
 
-&lt;img src="slides_files/figure-html/unnamed-chunk-17-1.png" width="650" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_files/figure-html/unnamed-chunk-18-1.png" width="650" style="display: block; margin: auto;" /&gt;
 
 
     </textarea>
