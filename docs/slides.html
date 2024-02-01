@@ -354,7 +354,7 @@ these in the next lecture).
 
 ---
 
-## February 2, 2024
+## February 1, 2024
 
 1. Review Exercise 2 - 1
 1. In-Class Demo 2 - 2
@@ -372,9 +372,31 @@ these in the next lecture).
 
 ---
 
-### Exercise Review
+### Beautiful Visualizations - Comments?
+
+.pull-left[
+  &lt;img src="figure/oscar_bump.jpg" width=400/&gt; 
+]
+
+.pull-right[
+  [Source](https://www.ft.com/content/4a2e9b05-463d-491c-af4e-2b0466cb8c63)
+]
 
 ---
+
+### Beautiful Visualizations - Comments?
+
+.pull-left[
+&lt;img src="figure/djokovic.jpeg" width=350/&gt;
+]
+
+.pull-right[
+[Source](https://ig.ft.com/sites/novak-djokovic-the-best-tennis-season-ever/)
+]
+
+---
+
+### Exercise Review 2 - 1
 
 * Pipe syntax seems to be a new concept. The main idea is to avoid storing
 intermediate computations.
@@ -390,11 +412,208 @@ df3 &lt;- g(df2)
 .pull-right[
 
 ```r
-df3 &lt;- df1 %&gt;%
-  f() %&gt;%
+df3 &lt;- df1 |&gt; 
+  f() |&gt;
   g()
 ```
 ]
+
+---
+
+### Exercise Review 2 - 1
+
+The theme only applies to visualizations **after** the `theme_set` call.
+
+
+```r
+# set the theme
+my_theme &lt;- theme_bw() +
+  theme(
+    axis.title = element_text(size = 16),
+    legend.title = element_text(size = 16),
+    axis.text = element_text(size = 14),
+    legend.text = element_text(size = 14),
+    strip.text = element_text(size = 16)
+  )
+theme_set(my_theme)
+#?? I don't know why the theme doesn't setted. 
+```
+
+---
+
+### Exercise Review 2 - 1
+
+
+
+```r
+ggplot(mtcars) +
+  geom_point(aes(mpg, hp))
+```
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-6-1.png" width="650" style="display: block; margin: auto;" /&gt;
+
+---
+
+### Exercise Review 2 - 1
+
+
+```r
+my_theme &lt;- theme_bw() +
+  theme(
+    axis.title = element_text(size = 16),
+    legend.title = element_text(size = 16),
+    axis.text = element_text(size = 14),
+    legend.text = element_text(size = 14),
+    strip.text = element_text(size = 16)
+  )
+theme_set(my_theme)
+ggplot(mtcars) +
+  geom_point(aes(mpg, hp))
+```
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-7-1.png" width="650" style="display: block; margin: auto;" /&gt;
+
+
+
+---
+
+### Exercise Review 2 - 1
+
+The plants demo used a regular expression ("regex") to extract the day number
+from the column names.
+
+
+```r
+plants_reshaped &lt;- plants |&gt;
+  pivot_longer(starts_with("height")) |&gt;
+  mutate(day = str_extract(name, "[0-9]+")) #???
+```
+
+---
+
+### Exercise Review 2 - 1
+
+
+```r
+str_extract("height.14", "[0-9]")
+```
+
+```
+## [1] "1"
+```
+
+---
+
+### Exercise Review 2 - 1
+
+
+```r
+str_extract("height.14", "[0-9]+")
+```
+
+```
+## [1] "14"
+```
+
+---
+
+### Exercise Review 2 - 1
+
+
+```r
+str_extract("height.14.test.21", "[0-9]+")
+```
+
+```
+## [1] "14"
+```
+
+---
+
+### Exercise Review 2 - 1
+
+
+```r
+str_extract_all("height.14.test.21", "[0-9]+")
+```
+
+```
+## [[1]]
+## [1] "14" "21"
+```
+
+Hint: https://regexr.com/ is useful for learning and testing regexes.
+
+---
+
+### Exercise Review 2 - 1
+
+* The first two arguments (`day` and `value`) always define the x and y axes in any ggplot layer
+* `interaction` defines a temporary factor variable that looks at all combinations
+
+
+```r
+ggplot(plants_reshaped) +
+  geom_line(aes(day, value, group = interaction(plantid, treatment), col = treatment))
+```
+
+`group` specifies what each line should correspond to. So here, it corresponds
+to `plantid x treatment` combinations.
+
+---
+
+### Exercise Review 2 - 1
+
+
+```r
+interaction(1:4, c("A", "B", "C"))
+```
+
+```
+## [1] 1.A 2.B 3.C 4.A
+## Levels: 1.A 2.A 3.A 4.A 1.B 2.B 3.B 4.B 1.C 2.C 3.C 4.C
+```
+
+---
+
+### Exercise Review 2 - 1
+
+
+
+
+```r
+ggplot(plants_long) +
+  geom_point(aes(time, height))
+```
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-17-1.png" width="650" style="display: block; margin: auto;" /&gt;
+
+---
+
+### Exercise Review 2 - 1
+
+
+```r
+ggplot(plants_long) +
+  geom_point(aes(interaction(time, treatment), height)) +
+  theme(axis.text.x = element_text(angle = 90))
+```
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-18-1.png" width="650" style="display: block; margin: auto;" /&gt;
+
+---
+
+
+```r
+ggplot(penguins, aes(bill_length_mm, bill_depth_mm)) +
+  geom_point(aes(col = species)) +
+  geom_smooth(aes(col = species, fill = species), method = "lm") +
+  geom_smooth(method = "lm", se = FALSE, col = "#0c0c0c") +       ???
+  facet_wrap(~ island) +
+  scale_fill_brewer(palette = "Set2") +
+  scale_color_brewer(palette = "Set2") +
+  labs(x = "Bill Length (mm)", y = "Bill Depth (mm)", col = "Island", fill = "Island").   This is again is that same graph as above with some weird, i'm guessing wrong, line of best fit???
+```
 
 ---
 
@@ -404,6 +623,7 @@ We will work through [Olympics Derivations] in the exercises sheet.
 
 * Live Demo:
 * Completed Code: https://go.wisc.edu/vq46n9
+* Whiteboard: https://go.wisc.edu/dadqnl
 
 ---
 
@@ -1704,7 +1924,7 @@ ggplot(x) +
   coord_fixed()
 ```
 
-&lt;img src="slides_files/figure-html/unnamed-chunk-18-1.png" width="650" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_files/figure-html/unnamed-chunk-34-1.png" width="650" style="display: block; margin: auto;" /&gt;
 
 
     </textarea>
