@@ -8,6 +8,18 @@ date: "`r Sys.Date()`"
 knitr::opts_chunk$set(warnings = FALSE, message = FALSE)
 ```
 
+```{r}
+library(tidyverse)
+my_theme <- theme_bw() +
+  theme(
+    axis.text = element_text(size = 12),
+    axis.title = element_text(size = 14),
+    strip.text = element_text(size = 14),
+    panel.grid.minor = element_blank()
+  )
+theme_set(my_theme)
+```
+
 
 [Olympics Derivations] This problem gives some practice with deriving and visualizing new variables.
 
