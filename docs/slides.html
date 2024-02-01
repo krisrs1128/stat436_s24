@@ -603,25 +603,11 @@ ggplot(plants_long) +
 
 ---
 
-
-```r
-ggplot(penguins, aes(bill_length_mm, bill_depth_mm)) +
-  geom_point(aes(col = species)) +
-  geom_smooth(aes(col = species, fill = species), method = "lm") +
-  geom_smooth(method = "lm", se = FALSE, col = "#0c0c0c") +       ???
-  facet_wrap(~ island) +
-  scale_fill_brewer(palette = "Set2") +
-  scale_color_brewer(palette = "Set2") +
-  labs(x = "Bill Length (mm)", y = "Bill Depth (mm)", col = "Island", fill = "Island").   This is again is that same graph as above with some weird, i'm guessing wrong, line of best fit???
-```
-
----
-
 ### In-Class Demo [2 - 2]
 
 We will work through [Olympics Derivations] in the exercises sheet.
 
-* Live Demo:
+* Live Demo: https://go.wisc.edu/zl8q3g
 * Completed Code: https://go.wisc.edu/vq46n9
 * Whiteboard: https://go.wisc.edu/dadqnl
 
@@ -1924,7 +1910,7 @@ ggplot(x) +
   coord_fixed()
 ```
 
-&lt;img src="slides_files/figure-html/unnamed-chunk-34-1.png" width="650" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_files/figure-html/unnamed-chunk-33-1.png" width="650" style="display: block; margin: auto;" /&gt;
 
 
     </textarea>
