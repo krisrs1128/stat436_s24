@@ -1,0 +1,79 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r}
+knitr::opts_chunk$set(warnings = FALSE, message = FALSE)
+```
+
+```{r}
+library(tidyverse)
+my_theme <- theme_bw() +
+  theme(
+    axis.text = element_text(size = 12),
+    axis.title = element_text(size = 14),
+    strip.text = element_text(size = 14),
+    panel.grid.minor = element_blank()
+  )
+theme_set(my_theme)
+```
+
+
+[Olympics Derivations] This problem gives some practice with deriving and visualizing new variables.
+
+```{r}
+olympics <- read_csv("https://uwmadison.box.com/shared/static/rzw8h2x6dp5693gdbpgxaf2koqijo12l.csv")
+olympics
+```
+
+a. Create new columns for the city and country of birth for each athlete in the
+London 2012 Olympics
+[dataset](https://uwmadison.box.com/s/rzw8h2x6dp5693gdbpgxaf2koqijo12l).
+
+```{r}
+olympics <- olympics |>
+  mutate(split_place = str_split(`Place of birth`, "\\(")) |>
+  unnest_wider(split_place, "city") |>
+  rename(city = split_placecity1, country = split_placecity2) |>
+  mutate(
+    country = str_remove(country, "\\)"),
+    city = str_trim(city)
+  )
+
+
+
+```
+
+
+b. Compute the standard deviation of athlete age within each sport. Which sport
+has widest SD in age?
+
+```{r}
+olympics |>
+  group_by(Sport) |> # put in sport name
+  summarise(sd_age = sd(Age)) |>
+  arrange(sd_age)
+```
+
+
+c. Make a visualization of sports against participant age. Sort sports by
+age variance.
+
+```{r}
+keep_sports <- olympics |>
+  count(Sport) |>
+  arrange(n) |>
+  filter(n > 5) |>
+  pull(Sport)
+```
+
+```{r}
+olympics |>
+  filter(Sport %in% keep_sports) |>
+  ggplot() +
+  geom_boxplot(aes(Age, reorder(Sport, Age, sd)))
+```
+
+
