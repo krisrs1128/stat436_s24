@@ -648,6 +648,7 @@ furniture.
 
 ## February 7, 2024
 
+1. In-Class Exercise Review [2-2]
 1. In-Class Discussion [3-1]
 1. In-Class Demo [3-1]
 1. In-Class Exercise [3-1]
@@ -657,15 +658,138 @@ furniture.
 ### Announcements
 
 * Thank you for your Project Milestone 0 submissions!
-* Project Milestone 1 is due on February 13.
-* Homework 1 is due on February 19. I encourage you to start early, since we
-have covered the technical material needed to solve the problems.
+* Assignments:
+  - Project Milestone 1 [February 12]
+  - HW1 [February 19]
+* Sign-up with your team for one of the visualization shares by *February 6.*
+* No class February 15, guest lecture February 13
+
+---
+
+### Exercise Review [2 - 2]
+
+a. Make a plot that shows the relationship between the category of furniture and
+price (on a log-scale). Show each item_id as a point – do not aggregate to
+boxplots or ridgelines – but make sure to jitter and adjust the size the points
+to reduce the amount of overlap.
+
+
+```r
+ikea &lt;- read_csv("https://uwmadison.box.com/shared/static/iat31h1wjg7abhd2889cput7k264bdzd.csv")
+head(ikea)
+```
+
+```
+## # A tibble: 6 x 14
+##      X1  item_id name  category price old_price sellable_online link  other_colors short_description
+##   &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     &lt;lgl&gt;           &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;            
+## 1     0 90420332 FREK~ Bar fur~   265 No old p~ TRUE            http~ No           Bar table, in/ou~
+## 2     1   368814 NORD~ Bar fur~   995 No old p~ FALSE           http~ No           Bar table,      ~
+## 3     3 80155205 STIG  Bar fur~    69 No old p~ TRUE            http~ Yes          Bar stool with b~
+## 4     4 30180504 NORB~ Bar fur~   225 No old p~ TRUE            http~ No           Wall-mounted dro~
+## 5     5 10122647 INGO~ Bar fur~   345 No old p~ TRUE            http~ No           Bar stool with b~
+## 6     6 70404875 FRAN~ Bar fur~   129 No old p~ TRUE            http~ No           Bar stool with b~
+## # i 4 more variables: designer &lt;chr&gt;, depth &lt;dbl&gt;, height &lt;dbl&gt;, width &lt;dbl&gt;
+```
+
+---
+
+### Exercise Review [2 - 2]
+
+
+```r
+ggplot(ikea) +
+  geom_jitter(aes(category, price))
+```
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-21-1.png" width="650" style="display: block; margin: auto;" /&gt;
+
+---
+
+
+```r
+ggplot(ikea) +
+  geom_jitter(aes(category, price)) +
+  labs(x = "Category of Furniture", y = "Price ($)") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-22-1.png" width="650" style="display: block; margin: auto;" /&gt;
+
+---
+
+b. Modify the plot in (a) so that categories are sorted from those with highest
+to lowest average prices.
+
+
+```r
+ggplot(ikea) +
+  geom_jitter(aes(reorder(category, price), price)) +
+  labs(x = "Category of Furniture", y = "Price ($)") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-23-1.png" width="650" style="display: block; margin: auto;" /&gt;
+
+---
+
+
+```r
+ggplot(ikea) +
+  geom_jitter(aes(reorder(category, price), price)) +
+  labs(x = "Category of Furniture", y = "Price ($)") +
+  scale_y_log10() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-24-1.png" width="650" style="display: block; margin: auto;" /&gt;
+
+---
+
+c. Color points according to whether they can be purchased online. If they
+cannot be purchased online, add a text label giving the name of that item of
+furniture.
+
+
+```r
+ggplot(ikea) +
+  geom_jitter(aes(reorder(category, price), price, col = sellable_online)) +
+  labs(x = "Category of Furniture", y = "Price ($)", col = "Available Online?") +
+  scale_y_log10() +
+  scale_color_manual(values = c("#400202", "#0596A6")) +
+  theme(
+    axis.text.x = element_text(angle = 90, hjust = 1),
+    legend.position = "right"
+  )
+```
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-25-1.png" width="650" style="display: block; margin: auto;" /&gt;
+
+---
+
+
+```r
+library(ggrepel)
+ggplot(ikea, aes(reorder(category, price), price)) +
+  geom_jitter(data = filter(ikea, sellable_online), aes(col = sellable_online), size = 1, alpha = 0.6) +
+  geom_jitter(data = filter(ikea, !sellable_online), aes(col = sellable_online), size = 3) +
+  geom_text_repel(data = filter(ikea, !sellable_online), aes(label = name), size = 4) +
+  labs(x = "Category of Furniture", y = "Price ($)", col = "Available Online?") +
+  scale_color_manual(values = c("#400202", "#0596A6")) +
+  scale_y_log10() +
+  theme(
+    axis.text.x = element_text(angle = 90, hjust = 1),
+    legend.position = "right"
+  )
+```
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-26-1.png" width="650" style="display: block; margin: auto;" /&gt;
 
 ---
 
 ### In-Class Discussion [3-1]
 
-* At https://go.wisc.edu/i83g3i, response to *one* of the two prompt options.
+* At https://go.wisc.edu/0bq2k6, response to *one* of the two prompt options.
 * The first prompt is related to the code demo we will work through. The second
 is related to the reading and notes for the week.
 * Discuss and answer the prompts with your project group. Include your project
@@ -673,16 +797,19 @@ group number next to  your answer.
 
 ---
 
-### In-Class Demo [3-1]
+### In-Class Demo [3 - 1]
 
-* We will work through [Pokemon] in the exercises sheet.
-* Starter code is available here: https://go.wisc.edu/96tvyn
+We will work through [NCAA Trends] in the exercises sheet.
+
+* Live Demo: https://go.wisc.edu/0z05nn
+* Completed Code: https://go.wisc.edu/96tvyn
+* Whiteboard: https://go.wisc.edu/dadqnl
 
 ---
 
-### In-Class Exercise [3-1]
+### In-Class Exercise [3 - 1]
 
-* Submit [https://go.wisc.edu/40q009](https://go.wisc.edu/40q009) an answer to [Ikea Faceting] from the
+* Submit [https://go.wisc.edu/yp2q2d](https://go.wisc.edu/yp2q2d) an answer to [Ikea Faceting] from the
 exercises sheet. Provide a brief explanation for your selection.
 * We only need one submission per project group -- make sure to name all your
 team members in the submission.
@@ -1911,7 +2038,7 @@ ggplot(x) +
   coord_fixed()
 ```
 
-&lt;img src="slides_files/figure-html/unnamed-chunk-33-1.png" width="650" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_files/figure-html/unnamed-chunk-40-1.png" width="650" style="display: block; margin: auto;" /&gt;
 
 
     </textarea>

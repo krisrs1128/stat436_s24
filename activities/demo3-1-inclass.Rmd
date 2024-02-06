@@ -1,0 +1,67 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r}
+knitr::opts_chunk$set(warnings = FALSE, message = FALSE)
+```
+
+[NCAA Trends] This [538
+article](https://fivethirtyeight.com/features/louisiana-tech-was-the-uconn-of-the-80s/)
+describes NCAA women's college basketball team performance over time. Each team
+was assigned a score representing how successfully it played during each year
+from 1982 to the present. This overall score is contained in the "points" column
+below.
+
+```{r}
+library(tidyverse)
+ncaa <- read_csv("https://github.com/krisrs1128/stat992_f23/raw/main/exercises/ps1/ncaa_filtered.csv") 
+tail(ncaa, 200)
+```
+
+a. Derive new columns representing (i) the cumulative total number of points
+over time for each school (ii) the cumulative total number of points over
+time for a hypothetical team that earns 35 points a year.
+
+```{r}
+ncaa <- ncaa |>
+  group_by(school) |>
+  mutate(
+    totals = cumsum(points),
+    expected = 35 * (year - 1981)
+  )
+```
+
+
+b. Create a visualization that shows the running total number of points for
+each school over time. If you use faceting, ensure that facets are sorted in
+an informative way.
+
+```{r}
+theme_set(theme_classic())
+ggplot(ncaa) +
+  geom_step(aes(year, totals)) +
+  geom_step(aes(year, expected)) +
+  geom_rect(aes(xmin = year, xmax = year + 1, ymin = expected, ymax = totals, fill = totals - expected)) +
+  facet_wrap(~ reorder(school, -points)) +
+  scale_fill_gradient2() +
+  scale_x_continuous(breaks = c(1985, 1995, 2005, 2015)) +
+  theme(
+    axis.text = element_text(size = 14),
+    strip.text = element_text(size = 14),
+    axis.title = element_text(size = 16)
+  )
+```8
+
+c. Design a visualization that that compares each school's performance with
+that of the hypothetical team that averages 35 points per year. See the
+figure below for an example approach. Explain the strengths and weaknesses
+of your design and comment on a finding from your visualization.
+
+d. Note that the original data includes 250+ schools. Propose, but do not
+implement, a visualization of the full dataset that makes use of dynamic
+queries. What questions would the visualization answer? What would be the
+structure of interaction, and how would the display update when the user
+provides a cue?
