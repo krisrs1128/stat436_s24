@@ -646,7 +646,7 @@ furniture.
 
 ---
 
-## February 7, 2024
+## February 6, 2024
 
 1. In-Class Exercise Review [2-2]
 1. In-Class Discussion [3-1]
@@ -817,7 +817,7 @@ team members in the submission.
 
 ---
 
-## February 9, 2024
+## February 8, 2024
 
 1. Exercise Review
 1. In-Class Demo [3-2]
@@ -825,36 +825,123 @@ team members in the submission.
 
 ---
 
-## February 9, 2024
+## February 8, 2024
 
-* Project Milestone 1 is due on February 13.
-* Homework 1 is due on February 19. I encourage you to start early, since we
-have covered the technical material needed to solve the problems.
-* Remember that there are recordings associated with each of the lecture notes.
-* During our demos, I will focus on explaining only those steps in the posted
-solutions. If you would like to discuss other approaches / refinements, you can
-ask me during the in-class exercise portions of the class.
+* Everyone should have a team, and the Visualization Shares schedule
+is finalized.
+  - Please send me any links/materials by 8am the day of your share, so that I can show everything from my laptop.
+* Assignments:
+  - Project Milestone 1 [February 12]
+  - HW1 [February 19]
+* No class February 15, guest lecture February 13
 
 ---
 
 ### Exercise Review
 
+Here is the original histogram, without any faceting by category.
+
+
+```r
+ikea &lt;- read_csv("https://uwmadison.box.com/shared/static/iat31h1wjg7abhd2889cput7k264bdzd.csv") %&gt;%
+          filter(category %in% c("Tables", "Bookcases", "Beds", "Cabinets", "Sofas", "Wardrobes"))
+p &lt;- ggplot(ikea) +
+  geom_histogram(aes(log(price)))
+p
+```
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-27-1.png" width="650" style="display: block; margin: auto;" /&gt;
+
+---
+
+### Exercise Review (Part (a))
+
+.pull-left[
+* `facet_grid` controls whether we explicitly arrange facets along rows or columns.
+* If we place the variable before the `~`, it arranges them along rows.
+]
+
+.pull-right[
+
+```r
+p + facet_grid(category ~ .)
+```
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-28-1.png" width="650" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+### Exercise Review (Part (b))
+
+.pull-left[
+* The remaining plots all use `facet_wrap`
+* By default, the axes all use the same scale, which rules out (ii)
+* By default, the facets are sorted alphabetically, which rules out (iv)
+]
+
+.pull-right[
+
+```r
+p + facet_wrap(~ category)
+```
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-29-1.png" width="650" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+### Exercise Review (Part (c))
+
+The only plot with different `\(y\)`-axes per facet is plot (iii).
+
+
+```r
+p + facet_wrap(~ category, scales = "free_y")
+```
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-30-1.png" width="650" style="display: block; margin: auto;" /&gt;
+
+---
+
+### Exercise Review (Part (d))
+
+`axes = "separate"` is not an actual option in `facet_grid`
+
+
+```r
+p + facet_wrap(~ category, axes = "separate")
+```
+
+---
+
+### Exercise Review (Part (e))
+
+Looking at the `\(x\)`-axis values of plot (iv), we can see that the facets are
+sorted from those with the lowest to those with the highest average price.
+
+
+```r
+p + facet_wrap(~ reorder(category, price))
+```
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-32-1.png" width="600" style="display: block; margin: auto;" /&gt;
+
 ---
 
 ### In-Class Demo
 
-* Before we work through the demo together, discuss your initial attempt here: https://go.wisc.edu/6bw633
+* Before we work through the demo together, discuss your initial attempt here: https://go.wisc.edu/fm58ko
 * We will work through [Multiple Weather Variables] in the exercises sheet.
-* Starter code is available here: https://go.wisc.edu/90oj6g
+* Starter code is available here:  https://go.wisc.edu/7vdinr
 
 ---
 
 ### In-Class Exercise
 
-* [Submit](https://go.wisc.edu/2sag6l) an answer to [Faceting Rules of Thumb] from the
-exercises sheet. Provide a brief explanation for your selection.
-* We only need one submission per project group -- make sure to name all your
-team members in the submission.
+* Submit an answer to [Faceting Rules of Thumb] from the exercises sheet. Provide
+a brief explanation for your selection.
+* Everyone should submit a response (**not** one per team for this problem).
 
 ---
 
@@ -869,9 +956,10 @@ team members in the submission.
 
 ## Announcements
 
-* Homework 1 is due on February 19.
-* The Project Milestones 2 and 3 description have been released.
-* I will post the in-class demo solutions only on the [github page](https://github.com/krisrs1128/stat436_s24/tree/main/activities/demos).
+* Assignments:
+  - HW1 [February 19]
+  - Project Milestone 2 has been released [March 25]
+* No class February 15
 
 ---
 
@@ -912,58 +1000,15 @@ group number next to  your answer.
 ### In-Class Demo [4 - 1]
 
 * We will work through [California Wildfires] in the exercises sheet.
-* Starter code is available here: https://go.wisc.edu/5586t7
+* The completed code is available here: https://go.wisc.edu/2y407y
 
 ---
 
 ### In-Class Exercise [4 - 1]
 
-* Submit an answer (https://go.wisc.edu/bzu64h) to [Name App Bugs, Parts a - c]
+* Submit an answer to [Name App Bugs, Parts a - c]
 from the exercises sheet.
-* You may discuss with others, but prepare and submit an individual response.
-
----
-
-## February 16, 2024
-
-1. Exercise Review
-1. In-Class Discussion [4 - 2]
-1. In-Class Demos [4 - 2 - 1] and [4 - 2 - 2]
-
----
-### Announcements
-
-* Homework 1 is due on February 19.
-  - No In-Class Exercise today
-* The Project Milestones 2 and 3 descriptions have been released.
-
----
-
-### Exercise Review (Part (a))
-
----
-
-### In-Class Demo [4 - 2 - 2]
-
-* Before we work through the demo together, discuss your initial attempt here: https://go.wisc.edu/g0u74j
-* We will work through [Interactive German Traffic] in the exercises sheet.
-* Starter code is available here: https://go.wisc.edu/2yu4ht
-
----
-
-### In-Class Discussion [4 - 2]
-
-* Respond to the prompt at https://go.wisc.edu/g0u74j . This is designed to
-help you consolidate the last week's introduction to Shiny.
-* Discuss and answer the prompts with your project group. Include your project
-group number next to  your answer.
-
----
-
-### In-Class Demo [4 - 2 - 1]
-
-* We will work through [Improving an app] in the exercises sheet.
-* Starter code is available here: https://go.wisc.edu/w0r37e
+* Only one response per team needed.
 
 ---
 
@@ -973,7 +1018,6 @@ group number next to  your answer.
 1. In-Class Demo [5 - 1]
 1. In-Class Discussion [5 - 1]
 1. In-Class Exercise [5 - 1]
-
 
 ---
 
@@ -2038,7 +2082,7 @@ ggplot(x) +
   coord_fixed()
 ```
 
-&lt;img src="slides_files/figure-html/unnamed-chunk-40-1.png" width="650" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_files/figure-html/unnamed-chunk-46-1.png" width="650" style="display: block; margin: auto;" /&gt;
 
 
     </textarea>
