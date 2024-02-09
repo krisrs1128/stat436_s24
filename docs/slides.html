@@ -948,7 +948,7 @@ a brief explanation for your selection.
 
 ---
 
-## February 14, 2024
+## February 13, 2024
 
 1. Exercise Review
 1. In-Class Discussion [4-1]
@@ -970,11 +970,19 @@ a brief explanation for your selection.
 
 _Whenever possible, each panel in a faceted plot should be made to have its own `\(y\)`-axis scale._
 
+False: Readers generally assume the facets have the same axes scales. Free
+scales should only be provided if the resulting figure would not be legible
+otherwise. In this case, the caption should highlight the fact that the scales
+are not the same across facets.
+
 ---
 
 ### Exercise Review
 
 _When using the `patchwork` package, two plots `p1` and `p2` can be placed side-by-side using `p1 / p2`._
+
+False: `/` places panels on top of one another. To place them side by side, we
+can use `+`. 
 
 ---
 
@@ -982,12 +990,18 @@ _When using the `patchwork` package, two plots `p1` and `p2` can be placed side-
 
 _When using the `patchwork` package, the `plot_layout` function can be used to collect legends._
 
-
+  
+True: This can be done by calling `plot_layout(guides = "collect")`.
+   
 ---
 
 ### Exercise Review
 
 _Relative to interactively filtered displays, faceted plots are less taxing on the reader's memory._
+
+True: Faceting requires more space, but it allows comparisons to be made without
+having to recall the previous interactive view. Tamara Munzner calls this
+principle, "Eyes beat memory."
 
 ---
 
