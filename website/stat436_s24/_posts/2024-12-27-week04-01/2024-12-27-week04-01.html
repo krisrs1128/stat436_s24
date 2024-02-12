@@ -94,8 +94,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2024-01-07"/>
-  <meta property="article:created" itemprop="dateCreated" content="2024-01-07"/>
+  <meta property="article:published" itemprop="datePublished" content="2024-02-11"/>
+  <meta property="article:created" itemprop="dateCreated" content="2024-02-11"/>
   <meta name="article:author" content="Kris Sankaran"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -113,7 +113,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","layout","description","output","date"]}},"value":[{"type":"character","attributes":{},"value":["Elements of a Shiny App"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Kris Sankaran"]},{"type":"character","attributes":{},"value":["UW Madison"]}]}]},{"type":"character","attributes":{},"value":["post"]},{"type":"character","attributes":{},"value":["Vocabulary used by the R Shiny Library, and a few example apps.\n"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["01-07-2024"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","layout","description","output","date"]}},"value":[{"type":"character","attributes":{},"value":["Elements of a Shiny App"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Kris Sankaran"]},{"type":"character","attributes":{},"value":["UW Madison"]}]}]},{"type":"character","attributes":{},"value":["post"]},{"type":"character","attributes":{},"value":["Vocabulary used by the R Shiny Library, and a few example apps.\n"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["02-11-2024"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1521,7 +1521,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Elements of a Shiny App","description":"Vocabulary used by the R Shiny Library, and a few example apps.","authors":[{"author":"Kris Sankaran","authorURL":"#","affiliation":"UW Madison","affiliationURL":"#","orcidID":""}],"publishedDate":"2024-01-07T00:00:00.000-08:00","citationText":"Sankaran, 2024"}
+{"title":"Elements of a Shiny App","description":"Vocabulary used by the R Shiny Library, and a few example apps.","authors":[{"author":"Kris Sankaran","authorURL":"#","affiliation":"UW Madison","affiliationURL":"#","orcidID":""}],"publishedDate":"2024-02-11T00:00:00.000-07:00","citationText":"Sankaran, 2024"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1541,7 +1541,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="d-byline">
   Kris Sankaran  (UW Madison)
   
-<br/>01-07-2024
+<br/>02-11-2024
 </div>
 
 <div class="d-article">
@@ -1571,7 +1571,7 @@ anything, since the server is empty.</p>
  <span><span class='va'>app</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span><span class='va'>ui</span>, <span class='va'>server</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
-<p><iframe src="https://data-viz.it.wisc.edu/content/43a4312c-a124-4b63-8228-23ba5375992b/" allowfullscreen="" data-external="1"></iframe></p></li>
+<p><iframe src="https://connect.doit.wisc.edu/content/00ef879f-65b2-4179-9852-06da0bfb0238/" allowfullscreen="" data-external="1"></iframe></p></li>
 <li><p>The UI elements can be further broken down into Inputs, Outputs, and
 Descriptors<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, all grouped together by an organizing
 layout function. Inputs are UI elements that users can manipulate to prompt
@@ -1618,7 +1618,7 @@ above. Let’s look at the code,</p>
  <span><span class='va'>app</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span><span class='va'>ui</span>, <span class='va'>server</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
-<p><iframe src="https://data-viz.it.wisc.edu/content/541af110-2ce1-46d1-b293-f38a96e125f3/" allowfullscreen="" data-external="1"></iframe></p></li>
+<p><iframe src="https://connect.doit.wisc.edu/content/fc4b3e54-1f3c-4341-81b1-e65c76b47e73/" allowfullscreen="" data-external="1"></iframe></p></li>
 <li><p>There are a few points worth noting. First, the <code>renderText</code> component was
 able to refer to the value entered in the textbox using <code>input$name</code>. This was
 possible because <code>name</code> was the ID that we gave to the <code>textInput</code> component. It
@@ -1666,7 +1666,7 @@ server renderers).</p>
  <span><span class='va'>app</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span><span class='va'>ui</span>, <span class='va'>server</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
-<p><iframe src="https://data-viz.it.wisc.edu/content/2cc8cc90-7c51-493c-81e1-a6b8919cd6a6/" allowfullscreen="" data-external="1" height=535 width=600></iframe></p></li>
+<p><iframe src="https://connect.doit.wisc.edu/content/758dd969-32e0-4722-8e9a-2c7e9364d644/" allowfullscreen="" data-external="1" height=535 width=600></iframe></p></li>
 <li><p>We can make the plot depend on several inputs. The code below allows the user
 to change the total number of data points and the variance, this time using
 slider inputs. I recommend taking a look at different inputs on the shiny
@@ -1699,7 +1699,7 @@ community.</p>
  <span><span class='va'>app</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span><span class='va'>ui</span>, <span class='va'>server</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
-<p><iframe src="https://data-viz.it.wisc.edu/content/3d0d8a20-446a-438a-b373-bd06206f178f/" allowfullscreen="" data-external="1" height=735 width=600></iframe></p></li>
+<p><iframe src="https://connect.doit.wisc.edu/content/6a50080d-d900-450b-97e4-4604e3ce2c5f/" allowfullscreen="" data-external="1" height=735 width=600></iframe></p></li>
 <li><p>We can also make the app return several outputs, not just a plot. The code
 below attempts to print the data along in addition to the histogram, but it
 makes a crucial mistake (can you spot it?).</p>
@@ -1733,7 +1733,7 @@ makes a crucial mistake (can you spot it?).</p>
  <span><span class='va'>app</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span><span class='va'>ui</span>, <span class='va'>server</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
-<p><iframe src="https://data-viz.it.wisc.edu/content/15f7837a-64b6-4f73-9b4a-13f2ca168daa/" allowfullscreen="" data-external="1" height=935 width=600></iframe></p></li>
+<p><iframe src="https://connect.doit.wisc.edu/content/20911ef0-057c-4934-92cd-d5a7846783d1/" allowfullscreen="" data-external="1" height=935 width=600></iframe></p></li>
 <li><p>The issue is that this code reruns <code>rnorm</code> for each output. So, even though
 the interfaces suggests that the printed samples are the same as the ones in the
 histogram, they are actually different. To resolve this, we need a way of
@@ -1774,7 +1774,7 @@ a single time, using the <code>samples()</code> reactive expression.</p>
  <span><span class='va'>app</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span><span class='va'>ui</span>, <span class='va'>server</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
-<p><iframe src="https://data-viz.it.wisc.edu/content/3e53bb63-a19a-4ded-8ab6-5ffbc9447c8f/" allowfullscreen="" data-external="1" height=935 width=600></iframe></p></li>
+<p><iframe src="https://connect.doit.wisc.edu/content/64f44d26-fdbb-4de8-9e19-9f2069114b4d/" allowfullscreen="" data-external="1" height=935 width=600></iframe></p></li>
 <li><p>Finally, a good practice is to move as much non-app related code to separate
 functions. This makes the flow of the app more transparent. The clearer the
 delineation between “computation required for individual app components” and
@@ -1817,7 +1817,7 @@ extend.</p>
  <span><span class='va'>app</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span><span class='va'>ui</span>, <span class='va'>server</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
-<p><iframe src="https://data-viz.it.wisc.edu/content/fe220e82-becf-4cc6-891c-7fa1c69ba850/" allowfullscreen="" data-external="1" height=935 width=600></iframe></p>
+<p><iframe src="https://connect.doit.wisc.edu/content/c65d3544-153a-4494-bcbe-7dd6798ee4b0/" allowfullscreen="" data-external="1" height=935 width=600></iframe></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div></li>
 </ol>
 <aside id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">

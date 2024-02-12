@@ -7,7 +7,29 @@
     <description>STAT 436 (Spring 2024)
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 10 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 11 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Elements of a Shiny App</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week04-01</link>
+      <description>Vocabulary used by the R Shiny Library, and a few example apps.</description>
+      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week04-01</guid>
+      <pubDate>Sun, 11 Feb 2024 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Introduction to Reactivity</title>
+      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week04-02</link>
+      <description>Viewing shiny code execution as a graph.</description>
+      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week04-02</guid>
+      <pubDate>Sun, 11 Feb 2024 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>IMDB Shiny Application</title>
+      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week04-03</link>
+      <description>Using Shiny to explore a movies dataset</description>
+      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week04-03</guid>
+      <pubDate>Sun, 11 Feb 2024 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Spatial Data Formats</title>
       <dc:creator>Kris Sankaran</dc:creator>
@@ -90,28 +112,6 @@ downstream visualization.</description>
       <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week03-04</link>
       <description>Implementing compound figures in R</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week03-04</guid>
-      <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Elements of a Shiny App</title>
-      <dc:creator>Kris Sankaran</dc:creator>
-      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week04-01</link>
-      <description>Vocabulary used by the R Shiny Library, and a few example apps.</description>
-      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week04-01</guid>
-      <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Introduction to Reactivity</title>
-      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week04-02</link>
-      <description>Viewing shiny code execution as a graph.</description>
-      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week04-02</guid>
-      <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>IMDB Shiny Application</title>
-      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week04-03</link>
-      <description>Using Shiny to explore a movies dataset</description>
-      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week04-03</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
     </item>
     <item>
