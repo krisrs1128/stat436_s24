@@ -15,11 +15,10 @@ output:
 
 ```{r, echo = FALSE}
 library(knitr)
-opts_knit$set(base_dir = "/", base.url = "/")
+#opts_knit$set(base_dir = "/", base.url = "/")
 opts_chunk$set(
   warning = FALSE,
-  message = FALSE,
-  fig.path = "stat679_notes/assets/week2-1/"
+  message = FALSE
   )
 ```
 
@@ -36,7 +35,7 @@ anything, since the server is empty.
     ```{r code=readLines("https://raw.githubusercontent.com/krisrs1128/stat679_code/main/examples/week2/tuesday/app1.R")}
     ```
 
-    <iframe src="https://data-viz.it.wisc.edu/content/43a4312c-a124-4b63-8228-23ba5375992b/" allowfullscreen="" data-external="1"></iframe>
+    <iframe src="https://connect.doit.wisc.edu/content/00ef879f-65b2-4179-9852-06da0bfb0238/" allowfullscreen="" data-external="1"></iframe>
 
 1. The UI elements can be further broken down into Inputs, Outputs, and
 Descriptors^[I like to use these names to keep everything organized, but they
@@ -73,7 +72,7 @@ have the result of that computation appear to the user. For (1), we will add a
     ```{r code=readLines("https://raw.githubusercontent.com/krisrs1128/stat679_code/main/examples/week2/tuesday/app2.R")}
     ```
 
-    <iframe src="https://data-viz.it.wisc.edu/content/541af110-2ce1-46d1-b293-f38a96e125f3/" allowfullscreen="" data-external="1"></iframe>
+    <iframe src="https://connect.doit.wisc.edu/content/fc4b3e54-1f3c-4341-81b1-e65c76b47e73/" allowfullscreen="" data-external="1"></iframe>
 
 1. There are a few points worth noting. First, the `renderText` component was
 able to refer to the value entered in the textbox using `input$name`. This was
@@ -106,7 +105,7 @@ server renderers).
     ```{r code=readLines("https://raw.githubusercontent.com/krisrs1128/stat679_code/main/examples/week2/tuesday/app3.R")}
     ```
 
-    <iframe src="https://data-viz.it.wisc.edu/content/2cc8cc90-7c51-493c-81e1-a6b8919cd6a6/" allowfullscreen="" data-external="1" height=535 width=600></iframe>
+    <iframe src="https://connect.doit.wisc.edu/content/758dd969-32e0-4722-8e9a-2c7e9364d644/" allowfullscreen="" data-external="1" height=535 width=600></iframe>
 
 1. We can make the plot depend on several inputs. The code below allows the user
 to change the total number of data points and the variance, this time using
@@ -119,7 +118,7 @@ community.
     ```{r code=readLines("https://raw.githubusercontent.com/krisrs1128/stat679_code/main/examples/week2/tuesday/app4.R")}
     ```
 
-    <iframe src="https://data-viz.it.wisc.edu/content/3d0d8a20-446a-438a-b373-bd06206f178f/" allowfullscreen="" data-external="1" height=735 width=600></iframe>
+    <iframe src="https://connect.doit.wisc.edu/content/6a50080d-d900-450b-97e4-4604e3ce2c5f/" allowfullscreen="" data-external="1" height=735 width=600></iframe>
 
 1. We can also make the app return several outputs, not just a plot. The code
 below attempts to print the data along in addition to the histogram, but it
@@ -128,7 +127,7 @@ makes a crucial mistake (can you spot it?).
     ```{r code=readLines("https://raw.githubusercontent.com/krisrs1128/stat679_code/main/examples/week2/tuesday/app5.R")}
     ```
 
-    <iframe src="https://data-viz.it.wisc.edu/content/15f7837a-64b6-4f73-9b4a-13f2ca168daa/" allowfullscreen="" data-external="1" height=935 width=600></iframe>
+    <iframe src="https://connect.doit.wisc.edu/content/20911ef0-057c-4934-92cd-d5a7846783d1/" allowfullscreen="" data-external="1" height=935 width=600></iframe>
 
 1. The issue is that this code reruns `rnorm` for each output. So, even though
 the interfaces suggests that the printed samples are the same as the ones in the
@@ -143,7 +142,7 @@ a single time, using the `samples()` reactive expression.
     ```{r code=readLines("https://raw.githubusercontent.com/krisrs1128/stat679_code/main/examples/week2/tuesday/app6.R")}
     ```
 
-    <iframe src="https://data-viz.it.wisc.edu/content/3e53bb63-a19a-4ded-8ab6-5ffbc9447c8f/" allowfullscreen="" data-external="1" height=935 width=600></iframe>
+    <iframe src="https://connect.doit.wisc.edu/content/64f44d26-fdbb-4de8-9e19-9f2069114b4d/" allowfullscreen="" data-external="1" height=935 width=600></iframe>
 
 1. Finally, a good practice is to move as much non-app related code to separate
 functions. This makes the flow of the app more transparent. The clearer the
@@ -154,4 +153,4 @@ extend.
     ```{r code=readLines("https://raw.githubusercontent.com/krisrs1128/stat679_code/main/examples/week2/tuesday/app7.R")}
     ```
 
-    <iframe src="https://data-viz.it.wisc.edu/content/fe220e82-becf-4cc6-891c-7fa1c69ba850/" allowfullscreen="" data-external="1" height=935 width=600></iframe>
+    <iframe src="https://connect.doit.wisc.edu/content/c65d3544-153a-4494-bcbe-7dd6798ee4b0/" allowfullscreen="" data-external="1" height=935 width=600></iframe>

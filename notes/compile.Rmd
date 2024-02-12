@@ -6,7 +6,7 @@ library(tidyverse)
 library(rmarkdown)
 library(distill)
 
-files <- list.files(pattern = ".*week.*\\.Rmd", full.names = TRUE, recursive = TRUE)
+files <- list.files(pattern = ".*week4.*\\.Rmd", full.names = TRUE, recursive = TRUE)
 files <- setdiff(files, c("./about.Rmd", "./index.Rmd"))
 #map(files[grepl("week07", files)], ~ {
 map(files, ~ {
