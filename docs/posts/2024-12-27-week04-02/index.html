@@ -95,8 +95,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <link rel="canonical" href="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week04-02/"/>
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2024-01-07"/>
-<meta property="article:created" itemprop="dateCreated" content="2024-01-07"/>
+<meta property="article:published" itemprop="datePublished" content="2024-02-11"/>
+<meta property="article:created" itemprop="dateCreated" content="2024-02-11"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
 <meta property="og:title" content="STAT 436 (Spring 2024): Introduction to Reactivity"/>
@@ -116,7 +116,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","layout","description","output","date","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Introduction to Reactivity"]},{"type":"character","attributes":{},"value":["post"]},{"type":"character","attributes":{},"value":["Viewing shiny code execution as a graph."]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["01-07-2024"]},{"type":"character","attributes":{},"value":["https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week04-02/"]},{"type":"character","attributes":{},"value":["https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week04-02/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","layout","description","output","date","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Introduction to Reactivity"]},{"type":"character","attributes":{},"value":["post"]},{"type":"character","attributes":{},"value":["Viewing shiny code execution as a graph."]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["02-11-2024"]},{"type":"character","attributes":{},"value":["https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week04-02/"]},{"type":"character","attributes":{},"value":["https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week04-02/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -2130,7 +2130,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Introduction to Reactivity","description":"Viewing shiny code execution as a graph.","authors":[],"publishedDate":"2024-01-07T00:00:00.000-07:00"}
+{"title":"Introduction to Reactivity","description":"Viewing shiny code execution as a graph.","authors":[],"publishedDate":"2024-02-11T00:00:00.000-07:00"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2205,7 +2205,7 @@ reference.</p>
  <span><span class='va'>app</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span><span class='va'>ui</span>, <span class='va'>server</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
-<p><iframe src="https://data-viz.it.wisc.edu/content/43a4312c-a124-4b63-8228-23ba5375992b/" allowfullscreen="" data-external="1"></iframe></p></li>
+<p><iframe src="https://connect.doit.wisc.edu/content/73b3b0e9-efd0-4ad9-b538-decfd6166973/" allowfullscreen="" data-external="1"></iframe></p></li>
 <li><p>Even though the graph is simple, note that the outputs will be recomputed
 each time that the input is changed. For more general graphs, all downstream
 nodes will be re-executed whenever an upstream source is changed (typically by a
@@ -2255,7 +2255,7 @@ plotter, with the reactive <code>samples()</code> expression.</p>
  <span><span class='va'>app</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span><span class='va'>ui</span>, <span class='va'>server</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
-<p><iframe src="https://data-viz.it.wisc.edu/content/6063856c-2c50-4bb2-b272-b1c41b30f574/" allowfullscreen="" data-external="1" height=935 width=600></iframe></p></li>
+<p><iframe src="https://connect.doit.wisc.edu/content/3e0b460e-baaa-4290-8bd3-ef157f3a921e/" allowfullscreen="" data-external="1" height=935 width=600></iframe></p></li>
 <li><p>A useful perspective is to think of reactive expressions as simplifying the
 overall reactivity graph. Specifically, by adding a reactive node, it’s possible
 to trim away many edges. For example, our initial implementation of the random
@@ -2327,7 +2327,7 @@ data.</p>
  <span><span class='va'>app</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span><span class='va'>ui</span>, <span class='va'>server</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
-<p><iframe src="https://data-viz.it.wisc.edu/content/1f5cecd2-a4c7-46bd-a2ea-07443b009687/" allowfullscreen="" data-external="1" height=935 width=600></iframe></p>
+<p><iframe src="https://connect.doit.wisc.edu/content/dc907aa5-090e-410e-8f9f-6bdb19befc75/" allowfullscreen="" data-external="1" height=935 width=600></iframe></p>
 <p>Other than that, the only difference is that I’ve saved output from the
 <code>t.test</code> using <code>test_result</code>. Notice the use of the <code>broom</code> package, which
 helps format the test output into a <code>data.frame</code>.</p></li>
@@ -2401,7 +2401,7 @@ next week.</p>
  <span><span class='va'>app</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span><span class='va'>ui</span>, <span class='va'>server</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
-<p><iframe src="https://data-viz.it.wisc.edu/content/752b80de-5c75-4dd9-b7fe-2d399c3ea3da/" allowfullscreen="" data-external="1" height=935 width=600></iframe></p>
+<p><iframe src="https://connect.doit.wisc.edu/content/72e4b82c-152b-45bf-8c62-058cc04fccf0/" allowfullscreen="" data-external="1" height=935 width=600></iframe></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div></li>
 </ol>
 <!--radix_placeholder_article_footer-->
