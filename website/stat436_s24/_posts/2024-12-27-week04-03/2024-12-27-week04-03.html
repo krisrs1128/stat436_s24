@@ -94,8 +94,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2024-02-11"/>
-  <meta property="article:created" itemprop="dateCreated" content="2024-02-11"/>
+  <meta property="article:published" itemprop="datePublished" content="2024-02-17"/>
+  <meta property="article:created" itemprop="dateCreated" content="2024-02-17"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="IMDB Shiny Application"/>
@@ -112,7 +112,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","layout","description","output","date"]}},"value":[{"type":"character","attributes":{},"value":["IMDB Shiny Application"]},{"type":"character","attributes":{},"value":["post"]},{"type":"character","attributes":{},"value":["Using Shiny to explore a movies dataset"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["02-11-2024"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","layout","description","output","date"]}},"value":[{"type":"character","attributes":{},"value":["IMDB Shiny Application"]},{"type":"character","attributes":{},"value":["post"]},{"type":"character","attributes":{},"value":["Using Shiny to explore a movies dataset"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["02-17-2024"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1520,7 +1520,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"IMDB Shiny Application","description":"Using Shiny to explore a movies dataset","authors":[],"publishedDate":"2024-02-11T00:00:00.000-07:00"}
+{"title":"IMDB Shiny Application","description":"Using Shiny to explore a movies dataset","authors":[],"publishedDate":"2024-02-17T00:00:00.000-06:00"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1615,9 +1615,9 @@ graphical marks depending on user selections is called “conditional encoding.�
  <span><span class='va'>app</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span><span class='va'>ui</span>, <span class='va'>server</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
-<p><iframe src="https://data-viz.it.wisc.edu/content/02971f81-3af5-4fdb-89d7-84a663778546/" allowfullscreen="" data-external="1" height=550 width=600></iframe></p>
+<p><iframe src="https://connect.doit.wisc.edu/content/e9afa489-7935-4e28-acd2-6546fe14693b/" allowfullscreen="" data-external="1" height=550 width=600></iframe></p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="/https://raw.githubusercontent.com/krisrs1128/stat479_s22/main/_posts/2022-02-10-week04-03/figures/initial_imdb.png" /><!-- --></p>
+<p><img src="https://raw.githubusercontent.com/krisrs1128/stat479_s22/main/_posts/2022-02-10-week04-03/figures/initial_imdb.png" /><!-- --></p>
 </div></li>
 <li><p>We can extend this further. Let’s allow the user to filter by year and MPAA
 rating. Notice that there are some years in the future! We also find that there
@@ -1682,9 +1682,9 @@ these variables.</p>
  <span><span class='va'>app</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span><span class='va'>ui</span>, <span class='va'>server</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
-<p><iframe src="https://data-viz.it.wisc.edu/content/9036974c-176a-4e9b-963d-c25eb45f5635/" allowfullscreen="" data-external="1" height=900 width=600></iframe></p>
+<p><iframe src="https://connect.doit.wisc.edu/content/a0a61353-3981-4125-887b-c3dcb88160fb/" allowfullscreen="" data-external="1" height=900 width=600></iframe></p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="/https://raw.githubusercontent.com/krisrs1128/stat479_s22/main/_posts/2022-02-10-week04-03/figures/final_imdb.png" /><!-- --></p>
+<p><img src="https://raw.githubusercontent.com/krisrs1128/stat479_s22/main/_posts/2022-02-10-week04-03/figures/final_imdb.png" /><!-- --></p>
 </div></li>
 <li><p>We’ll include a final version of this plot which additionally shows the movie
 name when points are hovered. To accomplish this, we can no longer use <code>ggplot2</code>
@@ -1751,7 +1751,7 @@ does in the updated version of the app. The mouseover text is added through the
  <span><span class='va'>app</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span><span class='va'>ui</span>, <span class='va'>server</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
-<p><iframe src="https://data-viz.it.wisc.edu/content/2151742d-4b80-4200-9b91-55dda592a9f6/" allowfullscreen="" data-external="1" height=900 width=600></iframe></p></li>
+<p><iframe src="https://connect.doit.wisc.edu/content/8134b44e-e18f-4e63-8b42-7fae1b90721b/" allowfullscreen="" data-external="1" height=900 width=600></iframe></p></li>
 <li><p>These visualizations are an instance of the more general idea of using
 filtering to reduce complexity in data. Filtering is an especially powerful
 technique in the interactive paradigm, where it is possible to easily reverse
