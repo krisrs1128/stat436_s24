@@ -109,7 +109,7 @@ interactivity. You can try out the full code
 [here](https://github.com/krisrs1128/stat679_code/blob/main/examples/week3/3-3/3-3-1/app.R)
 and tinker with the interface below.
 
-    <iframe src="https://data-viz.it.wisc.edu/content/1014c0e9-cf88-4b8d-93a6-52fd77669c23/" allowfullscreen="" data-external="1" height=700 width=600></iframe>
+    <iframe src="https://connect.doit.wisc.edu/content/a8de17b1-073b-4b09-a367-ed757faca929/" allowfullscreen="" data-external="1" height=700 width=600></iframe>
 
 1. A natural extension of the previous app is to allow brushing on both the
 histogram and the scatterplot. Brushing over the scatterplot would show the
@@ -178,7 +178,7 @@ corresponding only to the first 500 movies in the dataset.
  we can present more information without having to introduce any peripheral UI
  components or graphical marks.
  
-    <iframe src="https://data-viz.it.wisc.edu/content/fae55716-8e52-4f6e-ae29-4db14c063002/" allowfullscreen="" data-external="1" height=700 width=600></iframe>
+    <iframe src="https://connect.doit.wisc.edu/content/4b34413f-0816-4ae4-8725-fb95e001a2ec/" allowfullscreen="" data-external="1" height=700 width=600></iframe>
   
  1. In our last problem, we would like to use a dataset of flight delays to
  understand what characteristics of the flights make some more / less likely to
@@ -244,4 +244,4 @@ interactivity only requires about 20 lines (starting from `ui <- ...` to the
 end). The rest of the code is used to draw new static plots depending on the
 current selection.
 
-    <iframe src="https://data-viz.it.wisc.edu/content/02da9288-2810-4ce8-b92c-75177bb4cdc9/" allowfullscreen="" data-external="1" height=700 width=600></iframe>
+    <iframe src="https://connect.doit.wisc.edu/content/6df2063a-1c7d-4f01-b98c-3aebed82d190/" allowfullscreen="" data-external="1" height=700 width=600></iframe>

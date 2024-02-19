@@ -58,7 +58,7 @@ subset of rows that have been currently brushed.
     ```{r code=readLines("https://raw.githubusercontent.com/krisrs1128/stat479_s22/main/_posts/2022-02-16-week05-02/apps/app3.R"), eval = FALSE}
     ```
     
-    <iframe src="https://data-viz.it.wisc.edu/content/a651bc7b-6773-445d-8bc6-22084155e21a/" allowfullscreen="" data-external="1" height=700 width=600></iframe>
+    <iframe src="https://connect.doit.wisc.edu/content/8dec3e79-e060-452b-8b80-1a3d2834acfb/" allowfullscreen="" data-external="1" height=700 width=600></iframe>
 
 1. It is often useful to combine multi-view composition (_i.e._, faceting or
 compound figures) with dynamic queries. The basic idea is to (a) show different
@@ -75,5 +75,5 @@ contexts, leading to changes in both plots every time the brush is moved.
     ```{r code=readLines("https://raw.githubusercontent.com/krisrs1128/stat479_s22/main/_posts/2022-02-16-week05-02/apps/app4.R"), eval = FALSE}
     ```
     
-    <iframe src="https://data-viz.it.wisc.edu/content/8e4b07a5-d671-40cb-9d57-22d25533b8fe/" allowfullscreen="" data-external="1" height=800 width=600></iframe>
+    <iframe src="https://connect.doit.wisc.edu/connect/#/apps/f8d86e79-f2f6-41ed-807a-2d5ad61052ea/access/" allowfullscreen="" data-external="1" height=800 width=600></iframe>
     
