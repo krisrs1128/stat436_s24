@@ -94,8 +94,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2024-01-07"/>
-  <meta property="article:created" itemprop="dateCreated" content="2024-01-07"/>
+  <meta property="article:published" itemprop="datePublished" content="2024-02-18"/>
+  <meta property="article:created" itemprop="dateCreated" content="2024-02-18"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="Graphical Queries - Click Events"/>
@@ -112,7 +112,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","layout","description","output","date"]}},"value":[{"type":"character","attributes":{},"value":["Graphical Queries - Click Events"]},{"type":"character","attributes":{},"value":["post"]},{"type":"character","attributes":{},"value":["An introduction to click events in Shiny\n"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["01-07-2024"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","layout","description","output","date"]}},"value":[{"type":"character","attributes":{},"value":["Graphical Queries - Click Events"]},{"type":"character","attributes":{},"value":["post"]},{"type":"character","attributes":{},"value":["An introduction to click events in Shiny\n"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["02-18-2024"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1520,7 +1520,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Graphical Queries - Click Events","description":"An introduction to click events in Shiny","authors":[],"publishedDate":"2024-01-07T00:00:00.000-08:00"}
+{"title":"Graphical Queries - Click Events","description":"An introduction to click events in Shiny","authors":[],"publishedDate":"2024-02-18T00:00:00.000-06:00"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1560,8 +1560,8 @@ mechanisms: clicks and brushes. These can be specified by adding <code>click</co
 clicks,</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>ui</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidPage</a></span><span class='op'>(</span></span>
- <span>  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/plotOutput.html'>plotOutput</a></span><span class='op'>(</span><span class='st'>"plot"</span>, click <span class='op'>=</span> <span class='st'>"plot_click"</span><span class='op'>)</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>ui</span> <span class='op'>&lt;-</span> <span class='fu'>fluidPage</span><span class='op'>(</span></span>
+ <span>  <span class='fu'>plotOutput</span><span class='op'>(</span><span class='st'>"plot"</span>, click <span class='op'>=</span> <span class='st'>"plot_click"</span><span class='op'>)</span></span>
  <span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
@@ -1586,7 +1586,7 @@ to.</p></li>
 made using the data.frame <code>x</code>. Then</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/pkg/shiny/man/brushedPoints.html'>nearPoints</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>input</span><span class='op'>$</span><span class='va'>click</span><span class='op'>)</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>nearPoints</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>input</span><span class='op'>$</span><span class='va'>click</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
 <p>will return the samples in <code>x</code> that are close to the clicked location. We
@@ -1595,7 +1595,7 @@ samples – it returns all samples, along with their distance from the
 clicked location,</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/pkg/shiny/man/brushedPoints.html'>nearPoints</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>input</span><span class='op'>$</span><span class='va'>click</span>, allRows <span class='op'>=</span> <span class='cn'>TRUE</span>, addDist <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>nearPoints</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>input</span><span class='op'>$</span><span class='va'>click</span>, allRows <span class='op'>=</span> <span class='cn'>TRUE</span>, addDist <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span></code></pre>
 </div>
 </div></li>
 <li><p>We are almost ready to build a visualization whose outputs respond to
@@ -1607,13 +1607,13 @@ logic is captured by the block below,</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>server</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span><span class='op'>)</span> <span class='op'>{</span></span>
- <span>  <span class='va'>dist</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/reactiveVal.html'>reactiveVal</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
- <span>  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span></span>
+ <span>  <span class='va'>dist</span> <span class='op'>&lt;-</span> <span class='fu'>reactiveVal</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
+ <span>  <span class='fu'>observeEvent</span><span class='op'>(</span></span>
  <span>    <span class='va'>input</span><span class='op'>$</span><span class='va'>plot_click</span>,</span>
  <span>    <span class='fu'><a href='https://rdrr.io/r/stats/dist.html'>dist</a></span><span class='op'>(</span><span class='fu'>reset_dist</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>input</span><span class='op'>$</span><span class='va'>plot_click</span><span class='op'>)</span><span class='op'>)</span></span>
  <span>  <span class='op'>)</span></span>
  <span>  </span>
- <span>  <span class='va'>output</span><span class='op'>$</span><span class='va'>plot</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/renderPlot.html'>renderPlot</a></span><span class='op'>(</span><span class='op'>{</span></span>
+ <span>  <span class='va'>output</span><span class='op'>$</span><span class='va'>plot</span> <span class='op'>&lt;-</span> <span class='fu'>renderPlot</span><span class='op'>(</span><span class='op'>{</span></span>
  <span>    <span class='fu'>scatter</span><span class='op'>(</span><span class='va'>x</span>, <span class='fu'><a href='https://rdrr.io/r/stats/dist.html'>dist</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>
  <span>  <span class='op'>}</span><span class='op'>)</span></span>
  <span><span class='op'>}</span></span></code></pre>
@@ -1684,7 +1684,7 @@ clicked.</p>
  <span><span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span><span class='va'>ui</span>, <span class='va'>server</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
-<p><iframe src="https://data-viz.it.wisc.edu/content/17a54e4c-5237-4018-b6fe-20c1555cf337/" allowfullscreen="" data-external="1" height=400 width=600></iframe></p></li>
+<p><iframe src="https://connect.doit.wisc.edu/content/5c3cb985-aff3-4ce9-ae28-48363627bed1/" allowfullscreen="" data-external="1" height=400 width=600></iframe></p></li>
 <li><p>The <code>reset_dist</code> function uses <code>nearPoints</code> to compute the distance between
 each sample and the plot, each time the plot is clicked. The associated reactive
 value <code>dist</code> gets changed, which triggers <code>scatterplot</code> to run, and it is
@@ -1733,7 +1733,7 @@ distance each time the plot is clicked.</p>
  <span><span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span><span class='op'>(</span><span class='va'>ui</span>, <span class='va'>server</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
-<p><iframe src="https://data-viz.it.wisc.edu/content/9fcf3583-a74f-4d84-8d7c-68ac3595bf6b/" allowfullscreen="" data-external="1" height=750 width=800></iframe></p>
+<p><iframe src="https://connect.doit.wisc.edu/content/e6219656-304e-48c1-8534-5da599204f31/" allowfullscreen="" data-external="1" height=750 width=800></iframe></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div></li>
 </ol>
 <!--radix_placeholder_article_footer-->

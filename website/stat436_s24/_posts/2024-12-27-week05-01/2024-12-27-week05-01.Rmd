@@ -136,7 +136,7 @@ clicked.
     ```{r code=readLines("https://raw.githubusercontent.com/krisrs1128/stat479_s22/main/_posts/2022-02-16-week05-01/apps/app1.R"), eval = FALSE}
     ```
     
-    <iframe src="https://data-viz.it.wisc.edu/content/17a54e4c-5237-4018-b6fe-20c1555cf337/" allowfullscreen="" data-external="1" height=400 width=600></iframe>
+    <iframe src="https://connect.doit.wisc.edu/content/5c3cb985-aff3-4ce9-ae28-48363627bed1/" allowfullscreen="" data-external="1" height=400 width=600></iframe>
     
 1. The `reset_dist` function uses `nearPoints` to compute the distance between
 each sample and the plot, each time the plot is clicked. The associated reactive
@@ -150,4 +150,4 @@ distance each time the plot is clicked.
     ```{r code=readLines("https://raw.githubusercontent.com/krisrs1128/stat479_s22/main/_posts/2022-02-16-week05-01/apps/app2.R"), eval = FALSE}
     ```
     
-    <iframe src="https://data-viz.it.wisc.edu/content/9fcf3583-a74f-4d84-8d7c-68ac3595bf6b/" allowfullscreen="" data-external="1" height=750 width=800></iframe>
+    <iframe src="https://connect.doit.wisc.edu/content/e6219656-304e-48c1-8534-5da599204f31/" allowfullscreen="" data-external="1" height=750 width=800></iframe>
