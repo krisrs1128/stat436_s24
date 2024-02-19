@@ -1560,8 +1560,8 @@ mechanisms: clicks and brushes. These can be specified by adding <code>click</co
 clicks,</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>ui</span> <span class='op'>&lt;-</span> <span class='fu'>fluidPage</span><span class='op'>(</span></span>
- <span>  <span class='fu'>plotOutput</span><span class='op'>(</span><span class='st'>"plot"</span>, click <span class='op'>=</span> <span class='st'>"plot_click"</span><span class='op'>)</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>ui</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidPage</a></span><span class='op'>(</span></span>
+ <span>  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/plotOutput.html'>plotOutput</a></span><span class='op'>(</span><span class='st'>"plot"</span>, click <span class='op'>=</span> <span class='st'>"plot_click"</span><span class='op'>)</span></span>
  <span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
@@ -1586,7 +1586,7 @@ to.</p></li>
 made using the data.frame <code>x</code>. Then</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>nearPoints</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>input</span><span class='op'>$</span><span class='va'>click</span><span class='op'>)</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/pkg/shiny/man/brushedPoints.html'>nearPoints</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>input</span><span class='op'>$</span><span class='va'>click</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
 <p>will return the samples in <code>x</code> that are close to the clicked location. We
@@ -1595,7 +1595,7 @@ samples – it returns all samples, along with their distance from the
 clicked location,</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>nearPoints</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>input</span><span class='op'>$</span><span class='va'>click</span>, allRows <span class='op'>=</span> <span class='cn'>TRUE</span>, addDist <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/pkg/shiny/man/brushedPoints.html'>nearPoints</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>input</span><span class='op'>$</span><span class='va'>click</span>, allRows <span class='op'>=</span> <span class='cn'>TRUE</span>, addDist <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span></code></pre>
 </div>
 </div></li>
 <li><p>We are almost ready to build a visualization whose outputs respond to
@@ -1607,13 +1607,13 @@ logic is captured by the block below,</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>server</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span><span class='op'>)</span> <span class='op'>{</span></span>
- <span>  <span class='va'>dist</span> <span class='op'>&lt;-</span> <span class='fu'>reactiveVal</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
- <span>  <span class='fu'>observeEvent</span><span class='op'>(</span></span>
+ <span>  <span class='va'>dist</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/reactiveVal.html'>reactiveVal</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
+ <span>  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span><span class='op'>(</span></span>
  <span>    <span class='va'>input</span><span class='op'>$</span><span class='va'>plot_click</span>,</span>
  <span>    <span class='fu'><a href='https://rdrr.io/r/stats/dist.html'>dist</a></span><span class='op'>(</span><span class='fu'>reset_dist</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>input</span><span class='op'>$</span><span class='va'>plot_click</span><span class='op'>)</span><span class='op'>)</span></span>
  <span>  <span class='op'>)</span></span>
  <span>  </span>
- <span>  <span class='va'>output</span><span class='op'>$</span><span class='va'>plot</span> <span class='op'>&lt;-</span> <span class='fu'>renderPlot</span><span class='op'>(</span><span class='op'>{</span></span>
+ <span>  <span class='va'>output</span><span class='op'>$</span><span class='va'>plot</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/renderPlot.html'>renderPlot</a></span><span class='op'>(</span><span class='op'>{</span></span>
  <span>    <span class='fu'>scatter</span><span class='op'>(</span><span class='va'>x</span>, <span class='fu'><a href='https://rdrr.io/r/stats/dist.html'>dist</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>
  <span>  <span class='op'>}</span><span class='op'>)</span></span>
  <span><span class='op'>}</span></span></code></pre>

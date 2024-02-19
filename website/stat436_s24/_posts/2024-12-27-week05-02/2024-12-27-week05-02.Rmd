@@ -75,5 +75,5 @@ contexts, leading to changes in both plots every time the brush is moved.
     ```{r code=readLines("https://raw.githubusercontent.com/krisrs1128/stat479_s22/main/_posts/2022-02-16-week05-02/apps/app4.R"), eval = FALSE}
     ```
     
-    <iframe src="https://connect.doit.wisc.edu/connect/#/apps/f8d86e79-f2f6-41ed-807a-2d5ad61052ea/access/" allowfullscreen="" data-external="1" height=800 width=600></iframe>
+    <iframe src="https://connect.doit.wisc.edu/connect/#/apps/f8d86e79-f2f6-41ed-807a-2d5ad61052ea/" allowfullscreen="" data-external="1" height=800 width=600></iframe>
     
