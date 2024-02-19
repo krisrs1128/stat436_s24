@@ -1029,12 +1029,25 @@ from the exercises sheet.
 
 ---
 
-## February 21, 2024
+## February 20, 2024
 
-1. Discussion Review
+1. Visualization Share
+1. Shiny App Tips
 1. In-Class Demo [5 - 1]
 1. In-Class Discussion [5 - 1]
 1. In-Class Exercise [5 - 1]
+
+---
+
+### Announcements
+
+1. Thank you for your attention and thoughtfulness during Yongyi's guest
+lecture.
+1. Apologies for the confused Exercise [4 - 1] submission. The deadline is
+extended until Thursday.
+1. Upcoming deadlines
+  * HW2 is due on **March 11**.
+  * Project Milestone 2 is due on **March 25**.
 
 ---
 
@@ -1058,59 +1071,7 @@ To let us grade your Shiny apps within the problem sets, you have two options,
 it. You do not need to share the code as R scripts -- we will just read the code
 as it's embedded in the main write-up.
 
-1. You could try hosting your app on a public site. UW Madison has an Rstudio
-Connect account, which lets you host apps for free. You can sign up
-[here](https://it.wisc.edu/news/rstudio-team-pilot/).
-
----
-
-### Discussion Review
-
-A few main themes came up in Thursday's discussion (https://go.wisc.edu)
-
-* Making sense of Shiny-specific vocabulary and syntax
-* Which Shiny components should we use when? What considerations guide the
-choice?
-* How to debug Shiny apps?
-
-### Shiny-specific Syntax
-
-What is the difference between `ui` and `server`?
-
-* The `ui` defines what the user sees and can interact with.
-* The `server` defines how the visualization responds to inputs.
-
----
-
-### Shiny-specific Syntax
-
-What is the difference between `observe` and `reactive`?
-
-From Mastering Shiny, Section 3.6,
-
-&gt; [S]ometimes you need to reach outside of the app and cause side-effects to
-happen elsewhere in the world. This might be saving a file to a shared network
-drive, sending data to a web API, updating a database, or (most commonly)
-printing a debugging message to the console. These actions don’t affect how your
-app looks, so you shouldn’t use an output and a render function. Instead you
-need to use an observer.
-
----
-
-### Which Components to Use When?
-
-* For choosing between different inputs and outputs, the [Shiny Cheat
-Sheet](https://shiny.rstudio.com/images/shiny-cheatsheet.pdf) is helpful. It
-shows screenshots of each type of input / output.
-* Many authors have implemented inputs / outputs beyond those available in the main Shiny package. E.g., there are specialized widgets in the [`shinyWidgets`](https://shinyapps.dreamrs.fr/shinyWidgets/) package
-
----
-
-### Which Components to Use When?
-
-* For more complex displays, you may want to use `sidebarLayout`, `tabsetPanel`,
-or `navbarPage`
-* We will practice with alternatives during the Thursday demo
+1. You could try hosting your app on a public site.
 
 ---
 
@@ -1119,7 +1080,7 @@ or `navbarPage`
 In addition to printing to the R console or inserting a `browser()` call, you
 can create UI elements that print variables of interest.
   * `verbatimOutput` will print arbitrary R objects to the shiny UI
-
+  * Remind me to give examples during our demo today.
 
 
 ```r
@@ -1142,34 +1103,30 @@ of the code that others can easily give feedback on.
 
 ---
 
-### In-Class Demo [5 - 1]
+### In-Class Discussion [5 - 1]
 
-* We will give a new solution to part (c) of [California Wildfires] in the
-exercise sheet, but this time using graphical queries.
-* Starter code is available here: https://go.wisc.edu/
+Use the whiteboard below to prepare pseudocode for [Interactive German Traffic]
+in the exercise sheet. You can draw directly on the board or write post-its
+outlining the essential logic.
+
+* Whiteboard: https://go.wisc.edu/3gk0x4
 
 ---
 
-### In-Class Discussion [5 - 1]
+### In-Class Demo [5 - 1]
 
-Document: https://go.wisc.edu/
+We will work through [Interactive German Traffic] in the exercise sheet. **Only join the Live Demo if your university ID ends in an odd number.**
 
-Prompt: Right now, the dotplot responds to the brushed histogram. However,
-
-  * The dotplot does not allow any user inputs.
-  * The histogram does not reflect year or user selections.
-
-Imagine someone came to your statistical consulting hours with this application.
-They want your expertise to improve the app so that it conveys more information.
-How would you approach this? What might be some first steps towards
-implementation?
+* Live Demo: https://go.wisc.edu/
+* Whiteboard: https://go.wisc.edu/3gk0x4
+* Completed Code: https://go.wisc.edu/5b7aaq
 
 ---
 
 ### In-Class Exercise [5 - 1]
 
 We will work through the [Code Analysis] exercise again, but for material from
-Shiny. https://go.wisc.edu/
+Shiny.
 
 [Code Analysis] Pick one code example from this week’s lecture notes. Provide a
 3 - 4 sentence summary of the overall implementation strategy. Then, add
@@ -1179,7 +1136,7 @@ these in the next lecture).
 
 ---
 
-## February 23, 2024
+## February 22, 2024
 
 1. Exercise Review
 1. In-Class Demo [5 - 2]
@@ -1190,9 +1147,12 @@ these in the next lecture).
 
 ### Announcements
 
-* We are done with the first course module (Fundamentals of Data Visualization).
-* Important Dates: HW2 (March 13), Midterm (March 23), Project Milestone 2
-(March 27)
+1. We are done with the first course module (Fundamentals of Data
+Visualization). The remaining modules are focused on specific data types.
+1. Upcoming deadlines
+  * HW2 is due on **March 11**.
+  * Project Milestone 2 is due on **March 25**.
+  * The Midterm is in-class on **March 21**.
 
 ---
 
@@ -1202,23 +1162,27 @@ these in the next lecture).
 
 ### In-Class Demo [5 - 2]
 
-* We will work through [Customizing a Shiny App] in the exercise sheet.
-* Before we work through this together, try your best to improve / customize our
-earlier traffic Shiny app: https://go.wisc.edu
-* Starter code is available here: https://go.wisc.edu/
+We will work through [California Wildfires] part (c) in the exercise sheet. **Only join the Live Demo if your university ID ends in an even number.**
+
+* Live Demo: https://go.wisc.edu/
+* Whiteboard: https://go.wisc.edu/k5s8af
+* Completed Code: https://go.wisc.edu/zw7577
 
 ---
 
 ### In-Class Exercise [5 - 2]
 
-With your project group, prepare a concept map to summarize the last week of
-reading material. An effective submission will include a thorough coverage of
-both abstract concepts and practical examples, summarized concisely into short
-phrases. It will also include well-justified links between nodes, with text
-explanations for edges whose interpretation might not be obvious at first.
+Document: https://go.wisc.edu/hds4qx
 
-* Submission: https://go.wisc.edu/
-* Optional: Share your concept map in Piazza.
+Prompt: Right now, the dotplot responds to the brushed histogram. However,
+
+  * The dotplot does not allow any user inputs.
+  * The histogram does not reflect year or user selections.
+
+Imagine someone came to your statistical consulting hours with this application.
+They want your expertise to improve the app so that it conveys more information.
+How would you approach this? What might be some first steps towards
+implementation?
 
 ---
 
