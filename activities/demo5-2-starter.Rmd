@@ -92,26 +92,9 @@ server <- function(input, output) {
   
   # add an observeEvent to check whenever the histogram has been brushed
 
-  output$dotplot <- renderPlot({
-    fires |>
-      mutate(
-        selected = histogram_selection() & year >= input$year[1] & year <= input$year[2],
-        selected = factor(selected, levels = c("TRUE", "FALSE"))
-        ) |>
-      dotplot()
-  })
-
-  output$histogram <- renderPlot({
-    ggplot(fires) +
-      geom_histogram(aes(AcresBurned)) +
-      scale_x_log10()
-  })
-  
-  output$table <- renderDataTable({
-    fires |>
-      filter(histogram_selection() & year >= input$year[1] & year <= input$year[2]) |>
-      arrange(-AcresBurned)
-  })
+  #output$dotplot <- # ?
+  #output$histogram <- # ?
+  #output$table <- # ?
 }
 
 shinyApp(ui, server)
