@@ -680,16 +680,16 @@ head(ikea)
 ```
 
 ```
-## # A tibble: 6 x 14
+## # A tibble: 6 × 14
 ##      X1  item_id name  category price old_price sellable_online link  other_colors short_description
 ##   &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     &lt;lgl&gt;           &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;            
-## 1     0 90420332 FREK~ Bar fur~   265 No old p~ TRUE            http~ No           Bar table, in/ou~
-## 2     1   368814 NORD~ Bar fur~   995 No old p~ FALSE           http~ No           Bar table,      ~
-## 3     3 80155205 STIG  Bar fur~    69 No old p~ TRUE            http~ Yes          Bar stool with b~
-## 4     4 30180504 NORB~ Bar fur~   225 No old p~ TRUE            http~ No           Wall-mounted dro~
-## 5     5 10122647 INGO~ Bar fur~   345 No old p~ TRUE            http~ No           Bar stool with b~
-## 6     6 70404875 FRAN~ Bar fur~   129 No old p~ TRUE            http~ No           Bar stool with b~
-## # i 4 more variables: designer &lt;chr&gt;, depth &lt;dbl&gt;, height &lt;dbl&gt;, width &lt;dbl&gt;
+## 1     0 90420332 FREK… Bar fur…   265 No old p… TRUE            http… No           Bar table, in/ou…
+## 2     1   368814 NORD… Bar fur…   995 No old p… FALSE           http… No           Bar table,      …
+## 3     3 80155205 STIG  Bar fur…    69 No old p… TRUE            http… Yes          Bar stool with b…
+## 4     4 30180504 NORB… Bar fur…   225 No old p… TRUE            http… No           Wall-mounted dro…
+## 5     5 10122647 INGO… Bar fur…   345 No old p… TRUE            http… No           Bar stool with b…
+## 6     6 70404875 FRAN… Bar fur…   129 No old p… TRUE            http… No           Bar stool with b…
+## # ℹ 4 more variables: designer &lt;chr&gt;, depth &lt;dbl&gt;, height &lt;dbl&gt;, width &lt;dbl&gt;
 ```
 
 ---
@@ -1045,7 +1045,6 @@ from the exercises sheet.
 lecture.
 1. Apologies for the confused Exercise [4 - 1] submission. The deadline is
 extended until Thursday.
-1. For any milestone, you can comment on teamwork here: https://forms.gle/SDny8ypLkgB5sSYR7
 1. Upcoming deadlines
   * HW2 is due on **March 11**.
   * Project Milestone 2 is due on **March 25**.
@@ -1118,7 +1117,7 @@ outlining the essential logic.
 
 We will work through [Interactive German Traffic] in the exercise sheet. **Only join the Live Demo if your university ID ends in an odd number.**
 
-* Live Demo: https://go.wisc.edu/k531h2
+* Live Demo: https://go.wisc.edu/
 * Whiteboard: https://go.wisc.edu/3gk0x4
 * Completed Code: https://go.wisc.edu/5b7aaq
 
@@ -1139,8 +1138,7 @@ these in the next lecture).
 
 ## February 22, 2024
 
-1. Visualization Share
-1. Milestone 1 Review
+1. Exercise Review
 1. In-Class Demo [5 - 2]
 1. In-Class Discussion [5 - 2]
 1. In-Class Exercise [5 - 2]
@@ -1158,15 +1156,7 @@ Visualization). The remaining modules are focused on specific data types.
 
 ---
 
-### Milestone 1 Review
-
-Some general patterns across the class:
-+ Problem and data selection was effective. Proposed studies were at an
-appropriate level of complexity.
-+ Writing was clear and well-organized.
-- Many discussions required further development/sounded like simple lists.
-  * Prefer specific examples over vague statements.
-  * Commentary -- what are some interesting trade-offs, critiques, analogies?
+### Exercise Review
 
 ---
 
@@ -1174,7 +1164,7 @@ appropriate level of complexity.
 
 We will work through [California Wildfires] part (c) in the exercise sheet. **Only join the Live Demo if your university ID ends in an even number.**
 
-* Live Demo: https://go.wisc.edu/qxwml9
+* Live Demo: https://go.wisc.edu/
 * Whiteboard: https://go.wisc.edu/k5s8af
 * Completed Code: https://go.wisc.edu/zw7577
 
@@ -1196,8 +1186,9 @@ implementation?
 
 ---
 
-## February 28, 2024
+## February 27, 2024
 
+1. Visualization Shares
 1. In-Class Exercise [6 - 1]
 1. In-Class Discussion [6 - 1]
 1. In-Class Demo [6 - 1]
@@ -1206,23 +1197,12 @@ implementation?
 
 ### Announcements
 
-* We've left comments on some of the Discussion [5 - 2] notes
-* Important Dates: HW2 (March 13), Midterm (March 23), Project Milestone 2
-(March 27)
-
----
-
-### Module 2 [Visualizing Structured Data]
-
-Over the next three weeks, we'll study techniques to visualization time series,
-geospatial data, and trees / networks.
-
-.pull-left[
-&lt;img src="https://krisrs1128.github.io/stat436_s24/posts/2022-12-27-week06-02/2022-12-27-week06-02_files/figure-html5/unnamed-chunk-2-2.png"/&gt;
-]
-.pull-right[
-&lt;img src="https://krisrs1128.github.io/stat436_s24/posts/2022-12-27-week08-02/2022-12-27-week08-02_files/figure-html5/unnamed-chunk-3-1.png"/&gt;
-]
+1. Milestone 1 grades and HW1 solutions are posted.
+1. Deadlines
+  1. HW2 is due on **March 11**.
+  1. Project Milestone 2 is due on **March 25**.
+1. The Midterm is in-class on **March 21**. A practice exam and solutions are on
+Canvas. 
 
 ---
 
@@ -1235,35 +1215,43 @@ By the end of the class, you should be able to...
 
 ---
 
+### In-Class Discussion [6 - 1]
+
+Link: https://go.wisc.edu/9b10ye
+
+Prompts:
+
+1. What datasets have you seen that have time series (or sequential) structure?
+Describe some of the context around the data. What questions were they intended
+to answer?
+
+1. In your own words, what makes analysis of time series data challenging? Have
+you encountered any of these challenges in your past projects?
+
+---
+
 ### In-Class Exercise [6 - 1]
 
 * I will pause at a few points during the demo today, and I want you to guess
 what the next step in the analysis is.
-* At the end of the demo, you can summarize your guesses and submit them: https://go.wisc.edu/
+* At the end of the demo, summarize your guesses and submit them to Canvas.
 * You should be able to make your submission before the end of class.
-
----
-
-### In-Class Demo: Expectations
-
-* Take out your laptops, follow-along, and ask questions (raise your hand, or comment on google doc)
-* You and I will both run into bugs -- this is a normal part of the process
-* We will try to balance conceptual sketches with practical implementation
 
 ---
 
 ### In-Class Demo [6 - 1]
 
-* We will work through as much of [Global Carbon Footprint Network] as we can.
-Before we do this, take a look at the data with  your group and respond to part
-(a): https://go.wisc.edu/
-* Starter code is available here: https://go.wisc.edu/
+We will work through as much of [Global Carbon Footprint Network] as we can.
+
+* Live Demo: https://go.wisc.edu/
+* Whiteboard: https://go.wisc.edu/v487qk
+* Completed Code: https://go.wisc.edu/7rjqc5
 
 ---
 
-## March 2, 2024
+## February 29, 2024
 
-1. In-Class Discussion [6 - 2]
+1. Visualization Shares
 1. In-Class Demo [6 - 2]
 1. In-Class Exercise [6 - 2]
 
@@ -1271,8 +1259,11 @@ Before we do this, take a look at the data with  your group and respond to part
 
 ### Announcements
 
-* Important Dates: HW2 (March 13), Midterm (March 23), Project Milestone 2
-(March 27)
+1. Deadlines
+  1. HW2 is due on **March 11**.
+  1. Project Milestone 2 is due on **March 25**.
+1. The Midterm is in-class on **March 21**. A practice exam and solutions are on
+Canvas. 
 
 ---
 
@@ -1285,38 +1276,22 @@ By the end of the class, you should be able to...
 
 ---
 
-### Inpsiration
-
-I think of this course as a foundation for long-term study of visualization, so
-I thought it might be interesting to occasionally share some "inspirational"
-visualizations.
-
-&lt;iframe src="https://player.vimeo.com/video/363453522?h=ea9887b2e6" width="750" height="450" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
-&lt;p&gt;&lt;a href="https://vimeo.com/363453522"&gt;[VIS19 Preview] Periphery Plots for Contextualizing Heterogeneous Time-Based Charts (short paper)&lt;/a&gt;&lt;/p&gt;
-
----
-
-### Inspiration
-
-Figure 1 from [_StoryFlow: Tracking the Evolution of Stories_](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6634164).
-
-&lt;img src="figure/storyflow.png" width="1000" style="display: block; margin: auto;" /&gt;
-
----
-
 ### In-Class Demo [6 - 2]
 
-* We will work through [Global Carbon Footprint II].
-* Before we do this, work with your neighbors to brainstorm a response to part
-(b). Summarize your discussion: https://go.wisc.edu/
-* Starter code is available here: https://go.wisc.edu/
+We will work through [Global Carbon Footprint II].  Before we do this, work with
+your neighbors to brainstorm a response to part (b). Summarize your discussion
+on the whiteboard below.
+
+* Live Demo: https://go.wisc.edu/
+* Whiteboard: https://go.wisc.edu/96168u
+* Completed Code: https://go.wisc.edu/m1o5ps
 
 ---
 
 ### In-Class Exercise [6 - 2]
 
 * Work through parts (a - b) in the [Spotify Time Series I] problem on the
-exercise sheet: https://go.wisc.edu/
+exercise sheet.
 * You can discuss this with your neighbors, but make your submission
 individually.
 * You will get full credit if you make an honest attempt -- if you become stuck
@@ -1355,7 +1330,7 @@ head(song)
 ```
 
 ```
-## # A tibble: 6 x 5
+## # A tibble: 6 × 5
 ##   artist     track_name   region date       streams
 ##   &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;  &lt;date&gt;       &lt;dbl&gt;
 ## 1 Ed Sheeran Shape of You ar     2017-01-06   57617
@@ -2073,7 +2048,7 @@ ggplot(x) +
   coord_fixed()
 ```
 
-&lt;img src="slides_files/figure-html/unnamed-chunk-46-1.png" width="650" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_files/figure-html/unnamed-chunk-45-1.png" width="650" style="display: block; margin: auto;" /&gt;
 
 
     </textarea>
