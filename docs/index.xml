@@ -7,7 +7,16 @@
     <description>STAT 436 (Spring 2024)
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sun, 18 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 25 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Collections of Time Series</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week06-05</link>
+      <description>Navigating across related time series.</description>
+      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week06-05</guid>
+      <pubDate>Sun, 25 Feb 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week06-05/2024-12-27-week06-05_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>Graphical Queries - Click Events</title>
       <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week05-01</link>
@@ -67,6 +76,7 @@
       <description>An overview of common formats, with illustrative examples.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week07-01</guid>
       <pubDate>Wed, 10 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week07-01/2024-12-27-week07-01_files/figure-html5/unnamed-chunk-3-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Introduction to ggplot2</title>
@@ -76,6 +86,7 @@
 simple scatterplot.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week01-01</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week01-01/2024-12-27-week01-01_files/figure-html5/unnamed-chunk-3-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>A Vocabulary of Marks</title>
@@ -84,6 +95,7 @@ simple scatterplot.</description>
       <description>Examples of encodings and sequential refinement of a plot.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week01-02</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week01-02/2024-12-27-week01-02_files/figure-html5/unnamed-chunk-4-1.png" medium="image" type="image/png" width="1248" height="960"/>
     </item>
     <item>
       <title>Tidy Data</title>
@@ -92,6 +104,7 @@ simple scatterplot.</description>
       <description>The definition of tidy data, and why it's often helpful for visualization._</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week02-01</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week02-01/2024-12-27-week02-01_files/figure-html5/unnamed-chunk-3-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Pivoting</title>
@@ -100,6 +113,7 @@ simple scatterplot.</description>
       <description>Tools for reshaping data into tidy format.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week02-02</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week02-02/2024-12-27-week02-02_files/figure-html5/unnamed-chunk-6-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Deriving Variables</title>
@@ -143,6 +157,7 @@ downstream visualization.</description>
       <description>Implementing compound figures in R</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week03-04</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week03-04/2024-12-27-week03-04_files/figure-html5/unnamed-chunk-3-1.png" medium="image" type="image/png" width="1248" height="960"/>
     </item>
     <item>
       <title>tsibble Objects</title>
@@ -159,6 +174,7 @@ downstream visualization.</description>
       <description>Vocabulary for describing visual structure in time series.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week06-02</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week06-02/2024-12-27-week06-02_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Seasonal Plots</title>
@@ -167,6 +183,7 @@ downstream visualization.</description>
       <description>Approaches for visualizing seasonality.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week06-03</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week06-03/2024-12-27-week06-03_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Cross and Auto-Correlation</title>
@@ -176,14 +193,6 @@ downstream visualization.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week06-04</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
       <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week06-04/2024-12-27-week06-04_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
-    </item>
-    <item>
-      <title>Collections of Time Series</title>
-      <dc:creator>Kris Sankaran</dc:creator>
-      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week06-05</link>
-      <description>Navigating across related time series.</description>
-      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week06-05</guid>
-      <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>Vector Data</title>
@@ -210,6 +219,7 @@ downstream visualization.</description>
       <description>The projection problem, and how to check your CRS.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week07-04</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week07-04/2024-12-27-week07-04_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Geospatial Interaction</title>
@@ -225,6 +235,7 @@ downstream visualization.</description>
       <description>Typical tasks and example network datasets.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week08-01</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week08-01/2024-12-27-week08-01_files/figure-html5/unnamed-chunk-7-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Node - Link Diagrams</title>
@@ -242,6 +253,7 @@ downstream visualization.</description>
       <description>A scalable network visualization strategy.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week08-03</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week08-03/2024-12-27-week08-03_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Enclosure</title>
@@ -250,6 +262,7 @@ downstream visualization.</description>
       <description>Visualization of hierarchical structure using containment.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week08-04</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week08-04/2024-12-27-week08-04_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="2304" height="768"/>
     </item>
     <item>
       <title>K-means</title>
@@ -258,6 +271,7 @@ downstream visualization.</description>
       <description>An introduction to clustering and how to manage its output.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week09-01</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week09-01/2024-12-27-week09-01_files/figure-html5/unnamed-chunk-5-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Hierarchical Clustering</title>
@@ -266,6 +280,7 @@ downstream visualization.</description>
       <description>Clustering data at multiple scales using trees.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week09-02</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week09-02/2024-12-27-week09-02_files/figure-html5/unnamed-chunk-9-1.png" medium="image" type="image/png" width="1248" height="1344"/>
     </item>
     <item>
       <title>Heatmaps</title>
@@ -292,6 +307,7 @@ downstream visualization.</description>
       <description>How reliable are the results of a clustering?</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week09-05</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week09-05/2024-12-27-week09-05_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="576" height="960"/>
     </item>
     <item>
       <title>Introduction to Dimensionality Reduction</title>
@@ -309,6 +325,7 @@ downstream visualization.</description>
       <description>Linear dimensionality reduction using PCA.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-2</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://web.stanford.edu/class/bios221/imgs/CAM4.png" medium="image" type="image/png"/>
     </item>
     <item>
       <title>Principal Components Analysis II</title>
@@ -317,6 +334,7 @@ downstream visualization.</description>
       <description>Visualizing and interpreting PCA.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-3</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-3/2024-12-27-week10-3_files/figure-html5/unnamed-chunk-6-1.png" medium="image" type="image/png" width="1248" height="1152"/>
     </item>
     <item>
       <title>Uniform Manifold Approximation and Projection</title>
@@ -325,6 +343,7 @@ downstream visualization.</description>
       <description>An overview of the UMAP algorithm.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-4</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-4/2024-12-27-week10-4_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>PCA and UMAP Examples</title>
@@ -333,6 +352,7 @@ downstream visualization.</description>
       <description>More examples of dimensionality reduction using PCA and UMAP.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-5</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-5/2024-12-27-week10-5_files/figure-html5/unnamed-chunk-14-1.png" medium="image" type="image/png" width="960" height="960"/>
     </item>
     <item>
       <title>Introduction to Topic Models</title>
@@ -341,6 +361,7 @@ downstream visualization.</description>
       <description>An overview of dimensionality reduction via topics.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week11-1</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://uwmadison.box.com/shared/static/3shdh2f5vqarkwjucmmebigj2rwm4wyh.png" medium="image" type="image/png"/>
     </item>
     <item>
       <title>Fitting Topic Models</title>
@@ -357,6 +378,7 @@ downstream visualization.</description>
       <description>Once we've fit a topic model, how should we inspect it?</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week11-3</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week11-3/2024-12-27-week11-3_files/figure-html5/unnamed-chunk-5-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Topic Modeling Case Study</title>
@@ -365,6 +387,7 @@ downstream visualization.</description>
       <description>An application to a gene expression dataset.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week11-4</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week11-4/2024-12-27-week11-4_files/figure-html5/unnamed-chunk-8-1.png" medium="image" type="image/png" width="960" height="1536"/>
     </item>
     <item>
       <title>Partial Dependence Profiles I</title>
@@ -373,6 +396,7 @@ downstream visualization.</description>
       <description>An introduction to partial dependence profiles.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week12-1</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://uwmadison.box.com/shared/static/mpe45nor6xm4gt1idhedayw9ik754c2k.png" medium="image" type="image/png"/>
     </item>
     <item>
       <title>Partial Dependence Profiles II</title>
@@ -381,6 +405,7 @@ downstream visualization.</description>
       <description>Discovering richer structure in partial dependence profiles.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week12-2</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week12-2/2024-12-27-week12-2_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Visualization for Model Building</title>
@@ -398,6 +423,7 @@ downstream visualization.</description>
       <description>Simulating data to evaluate model quality.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week12-4</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week12-4/2024-12-27-week12-4_files/figure-html5/unnamed-chunk-4-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Pointwise Diagnostics</title>
@@ -406,6 +432,7 @@ downstream visualization.</description>
       <description>Evaluating the fit at particular observations in Bayesian models.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week12-5</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week12-5/2024-12-27-week12-5_files/figure-html5/unnamed-chunk-4-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Introduction to Feature Learning</title>
@@ -414,6 +441,7 @@ downstream visualization.</description>
       <description>An introduction to compositional feature learning.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week13-1</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://uwmadison.box.com/shared/static/dlglc32rea1ovqrwgj9in6yxje5ml036.png" medium="image" type="image/png"/>
     </item>
     <item>
       <title>Visualizing Learned Features</title>
@@ -422,6 +450,7 @@ downstream visualization.</description>
       <description>A first look at activations in a deep learning model.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week13-2</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week13-2/2024-12-27-week13-2_files/figure-html5/unnamed-chunk-7-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Collections of Features</title>
@@ -430,6 +459,7 @@ downstream visualization.</description>
       <description>Analyzing feature activations across datasets</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week13-3</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week13-3/2024-12-27-week13-3_files/figure-html5/unnamed-chunk-5-1.png" medium="image" type="image/png" width="1248" height="1344"/>
     </item>
     <item>
       <title>Optimizing Feature Maps</title>
@@ -438,6 +468,7 @@ downstream visualization.</description>
       <description>Interpreting neurons by finding optimal inputs</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week13-4</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week13-4/2024-12-27-week13-4_files/figure-html5/unnamed-chunk-9-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Final Takeaways</title>
@@ -454,6 +485,7 @@ downstream visualization.</description>
       <description>Tracing the refinement of questions and design.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week14-2</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://uploads-ssl.webflow.com/5fa9d88da1855554db37b1e1/5fc61cc4356e0d312965c372_split_beeswarm.png" medium="image" type="image/png"/>
     </item>
     <item>
       <title>Asking Better Questions</title>
@@ -462,6 +494,7 @@ downstream visualization.</description>
       <description>What is the purpose of data analysis?</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week14-3</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://raw.githubusercontent.com/krisrs1128/stat436_s23/main/activities/figure/question_evidence.png" medium="image" type="image/png"/>
     </item>
     <item>
       <title>A History of Data Visualization up to 1900</title>
@@ -470,7 +503,7 @@ downstream visualization.</description>
       <description>A look at the origins of the field.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week14-4</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
-      <media:content url="https://uwmadison.box.com/shared/static/w05yivo6v9dmj14kvjhcbon0de2gg1zl.webp" medium="image" type="application/octet-stream"/>
+      <media:content url="https://uwmadison.box.com/shared/static/c79fbmfc3mff9ota1tzxtvv4gp7e3pul.jpeg" medium="image" type="image/jpeg"/>
     </item>
     <item>
       <title>Faceting</title>
@@ -480,6 +513,7 @@ downstream visualization.</description>
       <description>Using small multiples to create information dense plots.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week03-01</guid>
       <pubDate>Tue, 10 Jan 2023 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week03-01/2024-12-27-week03-01_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1344" height="576"/>
     </item>
   </channel>
 </rss>
