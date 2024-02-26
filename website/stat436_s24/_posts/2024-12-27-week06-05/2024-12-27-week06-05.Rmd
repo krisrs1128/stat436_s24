@@ -49,9 +49,9 @@ regions <- tourism %>%
   pull(Region)
 
 ggplot(tourism %>% filter(Region %in% regions[1:9])) +
-  geom_line(aes(x = time(Quarter), y = Trips, col = Purpose)) +
+  geom_line(aes(x = date(Quarter), y = Trips, col = Purpose)) +
   scale_color_brewer(palette = "Set2") +
-  facet_wrap(~Region, scale = "free_y") +
+  facet_wrap(~Region, scale = "free") +
   theme(legend.position = "bottom")
 ```
 
@@ -107,7 +107,7 @@ outlier_series <- tourism %>%
   filter(key %in% outliers$key)
 
 ggplot(outlier_series) +
-  geom_line(aes(x = time(Quarter), y = Trips, col = Purpose)) +
+  geom_line(aes(x = date(Quarter), y = Trips, col = Purpose)) +
   scale_color_brewer(palette = "Set2") +
   facet_wrap(~Region, scale = "free_y") +
   theme(legend.position = "bottom")
