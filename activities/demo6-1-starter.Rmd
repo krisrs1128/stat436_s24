@@ -28,7 +28,7 @@ Refer to at least one of the following vocabulary terms: trend, seasonality,
 autocorrelation, cross-correlation, cyclic behavior.
     
 ```{r}
-carbon <- read_csv("https://raw.githubusercontent.com/krisrs1128/stat479_s22/main/_slides/week6/data/cleaned.csv")
+carbon <- read_csv("https://go.wisc.edu/7qx7u1")
 head(carbon)
 
 carbon <- carbon |>
