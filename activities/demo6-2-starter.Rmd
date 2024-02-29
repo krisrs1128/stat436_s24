@@ -27,7 +27,7 @@ on hover.
 This code is copied from the previous demo.
 
 ```{r}
-carbon <- read_csv("https://raw.githubusercontent.com/krisrs1128/stat479_s22/main/_slides/week6/data/cleaned.csv")
+carbon <- read_csv("https://go.wisc.edu/7qx7u1")
 carbon_ts <- carbon |>
   pivot_longer(-c("country", "Country Code"), names_to = "year") |>
   filter(country != "Switzerland") |>
