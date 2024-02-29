@@ -40,16 +40,6 @@ smoothed_carbon <- carbon_ts |>
   ungroup()
 ```
 
-We now construct a plotly object from the ggplot time series.
-
-```{r}
-p <- ggplot(smoothed_carbon) +
-  geom_line(aes(year, smoothed, group = country))
-ggplotly(p)
-```
-
-What if we want to be able to hover and get the country names?
-
 b. Propose an interactive time series visualization that graphically queries a
 time series feature (or several features) that can be generated using the
 `feasts` package. What questions is your visualization particularly well-suited
