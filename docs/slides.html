@@ -1189,8 +1189,8 @@ implementation?
 ## February 27, 2024
 
 1. Visualization Shares
-1. In-Class Discussion [6 - 1]
 1. In-Class Exercise [6 - 1]
+1. In-Class Discussion [6 - 1]
 1. In-Class Demo [6 - 1]
 
 ---
@@ -1203,22 +1203,6 @@ implementation?
   1. Project Milestone 2 is due on **March 25**.
 1. The Midterm is in-class on **March 21**. A practice exam and solutions are on
 Canvas. 
-
----
-
-### Exercise Review
-
-Document: https://go.wisc.edu/hds4qx
-
-Prompt: Right now, the dotplot responds to the brushed histogram. However,
-
-  * The dotplot does not allow any user inputs.
-  * The histogram does not reflect year or user selections.
-
-Imagine someone came to your statistical consulting hours with this application.
-They want your expertise to improve the app so that it conveys more information.
-How would you approach this? What might be some first steps towards
-implementation?
 
 ---
 
@@ -1259,7 +1243,7 @@ what the next step in the analysis is.
 
 We will work through as much of [Global Carbon Footprint Network] as we can.
 
-* Live Demo: https://go.wisc.edu/4gf3jf
+* Live Demo: https://go.wisc.edu/
 * Whiteboard: https://go.wisc.edu/v487qk
 * Completed Code: https://go.wisc.edu/7rjqc5
 
@@ -1292,23 +1276,14 @@ By the end of the class, you should be able to...
 
 ---
 
-### In-Class Discussion [6 - 2]
-
-Use the document below to sketch pseudocode for [Global Carbon Footprint II] in
-the exercise sheet. Describe how you would structure the interface and outline an
-associated `ui` and `server` implementation.
-
-* Document: https://go.wisc.edu/8hex70
-
----
-
 ### In-Class Demo [6 - 2]
 
 We will work through [Global Carbon Footprint II].  Before we do this, work with
 your neighbors to brainstorm a response to part (b). Summarize your discussion
 on the whiteboard below.
 
-* Live Demo: https://go.wisc.edu/ws4n72
+* Live Demo: https://go.wisc.edu/
+* Whiteboard: https://go.wisc.edu/96168u
 * Completed Code: https://go.wisc.edu/m1o5ps
 
 ---
@@ -1324,8 +1299,9 @@ at some step, describe the difficulty that you encountered.
 
 ---
 
-## March 7, 2024
+## March 5, 2024
 
+1. Visualization Shares
 1. In-Class Discussion [7 - 1]
 1. In-Class Demo [7 - 1]
 1. In-Class Exercise [7 - 1]
@@ -1334,8 +1310,13 @@ at some step, describe the difficulty that you encountered.
 
 ### Announcements
 
-* Important Dates: HW2 (March 13), Midterm (March 23), Project Milestone 2
-(March 27)
+1. Deadlines
+  1. HW2 is due on **March 11**.
+  1. Project Milestone 2 is due on **March 25**.
+1. The Midterm is in-class on **March 21**. A practice exam and solutions are on
+Canvas.  To study, consider:
+  1. Revieiwng the online course notes.
+  1. Sketching solutions to problems from the exercise sheet.
 
 ---
 
@@ -1370,6 +1351,56 @@ head(song)
 
 ### Exercise Review
 
+
+```r
+library(tsibble)
+song_ts &lt;- as_tsibble(song, key = "region", index = "date")
+song_ts
+```
+
+```
+## # A tsibble: 19,907 x 5 [1D]
+## # Key:       region [54]
+##    artist     track_name   region date       streams
+##    &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;  &lt;date&gt;       &lt;dbl&gt;
+##  1 Ed Sheeran Shape of You ar     2017-01-06   57617
+##  2 Ed Sheeran Shape of You ar     2017-01-07   51212
+##  3 Ed Sheeran Shape of You ar     2017-01-08   47299
+##  4 Ed Sheeran Shape of You ar     2017-01-09   58157
+##  5 Ed Sheeran Shape of You ar     2017-01-10   56384
+##  6 Ed Sheeran Shape of You ar     2017-01-11   59494
+##  7 Ed Sheeran Shape of You ar     2017-01-12   59565
+##  8 Ed Sheeran Shape of You ar     2017-01-13   64899
+##  9 Ed Sheeran Shape of You ar     2017-01-14   71555
+## 10 Ed Sheeran Shape of You ar     2017-01-15   62253
+## # ℹ 19,897 more rows
+```
+
+---
+
+### Exercise Review
+
+Filter to `region == "global"`, and make a `gg_season` plot by month. Comment
+on the what you see.
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-36-1.png" width="650" style="display: block; margin: auto;" /&gt;
+
+---
+
+### Exercise Review
+
+Filter to `region == "global"`, and make a `gg_season` plot by month. Comment
+on the what you see.
+
+
+```r
+library(feasts)
+song_ts |&gt;
+  filter(region == "global") |&gt;
+  gg_season(period = "month") +
+  theme(legend.key.width = unit(1.5, "cm"))
+```
+
 ---
 
 ### Today
@@ -1384,31 +1415,43 @@ frame.
 
 ### In-Class Discussion [7 - 1]
 
-Document: https://go.wisc.edu/
+Document: https://go.wisc.edu/u85zfj
 
 Prompt: In your own words, explain the key characteristics of vector datasets.
 Why can't vector data simply be stored as `csv` files?
 
 ---
 
-### In-Class Exercise [7 - 1]
-
-* I will pause at a few points during the demo today, and I want you to guess
-what the next step in the analysis is.
-* At the end of the demo, you can summarize your guesses and submit them: https://go.wisc.edu/
-* You should be able to make your submission before the end of class.
-
----
-
 
 ### In-Class Demo [7 - 1]
 
-* We will work through parts (a - c) of [Glacial Lakes].
-* Starter code is available here: https://go.wisc.edu/
+We will work through parts (a - c) of [Glacial Lakes].
+
+* Live Demo: https://go.wisc.edu/r40k6b
+* Completed Code: https://go.wisc.edu/0m495i
+
+If we have time, we'll also show how to create a direct link to these data.
 
 ---
 
-## March 9, 2024
+### In-Class Exercise [7 - 1]
+
+Please submit a response to [tmap Exploration] parts (a - b) in the exercise
+sheet. Make your submission with your project team.
+
+[tmap Exploration] There are many example maps on the tmap package’s homepage –
+see the vignettes, tutorials, or presentations, for example. In this problem,
+you will recreate and deconstruct one example visualization from this webpage.
+
+a. Pick one figure from the page linked above. Describe the data used to
+generate this figure. Is the data in a vector or raster format?
+
+b. Regenerate the figure and write comments in the code that describe the
+purpose for each layer (or related groups of layers).
+
+---
+
+## March 7, 2024
 
 1. In-Class Discussion [7 - 2]
 1. In-Class Demo [7 - 2]
@@ -1418,8 +1461,14 @@ what the next step in the analysis is.
 
 ### Announcements
 
-* Important Dates: HW2 (March 13), Midterm (March 23), Project Milestone 2
-(March 27)
+1. Deadlines
+  1. HW2 is due on **March 11**.
+  1. Project Milestone 2 is due on **March 25**.
+1. The Midterm is in-class on **March 21**. A practice exam and solutions are on
+Canvas. You will be responsible for material up to the Week 8 - 4 notes. To study, consider:
+  1. Reviewing the online course notes.
+  1. Sketching solutions to problems from the exercise sheet.
+  1. Practice under time pressure.
 
 ---
 
@@ -1433,42 +1482,40 @@ dataset.
 
 ---
 
-### Inspiration
+### In-Class Discussion [7 - 2]
 
-"Visualizing Urban Accessibility: Investigating Multi-Stakeholder Perspectives through a Map-based Design Probe Study" by Saha et al. (2022)
+Document: https://go.wisc.edu/62yi93
 
-&lt;iframe src="https://idl.cs.washington.edu/files/2022-VisualizingUrbanAccessibility-CHI.pdf"&gt;&lt;/iframe&gt;
+[Glacial Lakes]. The data at this link contain labels of glacial lakes the Hindu
+Kush Himalaya, created during an ecological survey in 2015 by the International
+Centre for Integrated Mountain Development.
 
----
-
-### Inspiration
-
-http://nbremer.github.io/urbanization/
-
-&lt;iframe src="http://nbremer.github.io/urbanization"&gt;&lt;/iframe&gt;
-
----
-
-### Inspiration
-
-https://climate-conflict.org/
-
-&lt;iframe src="https://climate-conflict.org"&gt;&lt;/iframe&gt;
+d. Part (c) allowed us to visualize the lake data within a very small region.
+How might you use interactivity to navigate the full collection of lakes?
+Describe at least one query that allows us to filter by a property of the lake
+and another that allows us to filter by spatial extent. How would you lay out
+the visualization components to streamline these queries?
 
 ---
 
 ### In-Class Demo [7 - 2]
 
-* We will work through part (e) of [Glacial Lakes].
-Before we do this, brainstorm with your group for solutions to part (d): https://go.wisc.edu/
-* Starter code is available here: https://go.wisc.edu/
+We will work through part (e) of [Glacial Lakes].  Before we do this, brainstorm
+solutions to part (d) with your group. 
+
+* Live Demo: https://go.wisc.edu/
+* Completed Code: https://go.wisc.edu/0h64ry
+
 
 ---
 
 ### In-Class Exercise [7 - 2]
 
-* Work through [Geospatial Portfolio] in the exercise sheet: https://go.wisc.edu/
-* You can make submissions with your project team.
+In groups of 2 - 3, work through [Pair Code Review] in the exercise sheet.
+Please submit your an individual summary of your discussion.
+
+You're especially encouraged to review one another's HW2 drafts.
+
 
 ---
 
@@ -2073,7 +2120,7 @@ ggplot(x) +
   coord_fixed()
 ```
 
-&lt;img src="slides_files/figure-html/unnamed-chunk-45-1.png" width="650" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_files/figure-html/unnamed-chunk-48-1.png" width="650" style="display: block; margin: auto;" /&gt;
 
 
     </textarea>
