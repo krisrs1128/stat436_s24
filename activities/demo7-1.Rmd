@@ -89,7 +89,7 @@ tm_shape(lakes_sub) +
 ```
 
 ```{r}
-#Sys.setenv(MAPBOX_API_KEY="pk.eyJ1Ijoia3Jpc3JzMTEyOCIsImEiOiJjbDYzdjJzczQya3JzM2Jtb2E0NWU1a3B3In0.Mk4-pmKi_klg3EKfTw-JbQ")
+Sys.setenv(MAPBOX_API_KEY="")
 
 basemap <- cc_location(cbind(85.9, 28.3), buffer = 1e4)
 tm_shape(basemap) +

@@ -41,6 +41,6 @@ longitude between 85.8 and 86. Optionally, add a basemap associated with
 each lake.
 
 ```{r}
-#Sys.setenv(MAPBOX_API_KEY="pk.eyJ1Ijoia3Jpc3JzMTEyOCIsImEiOiJjbDYzdjJzczQya3JzM2Jtb2E0NWU1a3B3In0.Mk4-pmKi_klg3EKfTw-JbQ")
+#Sys.setenv(MAPBOX_API_KEY="")
 #basemap <- cc_location(cbind(85.9, 28.3), buffer = 1e4)
 ```
