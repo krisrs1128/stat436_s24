@@ -1,0 +1,85 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(warnings = FALSE, message = FALSE)
+```
+
+```{r}
+library(sf)
+library(tmap)
+library(tidyverse)
+library(ceramic)
+theme_set(theme_bw())
+```
+
+[Glacial Lakes]. The data at this [link](https://raw.githubusercontent.com/krisrs1128/stat436_s23/main/data/GL_3basins_2015.topojson) contain labels of glacial lakes the
+Hindu Kush Himalaya, created during an ecological survey in 2015 by the
+International Centre for Integrated Mountain Development.
+
+```{r}
+lakes <- read_sf("https://raw.githubusercontent.com/krisrs1128/stat436_s23/main/data/GL_3basins_2015.topojson") |>
+  mutate(log_area = log(Area))
+
+cols <- c("#023859", "#99ADBF")
+
+ggplot(lakes) +
+  geom_histogram(aes(log_area))
+
+
+
+lakes
+```
+
+a. How many lakes are in this dataset? What are the latitude / longitude
+coordinates of the largest lakes in each Sub-basin?
+
+```{r}
+top_lakes <- lakes |>
+  group_by(Sub_Basin) |>
+  slice_max(Area)
+
+basin_order <- top_lakes |>
+  arrange(Area) |>
+  pull(Sub_Basin)
+
+top_lakes <- top_lakes |>
+  mutate(Sub_Basin = factor(Sub_Basin, levels = basin_order))
+```
+
+b. Plot the polygons associated with each of the lakes identified in step
+(a). _Hint: You may find it useful to split lakes across panels using the
+`tmap_facets` function. If you use this approach, make sure to include a
+scale with `tm_scale_bar()`, so that it is clear that lakes have different
+sizes.
+
+```{r}
+tm_shape(top_lakes) +
+  tm_polygons(col = cols[1]) +
+  tm_facets("Sub_Basin") + 
+  tm_scale_bar()
+```
+
+c. Visualize all lakes with latitude between 28.2 and 28.4 and with
+longitude between 85.8 and 86. Optionally, add a basemap associated with
+each lake.
+
+```{r}
+Sys.setenv(MAPBOX_API_KEY="pk.eyJ1Ijoia3Jpc3JzMTEyOCIsImEiOiJjbHRkc3d4ZmEwNzEzMmlxcmxnb3pzMGl5In0.XZxJ626iKEWq2ylMn7cfiw")
+#Sys.setenv(MAPBOX_API_KEY="")
+basemap <- cc_location(cbind(85.9, 28.3), buffer = 1e4)
+
+lakes_subset <- lakes |>
+  filter(
+    Latitude > 28.2, Latitude < 28.4,
+    Longitude > 85.8, Longitude < 86
+  )
+
+tm_shape(basemap) +
+  tm_rgb() #+
+#  tm_shape(lakes_subset) +
+#  tm_polygons(col = cols[1])
+```
