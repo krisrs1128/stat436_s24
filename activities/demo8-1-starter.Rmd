@@ -21,17 +21,17 @@ Each sequence has been annotated with the date and location it was found, and we
 will try to see how genetic variation covaries with these measurements.
 
 a. Build a `tbl_graph` using the
-[links](https://raw.githubusercontent.com/krisrs1128/stat479_s22/main/_slides/week8/exercises/data/covid-edges.csv)
+[links](https://github.com/krisrs1128/stat436_s24/raw/main/data/covid-edges.csv)
 and
-[nodes](https://raw.githubusercontent.com/krisrs1128/stat479_s22/main/_slides/week8/exercises/data/covid-nodes.csv)
+[nodes](https://github.com/krisrs1128/stat436_s24/raw/main/data/covid-nodes.csv)
 associated with the phylogenetic tree. Note that many nodes do not have
 variables associated with them. This is because annotations are only
 available for the leaves of the
 tree, and nodes are unobserved common ancestor viruses.
 
 ```{r}
-edges <- read_csv("https://raw.githubusercontent.com/krisrs1128/stat479_s22/main/_slides/week8/exercises/data/covid-edges.csv")
-nodes <- read_csv("https://raw.githubusercontent.com/krisrs1128/stat479_s22/main/_slides/week8/exercises/data/covid-nodes.csv")
+edges <- read_csv("https://github.com/krisrs1128/stat436_s24/raw/main/data/covid-edges.csv")
+nodes <- read_csv("https://github.com/krisrs1128/stat436_s24/raw/main/data/covid-nodes.csv")
 ```
 
 b. Visualize the phylogenetic tree using the data from (a).

@@ -1,0 +1,48 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r}
+library(tidyverse)
+library(tidygraph)
+```
+
+This is the movies dataset.
+
+```{r}
+edges <- read_csv("https://github.com/krisrs1128/stat436_s24/raw/main/data/movie_links.csv")
+genres <- read_csv("https://github.com/krisrs1128/stat436_s24/raw/main/data/genres.csv")
+
+G <- tbl_graph(edges = edges) %N>%
+  mutate(type = name %in% genres$genre)
+
+
+ggraph(G, "kk") +
+     geom_edge_link(colour = "#d3d3d3", width = 0.5, alpha = 0.6) +
+     geom_node_text(aes(label = name, size = type, col = type)) +
+     scale_color_manual(values = c("#BF4545", "#225C73")) +
+     scale_size_discrete(range = c(2.5, 5)) +
+     theme_void() +
+     theme(legend.position = "none")
+```
+
+
+This is the energy dataset.
+
+```{r}
+edges <- read_csv("https://github.com/krisrs1128/stat436_s24/raw/main/data/energy.csv")
+G <- as_tbl_graph(edges)
+```
+
+
+```{r, fig.height = 10, fig.width = 10}
+ggraph(G, "kk") +
+  geom_edge_link(
+    aes(width = value), 
+    arrow = arrow(length = unit(4, "mm")), 
+    end_cap = circle(4, "mm")
+  ) + 
+  geom_node_label(aes(label = name))
+```

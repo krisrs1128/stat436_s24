@@ -1,0 +1,25 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r}
+library(tidyverse)
+library(tidygraph)
+library(ggraph)
+```
+
+This is the movies dataset.
+
+```{r}
+edges <- read_csv("https://github.com/krisrs1128/stat436_s24/raw/main/data/movie_links.csv")
+genres <- read_csv("https://github.com/krisrs1128/stat436_s24/raw/main/data/genres.csv")
+```
+
+
+This is the energy dataset.
+
+```{r}
+edges <- read_csv("https://github.com/krisrs1128/stat436_s24/raw/main/data/energy.csv")
+```
