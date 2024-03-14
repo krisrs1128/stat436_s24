@@ -7,7 +7,16 @@
     <description>STAT 436 (Spring 2024)
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sun, 25 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 13 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Introduction to Networks and Trees</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week08-01</link>
+      <description>Typical tasks and example network datasets.</description>
+      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week08-01</guid>
+      <pubDate>Wed, 13 Mar 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week08-01/2024-12-27-week08-01_files/figure-html5/unnamed-chunk-7-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>Collections of Time Series</title>
       <dc:creator>Kris Sankaran</dc:creator>
@@ -227,15 +236,6 @@ downstream visualization.</description>
       <description>Idioms for interacting with geographic data.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week07-05</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Introduction to Networks and Trees</title>
-      <dc:creator>Kris Sankaran</dc:creator>
-      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week08-01</link>
-      <description>Typical tasks and example network datasets.</description>
-      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week08-01</guid>
-      <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
-      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week08-01/2024-12-27-week08-01_files/figure-html5/unnamed-chunk-7-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Node - Link Diagrams</title>
