@@ -1,0 +1,99 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r}
+library(tidyverse)
+library(tidygraph)
+library(ggraph)
+```
+
+1. [Movie Genres] How do movie genres relate to one another? Is romance + comedy
+a more common combination than fantasy + adventure? We will use the dataset
+[here](https://github.com/krisrs1128/stat436_s24/raw/main/data/movie_links.csv)
+to answer these questions, using a node-link diagram inspired by (but much
+simpler than) the [film flowers](https://observablehq.com/@sxywu/introduction-to-svg-and-d3-js) project
+by Shirley Wu.
+
+a. Build a `tbl_graph` containing the movies and their links.
+
+```{r}
+edges <- read_csv("https://github.com/krisrs1128/stat436_s24/raw/main/data/movie_links.csv")
+genres <- read_csv("https://github.com/krisrs1128/stat436_s24/raw/main/data/genres.csv")
+
+G <- tbl_graph(edges = edges) |>
+    mutate(is_genre = name %in% genres$genre)
+G
+```
+
+b. Create a node-link diagram to represent the connections between movies and
+their genres.
+
+```{r}
+ggraph(G, "kk") +
+    geom_edge_link(edge_color = "#d3d3d4") +
+    geom_node_text(aes(label = name, size = is_genre)) +
+    scale_size_discrete(range = c(3.5, 8)) +
+    theme_void()
+
+```
+
+
+c. A list of all the genres in this network is available
+[here](https://github.com/krisrs1128/stat992_f23/blob/main/activities/week9/genres.csv).
+Design a strategy to distinguish between genres and movies, and justify your
+choice of visual encodings. _Hint: Mutate the nodes in the `tbl_graph`._
+
+
+
+1. [UK Energy Flow] We will visualize how energy is produced and consumed in the
+United Kingdom, using a [dataset](https://github.com/krisrs1128/stat436_s24/raw/main/data/energy.csv) from the UK's Department of Energy and Climate
+Change. Nodes and edges are used to classify types of activity that produce or
+consume energy. For example, the edge
+
+```
+Wind    Electricity grid    289 
+```
+
+means that 289 KwH produced by wind power were sent to the country's electricity grid.
+
+a. Build a `tbl_graph` from the provided edges. Ensure that the resulting
+graph object has directed edges.
+
+```{r}
+edges <- read_csv("https://github.com/krisrs1128/stat436_s24/raw/main/data/energy.csv")
+G <- tbl_graph(edges = edges)
+G
+```
+
+b. Use `ggraph` to visualize the flow of energy across nodes in this
+network. Ensure nodes are annotated.
+
+```{r}
+ggraph(G, "kk") +
+    geom_edge_link(
+        aes(edge_width = value),
+        arrow = arrow(length = unit(1, "cm")),
+        end_cap = circle(6, "mm")
+    ) +
+    scale_edge_width(range = c(.5, 10)) +
+    geom_node_label(aes(label = name), size = 6)
+edges
+```
+
+c. Experiment with several layouts. Which do you find most useful? Is there
+an alternative layout you would prefer? Explain your reasoning.
+
+```{r, fig.width = ..., fig.height = ...}
+ggraph(G, "matrix") +
+    geom_edge_tile() +
+    geom_node_text(aes(label = name), size = 3, x = -2.5, nudge_y = 0.5, hjust = 0) +
+  geom_node_text(aes(label = name), size = 3, angle = 90, y = 0.5, nudge_x = -0.5, hjust = 0) +
+  scale_y_reverse(expand = c(0, 0, 0, 2.7)) + # make sure the labels aren't hidden
+  scale_x_discrete(expand = c(0, 3, 0, 0)) +
+    coord_fixed()
+```
+
+For labeling in adjacency matrices, see: https://github.com/krisrs1128/stat436_s24/blob/81d1f39b5e39088f8bbba32594f8b2bb73408153/notes/2024-12-27-week08-03.Rmd
