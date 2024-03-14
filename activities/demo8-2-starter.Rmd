@@ -10,16 +10,52 @@ library(tidygraph)
 library(ggraph)
 ```
 
-This is the movies dataset.
+1. [Movie Genres] How do movie genres relate to one another? Is romance + comedy
+a more common combination than fantasy + adventure? We will use the dataset
+[here](https://github.com/krisrs1128/stat436_s24/raw/main/data/movie_links.csv)
+to answer these questions, using a node-link diagram inspired by (but much
+simpler than) the [film flowers](https://observablehq.com/@sxywu/introduction-to-svg-and-d3-js) project
+by Shirley Wu.
+
+a. Build a `tbl_graph` containing the movies and their links.
+
+b. Create a node-link diagram to represent the connections between movies and
+their genres.
+
+c. A list of all the genres in this network is available
+[here](https://github.com/krisrs1128/stat992_f23/blob/main/activities/week9/genres.csv).
+Design a strategy to distinguish between genres and movies, and justify your
+choice of visual encodings. _Hint: Mutate the nodes in the `tbl_graph`._
+
 
 ```{r}
 edges <- read_csv("https://github.com/krisrs1128/stat436_s24/raw/main/data/movie_links.csv")
 genres <- read_csv("https://github.com/krisrs1128/stat436_s24/raw/main/data/genres.csv")
 ```
 
+1. [UK Energy Flow] We will visualize how energy is produced and consumed in the
+United States, using a [dataset](https://github.com/krisrs1128/stat436_s24/raw/main/data/energy.csv) from the UK's Department of Energy and Climate
+Change. Nodes and edges are used to classify types of activity that produce or
+consume energy. For example, the edge
 
-This is the energy dataset.
+```
+Wind    Electricity grid    289 
+```
+
+means that 289 KwH produced by wind power were sent to the country's electricity grid.
+
+a. Build a `tbl_graph` from the provided edges. Ensure that the resulting
+graph object has directed edges.
+
+b. Use `ggraph` to visualize the flow of energy across nodes in this
+network. Ensure nodes are annotated.
+
+c. Experiment with several layouts. Which do you find most useful? Is there
+an alternative layout you would prefer? Explain your reasoning.
 
 ```{r}
 edges <- read_csv("https://github.com/krisrs1128/stat436_s24/raw/main/data/energy.csv")
 ```
+
+
+For labeling in adjacency matrices, see: https://github.com/krisrs1128/stat436_s24/blob/81d1f39b5e39088f8bbba32594f8b2bb73408153/notes/2024-12-27-week08-03.Rmd
