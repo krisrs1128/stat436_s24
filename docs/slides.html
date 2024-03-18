@@ -1622,33 +1622,363 @@ exercise sheet.
 
 ## March 19, 2024
 
+1. Visualization Shares
+1. Review Session
 1. In-Class Discussion [9 - 1]
-1. In-Class Demo [9 - 1]
-1. Project / Portfolio Reviews
 
 ---
 
 ### Announcements
 
-1. Will return midterm at the end of class. You can also pick it up during my
-Office Hours.
-1. Undergraduate Statistics/Data Science Research Quick Talks
-  - Register here: https://go.wisc.edu/9gg04t
-1. Project and Portfolio Peer Reviews also due April 10
+1. Deadlines
+  1. Project Milestone 2 is due on **March 25**.
+  1. Project and Portfolio Peer Reviews are due **April 8**
+  1. HW3 is due on **April 15**.
+1. The Midterm is in-class on **March 21**. A practice exam and solutions are on
+Canvas. You will be responsible for material up to the Week 8 - 4 notes. To study, consider:
+  1. Reviewing the online course notes.
+  1. Sketching solutions to problems from the exercise sheet.
+  1. Practice under time pressure.
 
 ---
 
-### Midterm Grade Distribution
+### Learning Outcome 1
 
-See syllabus for course grading mechanism (max of absolute and percentile scores).
+Develop a vocabulary of visual encodings that support exploration of geospatial,
+temporal, tree-structured, and network data, and demonstrate facility
+implementing them using packages in the R programming language.
 
-
+* tsibble
+* Trends and seasonality, explain lag
+* Vector and raster data
 
 ---
 
-### In-Class Discussion [9 - 1]
+### tsibble
 
-With your group, work through this exercise: https://go.wisc.edu/42n061
+* Data structures for storing time series data
+* Must include temporal `index` column. This specifies the sampling frequency.
+  * Optionally includes a `key` for working with collections of time series
+
+
+```r
+library(tsibble)
+head(tourism)
+```
+
+```
+## # A tsibble: 6 x 5 [1Q]
+## # Key:       Region, State, Purpose [1]
+##   Quarter Region   State           Purpose  Trips
+##     &lt;qtr&gt; &lt;chr&gt;    &lt;chr&gt;           &lt;chr&gt;    &lt;dbl&gt;
+## 1 1998 Q1 Adelaide South Australia Business  135.
+## 2 1998 Q2 Adelaide South Australia Business  110.
+## 3 1998 Q3 Adelaide South Australia Business  166.
+## 4 1998 Q4 Adelaide South Australia Business  127.
+## 5 1999 Q1 Adelaide South Australia Business  137.
+## 6 1999 Q2 Adelaide South Australia Business  200.
+```
+
+---
+
+### tsibble
+
+* Why are `data.frames` useful? In theory, couldn't we always use lists of lists?
+* A similar justification applies to `tsibble`. When we can assume more properties, we can write more tailored functions. 
+
+---
+
+### tsibble
+
+
+```r
+library(feasts)
+tourism |&gt;
+  filter(Region == "Alice Springs", Purpose == "Holiday") |&gt;
+  gg_lag(y = Trips)
+```
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-39-1.png" width="700" style="display: block; margin: auto;" /&gt;
+
+---
+
+### Time Series properties
+
+From [notes 6 - 2](https://krisrs1128.github.io/stat436_s24/posts/2024-12-27-week06-02/),
+
+* Trend: A long-run increase or decrease in a time series.
+* Seasonal: A pattern that recurs over a fixed and known period.
+* Cyclic: A rising and falling pattern that does not occur over a fixed or known period.
+
+---
+
+### Vector Data
+
+See [notes 7 - 1](https://krisrs1128.github.io/stat436_s24/posts/2024-12-27-week07-01/):
+
+* Vector data formats are used to store geometric information (esp. points, lines, and polygons).
+* Can be read in using `read_sf` and visualized using `tm_dots`, `tm_lines`, and `tm_polygons` layers, for example.
+
+---
+
+### Vector Data
+
+
+```r
+library(sf)
+lakes &lt;- read_sf("https://raw.githubusercontent.com/krisrs1128/stat436_s23/main/data/GL_3basins_2015.topojson") |&gt;
+  filter(Sub_Basin == "Dudh Koshi")
+lakes
+```
+
+```
+## Simple feature collection with 349 features and 11 fields
+## Geometry type: POLYGON
+## Dimension:     XY
+## Bounding box:  xmin: 86.52067 ymin: 27.60735 xmax: 86.98649 ymax: 28.07853
+## CRS:           NA
+## # A tibble: 349 × 12
+##    id       Id Latitude Longitude GL_ID           Basin Sub_Basin    Area Elevation Type  Country
+##  * &lt;chr&gt; &lt;int&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;           &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt;     &lt;int&gt; &lt;chr&gt; &lt;chr&gt;  
+##  1 90       NA     27.8      86.6 GL086621E27790N Koshi Dudh Koshi 0.458       5146 M(e)  Nepal  
+##  2 91       NA     27.8      86.6 GL086612E27779N Koshi Dudh Koshi 1.22        4829 M(e)  Nepal  
+##  3 92       NA     27.9      86.9 GL086925E27898N Koshi Dudh Koshi 1.34        5002 M(e)  Nepal  
+##  4 93       NA     27.9      86.7 GL086746E27933N Koshi Dudh Koshi 0.0763      4954 M(e)  Nepal  
+##  5 242      NA     27.8      86.6 GL086617E27795N Koshi Dudh Koshi 0.0142      5183 M(e)  Nepal  
+##  6 243      NA     27.8      86.6 GL086643E27777N Koshi Dudh Koshi 0.296       5161 M(e)  Nepal  
+##  7 244      NA     27.9      86.7 GL086710E27943N Koshi Dudh Koshi 0.0894      4709 I(s)  Nepal  
+##  8 245      NA     27.9      86.7 GL086712E27936N Koshi Dudh Koshi 0.0176      4705 I(s)  Nepal  
+##  9 246      NA     27.9      86.7 GL086710E27937N Koshi Dudh Koshi 0.0465      4701 I(s)  Nepal  
+## 10 247      NA     28.0      86.7 GL086737E27975N Koshi Dudh Koshi 0.0333      5356 M(e)  Nepal  
+## # ℹ 339 more rows
+## # ℹ 1 more variable: geometry &lt;POLYGON&gt;
+```
+
+---
+
+### Vector Data
+
+
+```r
+library(tmap)
+tm_shape(lakes) +
+  tm_polygons()
+```
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-41-1.png" width="1400" style="display: block; margin: auto;" /&gt;
+
+---
+
+### Raster Data
+
+See [notes 7 - 1](https://krisrs1128.github.io/stat436_s24/posts/2024-12-27-week07-01/):
+
+* Raster data are measured along an even spatial grid.
+* They can be read in using `rast` in the terra library and visualized using `tm_rgb`.
+
+---
+
+### Raster Data
+
+
+```r
+library(terra)
+landsat &lt;- rast("https://github.com/krisrs1128/stat436_s24/raw/main/data/LE07_140041_20071221-subset.tif")
+landsat
+```
+
+```
+## class       : SpatRaster 
+## dimensions  : 1601, 1662, 15  (nrow, ncol, nlyr)
+## resolution  : 0.0002973394, 0.0002973394  (x, y)
+## extent      : 86.51314, 87.00732, 27.63608, 28.11212  (xmin, xmax, ymin, ymax)
+## coord. ref. : lon/lat WGS 84 (EPSG:4326) 
+## source      : LE07_140041_20071221-subset.tif 
+## names       : LE07_~set_1, LE07_~set_2, LE07_~set_3, LE07_~set_4, LE07_~set_5, LE07_~set_6, ... 
+## min values  :          35,          21,          15,          12,           3,          45, ... 
+## max values  :         255,         255,         255,         255,         255,         177, ...
+```
+
+---
+
+### Raster Data
+
+
+```r
+tm_shape(landsat) +
+  tm_rgb()
+```
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-43-1.png" width="650" style="display: block; margin: auto;" /&gt;
+
+---
+
+### Raster Data
+
+
+```r
+tm_shape(landsat) +
+  tm_rgb(r = 15, g = 15, b = 15, max.value = 75)
+```
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-44-1.png" width="650" style="display: block; margin: auto;" /&gt;
+
+---
+
+### Learning Outcome 2
+
+Design dynamic queries that support interactive visualization of
+heterogeneous data, and demonstrate facility implementing them using the shiny
+package in the R programming language.
+
+* Reactivity in Shiny
+* How to write out Shiny code
+* Brushing in Shiny
+
+---
+
+### Reactivity
+
+From _Mastering Shiny_
+
+&gt; The key idea of reactive programming is to specify a graph of dependencies so that when an input changes, all related outputs are automatically updated.
+
+The execution of reactive code depends on the user's inputs.
+
+---
+
+### Reactivity
+
+For any type of interactive visualization (in Shiny or otherwise), it's worth
+thinking carefully about the reactive graph:
+
+* What are potential user inputs?
+* What outputs needs to be changed in response?
+* How do intermediate data structures need to be changed?
+
+---
+
+### Reactivity
+
+&lt;iframe src="https://connect.doit.wisc.edu/content/dc907aa5-090e-410e-8f9f-6bdb19befc75/" allowfullscreen="" data-external="1" height=500 width=800&gt;&lt;/iframe&gt;
+
+---
+
+### Reactivity
+
+&lt;img src="https://raw.githubusercontent.com/krisrs1128/stat479_s22/main/_posts/2022-02-10-week04-02/figures/reactive_histo.png" width=800&gt;
+&lt;/img&gt;
+
+---
+
+### Brushing
+
+The usual recipe for is:
+
+* Ensure the `plotOutput` is given a `brush`.
+  - Optionally, use `brushOpts` to constrain brush direction
+* Define a `reactiveVal` to store updated brush selections
+* Create an `observeEvent` to check for brush events and update the `reactiveVal` above using `brushedPoints`
+
+---
+
+### Brushing
+
+From the [week 5 - 2 notes](https://krisrs1128.github.io/stat436_s24/posts/2024-12-27-week05-02/).
+
+
+```r
+ui &lt;- fluidPage(
+   plotOutput("plot", brush = "plot_brush")
+ )
+```
+
+---
+
+### Brushing
+
+From the [week 5 - 2 notes](https://krisrs1128.github.io/stat436_s24/posts/2024-12-27-week05-02/).
+
+
+```r
+server &lt;- function(input, output) {
+  selected &lt;- reactiveVal(initial value)
+  observeEvent(
+    input$plot_brush,
+    ... computation using get new_value ...
+    selected(new_value)
+  )
+
+  output$plot &lt;- renderPlot(... use scatter() reactive val...)
+}
+```
+
+---
+
+### Learning Outcome 5
+
+Evaluate strengths and weaknesses of visualizations in relation to the tasks
+they support.
+
+* How to decide what type of visualization you should make by looking at the data.
+
+---
+
+### Visualization Design/Critique
+
+How to decide what type of visualization you should make by looking at the data.
+
+* Determine the data types/interpretation for each column separately
+* Make a list of potentially interesting questions
+* For each question,
+  - What are the relevant variables?
+  - How do they need to be compared?
+  - Which should be prioritized?
+* Determine visual encodings using data type + prioritization
+* Recognize parallel structure (for small multiples)
+
+---
+
+### Visualization Design/Critique
+
+Determine visual encodings using data type + prioritization
+
+For example, if we had a categorical + continuous variable, we could consider:
+
+* `geom_boxplot`: `\(x\)`-axis `\(\to\)` category, `\(y\)`-axis `\(\to\)` continuous value
+* `geom_histogram`: 
+  - `\(x\)`-axis `\(\to\)` continuous value, color `\(\to\)` category
+  - `\(x\)`-axis `\(\to\)` continuous value, facet `\(\to\)` category
+* `geom_point` or `geom_jitter`: `\(x\)`-axis `\(\to\)` category (with jitter), `\(y\)`-axis `\(\to\)` continuous value
+
+---
+
+### Visualization Design/Critique
+
+&lt;img src="figure/channels.png" width=750/&gt;
+
+---
+
+### Visualization Design/Critique
+
+When critiquing, ask: 
+  * Which comparisons are automatic/perceptual? 
+  * Which laborious/require calculation?
+
+&lt;img src="figure/popout.png"/&gt;
+
+---
+
+### Discussion 9 - 1
+
+What didn't we review? List at least one term/concept, include a link to
+relevant material from the notes, and give one code example.
+
+---
+
+### April 2, 2024
+
+
 
 ---
 
@@ -2171,7 +2501,7 @@ ggplot(x) +
   coord_fixed()
 ```
 
-&lt;img src="slides_files/figure-html/unnamed-chunk-48-1.png" width="650" style="display: block; margin: auto;" /&gt;
+&lt;img src="slides_files/figure-html/unnamed-chunk-56-1.png" width="650" style="display: block; margin: auto;" /&gt;
 
 
     </textarea>
