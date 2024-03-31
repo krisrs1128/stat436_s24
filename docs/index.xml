@@ -15,7 +15,43 @@
       <description>Examples of high-dimensional data.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-1</guid>
       <pubDate>Sun, 31 Mar 2024 00:00:00 +0000</pubDate>
-      <media:content url="https://github.com/krisrs1128/stat436_s23/raw/main/activities/figure/dimred-animation.gifhttps://github.com/krisrs1128/stat436_s24/blob/main/exercises/figure/dimred-animation.gif?raw=true" medium="image" type="text/plain"/>
+      <media:content url="https://github.com/krisrs1128/stat436_s24/blob/main/exercises/figure/dimred-animation.gif?raw=true" medium="image" type="text/plain"/>
+    </item>
+    <item>
+      <title>Principal Components Analysis I</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-2</link>
+      <description>Linear dimensionality reduction using PCA.</description>
+      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-2</guid>
+      <pubDate>Sun, 31 Mar 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://web.stanford.edu/class/bios221/imgs/CAM4.png" medium="image" type="image/png"/>
+    </item>
+    <item>
+      <title>Principal Components Analysis II</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-3</link>
+      <description>Visualizing and interpreting PCA.</description>
+      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-3</guid>
+      <pubDate>Sun, 31 Mar 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-3/2024-12-27-week10-3_files/figure-html5/unnamed-chunk-6-1.png" medium="image" type="image/png" width="1248" height="1152"/>
+    </item>
+    <item>
+      <title>Uniform Manifold Approximation and Projection</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-4</link>
+      <description>An overview of the UMAP algorithm.</description>
+      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-4</guid>
+      <pubDate>Sun, 31 Mar 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-4/2024-12-27-week10-4_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>PCA and UMAP Examples</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-5</link>
+      <description>More examples of dimensionality reduction using PCA and UMAP.</description>
+      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-5</guid>
+      <pubDate>Sun, 31 Mar 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-5/2024-12-27-week10-5_files/figure-html5/unnamed-chunk-14-1.png" medium="image" type="image/png" width="960" height="960"/>
     </item>
     <item>
       <title>Introduction to Networks and Trees</title>
@@ -317,42 +353,6 @@ downstream visualization.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week09-05</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
       <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week09-05/2024-12-27-week09-05_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="576" height="960"/>
-    </item>
-    <item>
-      <title>Principal Components Analysis I</title>
-      <dc:creator>Kris Sankaran</dc:creator>
-      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-2</link>
-      <description>Linear dimensionality reduction using PCA.</description>
-      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-2</guid>
-      <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
-      <media:content url="https://web.stanford.edu/class/bios221/imgs/CAM4.png" medium="image" type="image/png"/>
-    </item>
-    <item>
-      <title>Principal Components Analysis II</title>
-      <dc:creator>Kris Sankaran</dc:creator>
-      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-3</link>
-      <description>Visualizing and interpreting PCA.</description>
-      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-3</guid>
-      <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
-      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-3/2024-12-27-week10-3_files/figure-html5/unnamed-chunk-6-1.png" medium="image" type="image/png" width="1248" height="1152"/>
-    </item>
-    <item>
-      <title>Uniform Manifold Approximation and Projection</title>
-      <dc:creator>Kris Sankaran</dc:creator>
-      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-4</link>
-      <description>An overview of the UMAP algorithm.</description>
-      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-4</guid>
-      <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
-      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-4/2024-12-27-week10-4_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
-    </item>
-    <item>
-      <title>PCA and UMAP Examples</title>
-      <dc:creator>Kris Sankaran</dc:creator>
-      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-5</link>
-      <description>More examples of dimensionality reduction using PCA and UMAP.</description>
-      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-5</guid>
-      <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
-      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-5/2024-12-27-week10-5_files/figure-html5/unnamed-chunk-14-1.png" medium="image" type="image/png" width="960" height="960"/>
     </item>
     <item>
       <title>Introduction to Topic Models</title>
