@@ -74,7 +74,7 @@ would be a measure of the average brightness of sample $i$.
 The $z_{i}$ provide coordinates of points projected onto this plane.
 
 ```{r, echo = FALSE, fig.cap = "PCA finds a low-dimensional linear subspace that closely approximates the high-dimensional data."}
-include_graphics("https://drive.google.com/uc?id=1COajuPX5IOfXoHkZZ3CuVs0qxhisvPla")
+include_graphics("https://github.com/krisrs1128/stat436_s24/blob/main/exercises/figure/pca_projection.png?raw=true")
 ```
 
 9. In R, PCA can be conveniently implemented using the tidymodels package. We
