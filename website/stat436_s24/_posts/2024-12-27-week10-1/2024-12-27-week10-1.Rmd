@@ -43,7 +43,7 @@ containing pixel intensities across many pixels. But it is reasonable to derive
 a feature based on the average brightness.
 
 ```{r, fig.cap = "An arrangement of artworks according to their average pixel brightness, as given in the reading.", fig.align = "center"}
-include_graphics("https://github.com/krisrs1128/stat436_s23/raw/main/activities/figure/brightness.png")
+include_graphics("https://github.com/krisrs1128/stat436_s24/blob/main/exercises/figure/brightness.png?raw=true")
 ```
 
 5. In general, manual feature construction can be difficult. Algorithmic
@@ -52,7 +52,7 @@ some more generic criterion. Different algorithms use different criteria, which
 we will review in the next couple of lectures.
 
 ```{r, fig.cap = "The dimensionality reduction algorithm in this animation converts a large number of raw features into a position on a one-dimensional axis defined by average pixel brightness. In general, we might reduce to dimensions other than 1D, and we will often want to define features tailored to the dataset at hand.", out.width = 400, fig.align = "center"}
-include_graphics("https://github.com/krisrs1128/stat436_s23/raw/main/activities/figure/dimred-animation.gif")
+include_graphics("https://github.com/krisrs1128/stat436_s23/raw/main/activities/figure/dimred-animation.gifhttps://github.com/krisrs1128/stat436_s24/blob/main/exercises/figure/dimred-animation.gif?raw=true")
 ```
 
 6. Informally, the goal of dimensionality reduction techniques is to produce a

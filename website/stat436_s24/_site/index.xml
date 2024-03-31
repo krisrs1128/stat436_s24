@@ -7,7 +7,16 @@
     <description>STAT 436 (Spring 2024)
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 13 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 31 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Introduction to Dimensionality Reduction</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-1</link>
+      <description>Examples of high-dimensional data.</description>
+      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-1</guid>
+      <pubDate>Sun, 31 Mar 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://github.com/krisrs1128/stat436_s23/raw/main/activities/figure/dimred-animation.gifhttps://github.com/krisrs1128/stat436_s24/blob/main/exercises/figure/dimred-animation.gif?raw=true" medium="image" type="text/plain"/>
+    </item>
     <item>
       <title>Introduction to Networks and Trees</title>
       <dc:creator>Kris Sankaran</dc:creator>
@@ -308,15 +317,6 @@ downstream visualization.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week09-05</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
       <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week09-05/2024-12-27-week09-05_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="576" height="960"/>
-    </item>
-    <item>
-      <title>Introduction to Dimensionality Reduction</title>
-      <dc:creator>Kris Sankaran</dc:creator>
-      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-1</link>
-      <description>Examples of high-dimensional data.</description>
-      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week10-1</guid>
-      <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
-      <media:content url="https://github.com/krisrs1128/stat436_s23/raw/main/activities/figure/dimred-animation.gif" medium="image" type="image/gif"/>
     </item>
     <item>
       <title>Principal Components Analysis I</title>

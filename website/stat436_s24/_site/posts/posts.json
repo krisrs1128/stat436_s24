@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/2024-12-27-week10-1/",
+    "title": "Introduction to Dimensionality Reduction",
+    "description": "Examples of high-dimensional data.",
+    "author": [
+      {
+        "name": "Kris Sankaran",
+        "url": {}
+      }
+    ],
+    "date": "2024-03-31",
+    "categories": [],
+    "contents": "\nReading, Recording, Rmarkdown\nHigh-dimensional data are data where many features are collected for each\nobservation. These tend to be wide datasets with many columns. The name comes\nfrom the fact that each row of the dataset can be viewed as a vector in a\nhigh-dimensional space (one dimension for each feature). These data are common\nin modern applications,\nEach cell in a genomics dataset might have measurements for hundreds of molecules.\nEach survey respondent might provide answers to dozens of questions.\nEach image might have several thousand pixels.\nEach document might have counts across several thousand relevant words.\nFor low-dimensional data, we could visually encode all the features in our\ndata directly, either using properties of marks or through faceting. In\nhigh-dimensional data, this is no longer possible.\nHowever, though there are many features associated with each observation, it\nmay still be possible to organize samples across a smaller number of meaningful,\nderived features.\nFor example, consider the Metropolitan Museum of Art dataset, which contains\nimages of many artworks. Abstractly, each artwork is a high-dimensional object,\ncontaining pixel intensities across many pixels. But it is reasonable to derive\na feature based on the average brightness.\n\n\n\nFigure 1: An arrangement of artworks according to their average pixel brightness, as given in the reading.\n\n\n\nIn general, manual feature construction can be difficult. Algorithmic\napproaches try streamline the process of generating these maps by optimizing\nsome more generic criterion. Different algorithms use different criteria, which\nwe will review in the next couple of lectures.\n\n\n\nFigure 2: The dimensionality reduction algorithm in this animation converts a large number of raw features into a position on a one-dimensional axis defined by average pixel brightness. In general, we might reduce to dimensions other than 1D, and we will often want to define features tailored to the dataset at hand.\n\n\n\nInformally, the goal of dimensionality reduction techniques is to produce a\nlow-dimensional “atlas” relating members of a collection of complex objects.\nSamples that are similar to one another in the high-dimensional space should be\nplaced near one another in the low-dimensional view. For example, we might want\nto make an atlas of artworks, with similar styles and historical periods being\nplaced near to one another.\n\n\n\n",
+    "preview": "https://github.com/krisrs1128/stat436_s23/raw/main/activities/figure/dimred-animation.gifhttps://github.com/krisrs1128/stat436_s24/blob/main/exercises/figure/dimred-animation.gif?raw=true",
+    "last_modified": "2024-03-31T14:10:06-05:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2024-12-27-week08-01/",
     "title": "Introduction to Networks and Trees",
     "description": "Typical tasks and example network datasets.",
@@ -613,23 +630,6 @@
     "input_file": {},
     "preview_width": 576,
     "preview_height": 960
-  },
-  {
-    "path": "posts/2024-12-27-week10-1/",
-    "title": "Introduction to Dimensionality Reduction",
-    "description": "Examples of high-dimensional data.",
-    "author": [
-      {
-        "name": "Kris Sankaran",
-        "url": {}
-      }
-    ],
-    "date": "2024-01-07",
-    "categories": [],
-    "contents": "\nReading, Recording, Rmarkdown\nHigh-dimensional data are data where many features are collected for each\nobservation. These tend to be wide datasets with many columns. The name comes\nfrom the fact that each row of the dataset can be viewed as a vector in a\nhigh-dimensional space (one dimension for each feature). These data are common\nin modern applications,\nEach cell in a genomics dataset might have measurements for hundreds of molecules.\nEach survey respondent might provide answers to dozens of questions.\nEach image might have several thousand pixels.\nEach document might have counts across several thousand relevant words.\nFor low-dimensional data, we could visually encode all the features in our\ndata directly, either using properties of marks or through faceting. In\nhigh-dimensional data, this is no longer possible.\nHowever, though there are many features associated with each observation, it\nmay still be possible to organize samples across a smaller number of meaningful,\nderived features.\nFor example, consider the Metropolitan Museum of Art dataset, which contains\nimages of many artworks. Abstractly, each artwork is a high-dimensional object,\ncontaining pixel intensities across many pixels. But it is reasonable to derive\na feature based on the average brightness.\n\n\n\nFigure 1: An arrangement of artworks according to their average pixel brightness, as given in the reading.\n\n\n\nIn general, manual feature construction can be difficult. Algorithmic\napproaches try streamline the process of generating these maps by optimizing\nsome more generic criterion. Different algorithms use different criteria, which\nwe will review in the next couple of lectures.\n\n\n\nFigure 2: The dimensionality reduction algorithm in this animation converts a large number of raw features into a position on a one-dimensional axis defined by average pixel brightness. In general, we might reduce to dimensions other than 1D, and we will often want to define features tailored to the dataset at hand.\n\n\n\nInformally, the goal of dimensionality reduction techniques is to produce a\nlow-dimensional “atlas” relating members of a collection of complex objects.\nSamples that are similar to one another in the high-dimensional space should be\nplaced near one another in the low-dimensional view. For example, we might want\nto make an atlas of artworks, with similar styles and historical periods being\nplaced near to one another.\n\n\n\n",
-    "preview": "https://github.com/krisrs1128/stat436_s23/raw/main/activities/figure/dimred-animation.gif",
-    "last_modified": "2024-03-02T22:46:27-06:00",
-    "input_file": {}
   },
   {
     "path": "posts/2024-12-27-week10-2/",
