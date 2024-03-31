@@ -23,8 +23,9 @@ theme_set(th)
 ```
 
 ```{r}
-grades <- read_csv("~/Downloads/2023-05-12T2324_Grades-SP23_STAT_436_001.csv")[-1, ] |>
-  rename(final_score = `Current Score`) |>
+#grades <- read_csv("~/Downloads/2023-05-12T2324_Grades-SP23_STAT_436_001.csv")[-1, ] |>
+grades <- read_csv("~/Desktop/teaching/course_exercises/grades.csv") |>
+  #rename(final_score = `Grade`) |>
   mutate(final_score = as.numeric(final_score))
 
 quantiles <- c(0, 0.05, 0.1, 0.3, 0.45, 0.65, 0.75, 1)
@@ -58,10 +59,20 @@ grades |>
 
 ```{r, eval = FALSE}
 ggplot(grades) +
-  scale_y_continuous(expand = c(0, 0, 0, 0.9)) +
+  #scale_y_continuous(limits = c(0, 0.1)) +
   scale_x_continuous(expand = c(0, 0)) +
-  geom_histogram(aes(midterm), binwidth = 1) +
-  labs(x = "Score", y = "Count")
+  geom_dotplot(aes(final_score), binwidth = 0.25, stackratio = 1.2, dotsize = 0.9) +
+  labs(x = "Score", y = "Count") +
+  theme(
+    axis.text.y = element_blank(),
+    axis.text.x = element_text(size = 24),
+    axis.title = element_text(size = 28)
+  )
 
-ggsave("~/Downloads/midterm.png")
+grades |>
+  mutate(final_score = final_score + 1) |>
+  write_csv("~/Downloads/grades.csv")
+
+summary(grades$final_score)
+26 / 30
 ```
