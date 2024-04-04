@@ -1,0 +1,60 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(warnings = FALSE, message = FALSE)
+```
+
+```{r}
+library(tidyverse)
+library(embed)
+library(tidymodels)
+th <- theme_minimal() + 
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.background = element_rect(fill = "#f7f7f7"),
+    panel.border = element_rect(fill = NA, color = "#0c0c0c"),
+    axis.text = element_text(size = 14),
+    axis.title = element_text(size = 16),
+    strip.text = element_text(size = 16),
+    legend.position = "bottom"
+  )
+theme_set(th)
+```
+
+[Single-Cell Genomics]  In this problem, we will apply UMAP to a
+[dataset](https://uwmadison.box.com/shared/static/ai539s30rjsw5ke4vxbjrxjaiihq7edk.csv)
+of Peripheral Blood Mononuclear Cells (PBMC) released by 10X Genomics. The first
+column, `cell_tag`, gives an identifier for each cell in the dataset. All other
+columns are molecules that were detected in that cell. For example, CD74 is a
+molecule often found on the surface of T-cells.
+    
+a. Define a tidymodels `recipe` that specifies that UMAP should be performed
+with the parameters `learn_rate = 0.1` and `neighbors = 5`. There is no need to
+normalize these data, as they have been normalized in advance using methods
+tailored to single-cell genomics data.
+
+```{r}
+pbmc <- read_csv("https://uwmadison.box.com/shared/static/ai539s30rjsw5ke4vxbjrxjaiihq7edk.csv")
+pbmc
+umap_rec <- recipe(~ ., data = pbmc) |>
+  update_role(cell_tag, new_role = 'id') |>
+  step_umap(all_predictors(), learn_rate = 0.1, neighbors = 200)
+
+umap_prep <- prep(umap_rec)
+```
+
+b. Compute the UMAP embeddings across cells. Color points in by their value of
+the GNLY molecule.
+```{r}
+pbmc_tidy <- pbmc[, 1:26] |>
+  pivot_longer(-cell_tag, names_to = "gene")
+coords <- bake(umap_prep, new_data = pbmc) |>
+  left_join(pbmc_tidy)
+ggplot(coords) +
+  geom_point(aes(UMAP1, UMAP2, col = value)) +
+  facet_wrap(~ gene)
+```
