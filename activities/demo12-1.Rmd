@@ -17,7 +17,7 @@ th <- theme_minimal() +
   theme(
     panel.grid.minor = element_blank(),
     panel.background = element_rect(fill = "#f7f7f7"),
-    panel.border = element_rect(fill = NA, color = "#0c0c0c", size = 0.6),
+    panel.border = element_rect(fill = NA, color = "#0c0c0c", linewidth = 0.6),
     axis.text = element_text(size = 14),
     axis.title = element_text(size = 16),
     legend.position = "bottom"
@@ -33,7 +33,7 @@ code below trains a gradient boosting machine model on `BasePay` variable
 (yearly salary in USD), using all potential predictors in the dataset.
     
 ```{r, warning = FALSE, message = FALSE}
-salary <- read_csv("https://github.com/krisrs1128/stat479_s22/raw/main/_slides/week12/exercises/Glassdoor%20Gender%20Pay%20Gap.csv")
+salary <- read_csv("https://github.com/krisrs1128/stat436_s24/raw/main/data/Glassdoor%20Gender%20Pay%20Gap.csv")
 
 x <- salary |>
   select(Gender:Seniority) |>

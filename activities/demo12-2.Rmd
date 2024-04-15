@@ -41,7 +41,7 @@ a. Each row in the raw dataset below describes a single tank. Visualize
 variation in tank-level survival, as well as the potential influence of
 initial density and tadpole size.
 ```{r}
-x <- read_csv("https://raw.githubusercontent.com/krisrs1128/stat679_code/main/activities/week13/reedfrogs.csv") |>
+x <- read_csv("https://github.com/krisrs1128/stat436_s24/raw/main/data/reedfrogs.csv") |>
   mutate(tank = as.factor(tank))
 x
 ```
@@ -119,7 +119,7 @@ these 4000 hypothetical datasets.
 
 ```{r}
 y_sim <- posterior_predict(fit) |>
-  as_tibble() |>
+  as_tibble() %>%
   set_names(1:ncol(.)) |>
   mutate(.draw = row_number()) |>
   pivot_longer(-.draw, names_to = "tank", values_to = "y_sim") |>
