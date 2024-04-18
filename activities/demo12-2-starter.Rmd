@@ -77,7 +77,11 @@ inv_logit <- function(x) {
 
 posterior <- posterior |>
   pivot_longer(matches("factortank"), names_to = "variable") |>
-  ### ??
+  mutate(probability = inv_logit(value)) |>
+  mutate(tank = str_extract(variable, "[0-9]+")) |>
+  left_join(x)
+
+## visualize?
 ```
 
 c. Create a version of the same figure that shows the full posterior
