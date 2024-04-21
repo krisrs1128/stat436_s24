@@ -37,8 +37,8 @@ interoperability makes it possible to use the packages best suited to both
 modeling (`pytorch`) and visualization (`ggplot2`).
 
 a. We have hosted a subsample of the training images at [this
-link](https://github.com/krisrs1128/stat479_s22/blob/main/_slides/week13/exercises/subset.tar.gz?raw=true).
-Their corresponding [labels](https://github.com/krisrs1128/stat479_s22/blob/main/_slides/week13/exercises/y.npy?raw=true) and [file names](https://raw.githubusercontent.com/krisrs1128/stat479_s22/main/_slides/week13/exercises/fnames.npy) are stored as numpy arrays. Visualize the raw images corresponding to 10 images from each class. _Hint: To unzip these files from the command line, you can use `tar -zxvf subset.tar.gz`_  
+link](https://github.com/krisrs1128/stat436_s24/raw/main/data/subset.tar.gz).
+Their corresponding [labels](https://github.com/krisrs1128/stat436_s24/raw/main/data/y.npy) and [file names](https://github.com/krisrs1128/stat436_s24/raw/main/data/fnames.npy) are stored as numpy arrays. Visualize the raw images corresponding to 10 images from each class. _Hint: To unzip these files from the command line, you can use `tar -zxvf subset.tar.gz`_  
 
 ```{python}
 import numpy as np
@@ -64,7 +64,7 @@ ix <- which(py$y == 0)[1:10]
 b. For the subsample in part (a), we have saved the residual network
 features from the final pre-classification layer. They are available
 at [this
-link](https://github.com/krisrs1128/stat479_s22/blob/main/_slides/week13/exercises/h.npy?raw=true).
+link](https://github.com/krisrs1128/stat436_s24/raw/main/data/h.npy).
 Generate UMAP embeddings for the images based on these features, and shade
 in each sample according to its class.
 
