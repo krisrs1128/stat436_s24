@@ -37,8 +37,8 @@ hierarchical clustering. As a first observation, note that a tree can be used to
 implicitly store many clusterings at once. You can get a standard clustering by
 cutting the tree at some level.
 
-```{r, echo = FALSE, fig.cap = "We can recover clusters at different levels of granularity, by cutting a hierarchical clustering tree."}
-include_graphics("https://drive.google.com/uc?id=11YZtI_rbkRNAwj5rArUBh1nNYZBmSRVG")
+```{r, echo = FALSE, fig.cap = "We can recover clusters at different levels of granularity, by cutting a hierarchical clustering tree.", out.width=600}
+include_graphics("figure/hclust_cutting.png")
 ```
 
 3. These hierarchical clustering trees can be thought of abstract versions of
@@ -57,28 +57,28 @@ ancestor, the more similar those observations are.
 	* Iterate until only one cluster: Look at all pairs of clusters. Merge the pair
 	$C_k, C_{k^{\prime}}$ which are the most similar.
 	
-```{r, fig.cap = "At initialization, the hierarchical clustering routine has a cluster for each observation.", echo = FALSE}
-include_graphics("https://drive.google.com/uc?id=1-VCD5H7YZMLlgCsm02qHCqZO-l0xadRo")
+```{r, fig.cap = "At initialization, the hierarchical clustering routine has a cluster for each observation.", echo = FALSE, out.width=600}
+include_graphics("figure/hclust_algo.png")
 ```
 	
-```{r, fig.cap = "Next, the two closest observations are merged into one cluster. This is the first merge point on the tree." , echo = FALSE}
-include_graphics("https://drive.google.com/uc?id=1bxFQlxfq2BZ6owPw3K2Ft5e7jE6eB6HE")
+```{r, fig.cap = "Next, the two closest observations are merged into one cluster. This is the first merge point on the tree." , echo = FALSE, out.width = 600}
+include_graphics("figure/hclust_merge1.png")
 ```
 	
-```{r, fig.cap = "We continue this at the next iteration, though this time we have compute the pairwise distance between all clusters, not observations (technically, all the observations were their own cluster at the first step, and in both cases, we compare the pairwise distances between clusters).", echo = FALSE}
-include_graphics("https://drive.google.com/uc?id=1Jcmlq5qFuNA42IRruIKqlYAc8JM5wys8")
+```{r, fig.cap = "We continue this at the next iteration, though this time we have compute the pairwise distance between all clusters, not observations (technically, all the observations were their own cluster at the first step, and in both cases, we compare the pairwise distances between clusters).", echo = FALSE, out.width = 600}
+include_graphics("figure/hclust_merge2.png")
 ```
 
-```{r, fig.cap = "We can continue this process...", echo = FALSE}
-include_graphics("https://drive.google.com/uc?id=1kYqnHe_ARcpYmaMGlwQq9uAM7urGdzjn")
+```{r, fig.cap = "We can continue this process...", echo = FALSE, out.width = 600}
+include_graphics("figure/hclust_merge3.png")
 ```
 
-```{r, fig.cap = "... and eventually we will construct the entire tree.", echo= FALSE}
-include_graphics("https://drive.google.com/uc?id=1_n0bm0raZkexZgmUuhD4wO0sRlpGHHCc")
+```{r, fig.cap = "... and eventually we will construct the entire tree.", echo= FALSE, out.width = 600}
+include_graphics("figure/hclust_merge_pre_final.png")
 ```
 
-```{r, echo = FALSE}
-include_graphics("https://drive.google.com/uc?id=11_zq5WYue-FICbWbnIg8OQoQDVaG--x-")
+```{r, echo = FALSE, out.width = 600}
+include_graphics("figure/hclust_merge_final.png")
 ```
 	
 6. In R, this can be accomplished by using the `hclust` function. First, we
