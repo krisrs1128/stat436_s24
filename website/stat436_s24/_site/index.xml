@@ -7,7 +7,16 @@
     <description>STAT 436 (Spring 2024)
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sun, 31 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 21 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Hierarchical Clustering</title>
+      <dc:creator>Kris Sankaran</dc:creator>
+      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week09-02</link>
+      <description>Clustering data at multiple scales using trees.</description>
+      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week09-02</guid>
+      <pubDate>Sun, 21 Apr 2024 00:00:00 +0000</pubDate>
+      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week09-02/figure/hclust_cutting.png" medium="image" type="image/png" width="762" height="377"/>
+    </item>
     <item>
       <title>Introduction to Dimensionality Reduction</title>
       <dc:creator>Kris Sankaran</dc:creator>
@@ -317,15 +326,6 @@ downstream visualization.</description>
       <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week09-01</guid>
       <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
       <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week09-01/2024-12-27-week09-01_files/figure-html5/unnamed-chunk-5-1.png" medium="image" type="image/png" width="1248" height="768"/>
-    </item>
-    <item>
-      <title>Hierarchical Clustering</title>
-      <dc:creator>Kris Sankaran</dc:creator>
-      <link>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week09-02</link>
-      <description>Clustering data at multiple scales using trees.</description>
-      <guid>https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week09-02</guid>
-      <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
-      <media:content url="https://krisrs1128.github.io/stat436_s24/website/stat436_s24/posts/2024-12-27-week09-02/2024-12-27-week09-02_files/figure-html5/unnamed-chunk-9-1.png" medium="image" type="image/png" width="1248" height="1344"/>
     </item>
     <item>
       <title>Heatmaps</title>
