@@ -89,7 +89,7 @@ the $i^{th}$ row of the features matrix.
 
 ```{r, fig.width = 10, fig.height = 10}
 library(progress)
-pb <- progress_bar$new()
+pb <- progress_bar$new(total = nrow(coords))
 
 s <- .1
 for (i in seq_len(nrow(coords))) {

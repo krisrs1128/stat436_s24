@@ -53,7 +53,7 @@ library(reticulate)
 library(tmap)
 
 # download the subset.tar.gz and unzip
-data_dir <- path("/Users/ksankaran/Downloads/subset/")
+data_dir <- path("/Users/krissankaran/Downloads/subset/")
 ix <- which(py$y == 1)[1:10]
 ims <- map(py$fnames[ix], ~ brick(data_dir / .))
 map(ims, ~ tm_shape(.) + tm_rgb())
@@ -83,7 +83,7 @@ umap_rec <- data.frame(py$h) |>
   mutate(
     file = py$fnames,
     y = as.factor(py$y)
-  ) |>
+  ) %>%
   recipe(~ ., data = .) |>
   update_role(y, file, new_role = "id") |>
   step_normalize(all_predictors()) |>
@@ -109,7 +109,7 @@ the $i^{th}$ row of the features matrix.
 
 ```{r, fig.width = 10, fig.height = 10}
 library(progress)
-pb <- progress_bar$new()
+pb <- progress_bar$new(total = nrow(coords))
 
 s <- .1
 for (i in seq_len(nrow(coords))) {
