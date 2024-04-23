@@ -2376,7 +2376,6 @@ We will work through [Gender Pay Gap] in the exercise sheet.
 ### Announcements
 
 1. Due Dates 
-  - HW3 is due **April 15**.
   - HW4 is due **May 6**.
   - Project Milestone 3 is due **May 6**
 1. Logistics
@@ -2391,8 +2390,8 @@ We will work through [Gender Pay Gap] in the exercise sheet.
 
 By the end of the class, you should be able to...
 
-* Give the general definition of a posterior predictive distribution.
-* Implement and interpret specific posterior predictive distribution using the brms and tidybayes packages.
+* Explain the difference between posterior and posterior predictive distributions.
+* Visualize and interpret specific posterior and posterior predictive distributions.
 * Create an animation using the gganimate package.
 
 ---
@@ -2407,7 +2406,7 @@ With your group, respond to [3 - 2 - 1]: https://go.wisc.edu/vm39ts
 
 We will work through [Evolutionary Ecology] in the exercise sheet.
 
-* Live Demo:
+* Live Demo: https://go.wisc.edu/4200ob
 * Completed Code: https://go.wisc.edu/z9mj4e
 
 ---
@@ -2424,8 +2423,9 @@ whose interpretation might not be obvious at first.
 
 ---
 
-### April 26, 2024
+### April 23, 2024
 
+1. Visualization Shares
 1. In-Class Discussion [13 - 1]
 1. In-Class Demo [13 - 1]
 1. In-Class Exercise [13 - 1]
@@ -2434,9 +2434,72 @@ whose interpretation might not be obvious at first.
 
 ### Announcements
 
-1. Homework 4 due May 1
-1. Project Milestone 3 due May 7
-1. Project Presentations on May 2, 4 (~ 8.5 minutes)
+1. Due Dates 
+  - HW4 is due **May 6**.
+  - Project Milestone 3 is due **May 6**
+1. Logistics
+  - The TAs office hours are being held on Zoom.
+  - There will be no class on **May 2**.
+
+---
+
+### Review
+
+_How exactly does hierarchical clustering work?_
+
+* This method works by merging similar samples from the bottom up.
+* I realized that the images in the course notes were broken. I've fixed this, and we can review them now.
+* https://krisrs1128.github.io/stat436_s24/posts/2024-12-27-week09-02
+
+---
+
+### Review
+
+_When does it help to modify factor levels?_
+
+* If we have an axis encoding categorical information, then it helps to order the categories by something meaningful.
+ - Similarly, it helps to order facets deliberately
+* Usually, we use `reorder()` directly within the `ggplot()` definition. This only works if the reordering operation is simple.
+* More generally, we can manually change factor levels to update category/facet ordering.
+
+---
+
+### Review
+
+
+```r
+toy_data &lt;- tibble(
+  letters = rep(letters[1:5], each = 10),
+  values = rnorm(50)
+)
+
+ggplot(toy_data) +
+  geom_point(aes(letters, values))
+```
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-52-1.png" width="650" style="display: block; margin: auto;" /&gt;
+
+---
+
+### Review
+
+
+```r
+toy_data |&gt;
+  mutate(letters = factor(letters, levels = c("a", "c", "e", "b", "d"))) |&gt;
+  ggplot() +
+  geom_point(aes(letters, values))
+```
+
+&lt;img src="slides_files/figure-html/unnamed-chunk-53-1.png" width="650" style="display: block; margin: auto;" /&gt;
+
+---
+
+### Review
+
+_How can we interpret PCA?_
+
+&lt;img src="figure/pca_summary.png"/&gt;
 
 ---
 
@@ -2447,33 +2510,7 @@ _When would prior and posterior predictions be used?_
 * Whenever you are using a Bayesian model and want to compare prior distributions / likelihood models.
 * Examples: [Political science](https://www.annualreviews.org/doi/10.1146/annurev.polisci.7.012003.104706), [genetics](https://www.pnas.org/doi/10.1073/pnas.1412301112), [psychology](https://www.mskcc.org/sites/default/files/node/176881/documents/2019-06-03-16-06-14/li_schofield_gonen_dptutorial19.pdf), [evolution](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3985471/), [epidemiology](https://www.asc.ohio-state.edu/goel.1/STAT825/PAPERS/CressiePPMC.pdf)
   - Typically problems where there is interest in a compact generative model.
- 
-_Can UMAP be said to be a dimensionality reduction method for 2D visualization?_
 
-This is an appropriate interpretation, but be aware that you can reduce to more
-than just two dimensions with UMAP.
-
----
-
-### Review
-
-Profiles for linear model and random forest:
-
-![](https://krisrs1128.github.io/stat436_s24/posts/2022-12-27-week12-2/2022-12-27-week12-2_files/figure-html5/unnamed-chunk-6-1.png)
----
-
-### Topic Modeling
-
-How does it learn topics / what is the mathematical foundation?
-
-.pull-left[
-* [Variational Inference: A Review for Statisticians](https://arxiv.org/pdf/1601.00670.pdf)
-* [Using SVD for Topic Modeling](https://doi.org/10.1080/01621459.2022.2123813)
-]
-
-.pull-right[
-
-]
 
 ---
 
@@ -2485,27 +2522,27 @@ With your group, respond to [Tensorflow Playground]: https://go.wisc.edu/p1yo87
 
 ### In-Class Demo [13 - 1]
 
-We will work through [Deep Learning as a Mixture of Separating Planes] in the exercise sheet: https://go.wisc.edu/41ll54
+We will work through [Histopathology Embeddings] in the exercise sheet.
+
+* Live Demo: https://go.wisc.edu/283k38
+* Completed Code: https://go.wisc.edu/311oe1
+
+
+For a related analysis, consider: [UMAP Image Collection](https://observablehq.com/@cpietsch/explorawolke-fisheye-view-snappy)
 
 ---
 
 ### In-Class Exercise [13 - 1]
 
-Submission: https://go.wisc.edu/e2r259
-
-[Project Planning] Make a plan for your project's next steps. This should cover
-both how you will make your visualizations and how you will prepare your
-presentation/report?
-
-* What are the main categories for the tasks that remain?
-* For each category that you listed, what are the immediate next steps?
-* Who is responsible for which part? How will you coordinate?
+Prepare responses to [The top ten worst graphs] in the exercise sheet. You can
+discuss with your team, but make submissions individually.
 
 ---
 
 
-### April 28, 2024
+### April 25, 2024
 
+1. Visualization Shares
 1. In-Class Discussion [13 - 2]
 1. In-Class Demo [13 - 2]
 
@@ -2513,72 +2550,43 @@ presentation/report?
 
 ### Announcements
 
-1. Homework 4 due May 1
-1. Project Milestone 3 due May 7
-1. Project Presentations on May 2, 4
-  - Can be a walkthrough/demo, rather than slides
-  - Code and visualizations don't have to be finalized
-1.  Nightingale Magazine Visualization Competition
+1. Due Dates 
+  - HW4 is due **May 6**.
+  - Project Milestone 3 is due **May 6**
+1. Logistics
+  - The TAs office hours are being held on Zoom.
+  - There will be no class on **May 2**.
+
+
+
 
 ---
 
 ### In-Class Discussion [13 - 2]
 
-With your group, respond to [Top Ten Worst Graphs]: https://go.wisc.edu/41ox43
+With your group, respond to [Visualization and LLMs]: https://go.wisc.edu/7av32k
 
 ---
 
 
 ### In-Class Demo [13 - 2]
 
-* Related: [UMAP Image Collection](https://observablehq.com/@cpietsch/explorawolke-fisheye-view-snappy)
+We will work through [Histopathology Embeddings] again, this time assisted by an
+LLM.
 
-We will work through [Histopathology Embeddings] in the exercise sheet: https://go.wisc.edu/s4i0lb
+* Live Demo: 
+* Completed Code: 
 
----
-
-### May 2, 2024: Announcements
-
-* Today's team slides are on Canvas
-* Leave questions and responses about the presentations here:
-https://go.wisc.edu/v8265h
-* If you would like one of  your portfolio submissions to be hosted on the
-course website, please complete this form (https://go.wisc.edu/13vey7) by May 15
 
 ---
 
-### May 4, 2024: Annoucements 
-
-* Today's team slides are on Canvas
-* Leave questions and responses about the presentations here:
-https://go.wisc.edu/v8265h
-* If you would like one of  your portfolio submissions to be hosted on the
-course website, please complete this form (https://go.wisc.edu/13vey7) by May 15
-
----
 
 ### Conclusion
 
-1. I have been impressed by your curiosity in the portfolios and projects.
 1. Beyond the specific topics, remember the learning techniques: examples,
 tinkering, and visual explanations.
 1. There are many data analysis problems out there and too many people who fear
 statistics -- use your visualization skills to help!
-
-
-
-```r
-x &lt;- data.frame(
-  x = rnorm(100),
-  y = rnorm(100, 0, 5)
-)
-ggplot(x) +
-  geom_point(aes(x, y)) +
-  coord_fixed()
-```
-
-&lt;img src="slides_files/figure-html/unnamed-chunk-53-1.png" width="650" style="display: block; margin: auto;" /&gt;
-
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
