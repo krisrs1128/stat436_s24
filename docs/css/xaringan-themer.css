@@ -132,6 +132,14 @@ a, a > code {
 img, video, iframe {
   max-width: 100%;
 }
+.pull-left2 {
+  float: left;
+  width: 60%;
+}
+.pull-right2 {
+  float: right;
+  width: 40%;
+}
 blockquote {
   border-left: solid 5px #09017F80;
   padding-left: 1em;
